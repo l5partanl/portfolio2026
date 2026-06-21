@@ -1,3 +1,4 @@
+
 import { Component, HostListener } from '@angular/core';
 
 import { Header } from '../../components/header/header';
@@ -24,57 +25,145 @@ import { Footer } from '../../components/footer/footer';
 })
 export class Home {
 
-  currentIndex = 0;
+  // =========================
+  // CONFIG
+  // =========================
+  sections = 5;
+
+  // real target (input)
+  targetIndex = 0;
+
+  // visual smooth (output)
+  smoothIndex = 0;
+
+  velocity = 0;
+
+  friction = 0.14;
+  scrollStrength = 0.0004;
 
   colors = [
-    '#111111',
-    '#1e3a5f',
-    '#b33a3a',
-    '#3b5f3a',
-    '#d8d2c4'
+[17, 17, 17], // hero
+[30, 58, 95], // about
+[179, 58, 58], // projects
+[59, 95, 58], // background
+[216, 210, 196] // contact
   ];
 
+  // =========================
+  // INPUT (WHEEL)
+  // =========================
   @HostListener('wheel', ['$event'])
   onWheel(event: WheelEvent) {
 
     if (window.innerWidth <= 768) return;
 
-    this.changeIndex(event.deltaY);
+    this.velocity += event.deltaY * this.scrollStrength;
+
+    this.animatePhysics();
   }
 
-  private changeIndex(delta: number) {
+  // =========================
+  // PHYSICS → TARGET INDEX
+  // =========================
+  private animatePhysics() {
 
-    if (delta > 0) {
-      this.currentIndex = Math.min(this.currentIndex + 1, 4);
-    } else {
-      this.currentIndex = Math.max(this.currentIndex - 1, 0);
+    this.targetIndex += this.velocity;
+
+    this.velocity *= this.friction;
+
+    this.targetIndex = this.clamp(this.targetIndex, 0, this.sections - 1);
+
+    if (Math.abs(this.velocity) > 0.0005) {
+      requestAnimationFrame(() => this.animatePhysics());
     }
   }
 
-  // 👉 MOBILE FIX: usar touch simple
-  private startY = 0;
+  // =========================
+  // SMOOTH FOLLOW (CRITICAL FIX)
+  // =========================
+  private animateSmooth() {
 
-  @HostListener('window:scroll', [])
-onMobileScroll() {
+    const diff = this.targetIndex - this.smoothIndex;
 
-  if (window.innerWidth > 768) return;
+    this.smoothIndex += diff * 0.12;
 
-  const index = Math.round(
-    window.scrollY / window.innerHeight
-  );
-
-  this.currentIndex = Math.min(
-    Math.max(index, 0),
-    this.colors.length - 1
-  );
-}
-
-get trackTransform() {
-
-  if (window.innerWidth <= 768) {
-    return 'none';
+    requestAnimationFrame(() => this.animateSmooth());
   }
 
-  return `translateX(-${this.currentIndex * 100}vw)`;
-}
-}
+  // auto start loop
+  constructor() {
+    this.animateSmooth();
+  }
+
+  // =========================
+  // MOBILE
+  // =========================
+  @HostListener('window:scroll', [])
+  onScroll() {
+
+    if (window.innerWidth > 768) return;
+
+    const vh = window.innerHeight;
+
+    const t = window.scrollY / (vh * (this.sections - 1));
+
+    this.targetIndex = this.clamp(t, 0, this.sections - 1);
+    this.smoothIndex = this.targetIndex;
+  }
+
+  // =========================
+  // TRANSFORM (USES smoothIndex)
+  // =========================
+  get trackTransform() {
+
+    if (window.innerWidth <= 768) return 'none';
+
+    return `translate3d(-${this.smoothIndex * 100}vw, 0, 0)`;
+  }
+
+  // =========================
+  // COLOR (USES SAME smoothIndex → FIX DESYNC)
+  // =========================
+  get bgColor() {
+
+    const i = Math.floor(this.smoothIndex);
+    const j = Math.min(i + 1, this.sections - 1);
+
+    const t = this.smoothIndex - i;
+
+    const c1 = this.colors[i];
+    const c2 = this.colors[j];
+
+    return `rgb(
+      ${this.lerp(c1[0], c2[0], t)},
+      ${this.lerp(c1[1], c2[1], t)},
+      ${this.lerp(c1[2], c2[2], t)}
+    )`;
+  }
+
+  // =========================
+  // HELPERS
+  // =========================
+  private lerp(a: number, b: number, t: number) {
+    return Math.round(a + (b - a) * t);
+  }
+
+  private clamp(v: number, min: number, max: number) {
+    return Math.max(min, Math.min(max, v));
+  }
+
+  // =========================
+  // MOUSE PARALLAX (UN SOLO LISTENER)
+  // =========================
+  @HostListener('document:mousemove', ['$event'])
+  onMouseMove(e: MouseEvent) {
+
+    if (window.innerWidth <= 768) return;
+
+    const x = (e.clientX / window.innerWidth - 0.5) * 40;
+    const y = (e.clientY / window.innerHeight - 0.5) * 40;
+
+    document.documentElement.style.setProperty('--mx', `${x}px`);
+    document.documentElement.style.setProperty('--my', `${y}px`);
+  }
+  }

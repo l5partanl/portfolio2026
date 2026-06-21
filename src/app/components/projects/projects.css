@@ -1,17 +1,28 @@
-.projects {
+.projects-layout {
   height: 100%;
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-  padding: 8vw;
-}
 
-.card {
-  width: 300px;
-  height: 200px;
-  border: 1px solid rgba(255,255,255,0.3);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+
+  gap: 2rem;
+}
+
+.project-card {
+  width: 300px;
+  height: 400px;
+
+  background: rgba(255,255,255,.08);
+
+  border: 1px solid rgba(255,255,255,.2);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: transform .3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
 }

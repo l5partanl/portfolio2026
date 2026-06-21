@@ -4,13 +4,34 @@ html {
 
 body {
   margin: 0;
-
   overflow-x: hidden;
   overflow-y: hidden;
 }
 
+/* mouse parallax vars */
+:root {
+  --mx: 0px;
+  --my: 0px;
+}
+
+/* layers */
+.layer-fast {
+  transform: translate(var(--mx), var(--my));
+  transition: transform 0.2s ease-out;
+}
+
+.layer-medium {
+  transform: translate(calc(var(--mx) * 0.6), calc(var(--my) * 0.6));
+  transition: transform 0.3s ease-out;
+}
+
+.layer-slow {
+  transform: translate(calc(var(--mx) * 0.3), calc(var(--my) * 0.3));
+  transition: transform 0.5s ease-out;
+}
+
 @media (max-width: 768px) {
   body {
-    overflow: auto;
+    overflow-y: auto;
   }
 }

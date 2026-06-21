@@ -5,12 +5,102 @@
   overflow: hidden;
 }
 
+/* =========================
+   BACKGROUND
+========================= */
+
 .bg-layer {
   position: fixed;
   inset: 0;
-  transition: background 1s ease;
-  z-index: -1;
+  transition: background 0.8s ease;
+  z-index: -3;
 }
+
+/* =========================
+   NOISE
+========================= */
+
+.noise-layer {
+  position: fixed;
+  inset: -100%;
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: -2;
+
+  background-image:
+    radial-gradient(circle, white 1px, transparent 1px);
+
+  background-size: 4px 4px;
+
+  animation: noiseMove 8s steps(10) infinite;
+}
+
+@keyframes noiseMove {
+  0% { transform: translate(0,0); }
+  25% { transform: translate(-5%, 3%); }
+  50% { transform: translate(4%, -2%); }
+  75% { transform: translate(-3%, -4%); }
+  100% { transform: translate(0,0); }
+}
+
+/* =========================
+   ORBS
+========================= */
+
+.orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.25;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.orb-1 {
+  width: 500px;
+  height: 500px;
+  top: 10%;
+  left: 10%;
+  background: white;
+  animation: float1 18s ease-in-out infinite;
+}
+
+.orb-2 {
+  width: 600px;
+  height: 600px;
+  top: 50%;
+  left: 70%;
+  background: white;
+  animation: float2 22s ease-in-out infinite;
+}
+
+.orb-3 {
+  width: 300px;
+  height: 300px;
+  top: 70%;
+  left: 30%;
+  background: white;
+  animation: float3 26s ease-in-out infinite;
+}
+
+@keyframes float1 {
+  0%,100% { transform: translate(0,0); }
+  50% { transform: translate(100px,-80px); }
+}
+
+@keyframes float2 {
+  0%,100% { transform: translate(0,0); }
+  50% { transform: translate(-120px,60px); }
+}
+
+@keyframes float3 {
+  0%,100% { transform: translate(0,0); }
+  50% { transform: translate(80px,120px); }
+}
+
+/* =========================
+   LAYOUT DESKTOP
+========================= */
 
 .viewport {
   width: 100vw;
@@ -22,7 +112,7 @@
   display: flex;
   width: 500vw;
   height: 100vh;
-  transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .slide {
@@ -31,12 +121,15 @@
   flex-shrink: 0;
 }
 
-/* MOBILE */
+/* =========================
+   MOBILE
+========================= */
+
 @media (max-width: 768px) {
 
   :host {
-    overflow: visible;
     height: auto;
+    overflow: visible;
   }
 
   .viewport {
