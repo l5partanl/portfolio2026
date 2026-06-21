@@ -31,16 +31,22 @@
   flex-shrink: 0;
 }
 
-/* MOBILE IMPORTANTE */
+/* MOBILE */
 @media (max-width: 768px) {
 
+  :host {
+    overflow: visible;
+    height: auto;
+  }
+
   .viewport {
-    overflow-y: auto; /* OK */
+    height: auto;
+    overflow: visible;
   }
 
   .track {
-    flex-direction: column;
-    width: 100vw;
+    display: block;
+    width: 100%;
     height: auto;
     transform: none !important;
   }

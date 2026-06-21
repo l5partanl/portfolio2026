@@ -34,32 +34,47 @@ export class Home {
     '#d8d2c4'
   ];
 
-  // DESKTOP
   @HostListener('wheel', ['$event'])
   onWheel(event: WheelEvent) {
 
     if (window.innerWidth <= 768) return;
 
-    if (event.deltaY > 0) {
+    this.changeIndex(event.deltaY);
+  }
+
+  private changeIndex(delta: number) {
+
+    if (delta > 0) {
       this.currentIndex = Math.min(this.currentIndex + 1, 4);
     } else {
       this.currentIndex = Math.max(this.currentIndex - 1, 0);
     }
   }
 
-  // MOBILE (FIX REAL)
-  @HostListener('document:scroll', [])
-  onScroll() {
+  // 👉 MOBILE FIX: usar touch simple
+  private startY = 0;
 
-    if (window.innerWidth > 768) return;
+  @HostListener('window:scroll', [])
+onMobileScroll() {
 
-    const vh = window.innerHeight;
+  if (window.innerWidth > 768) return;
 
-    // IMPORTANTE: usamos el scroll del viewport, no window
-    const scrollY = document.querySelector('.viewport')?.scrollTop || 0;
+  const index = Math.round(
+    window.scrollY / window.innerHeight
+  );
 
-    const index = Math.round(scrollY / vh);
+  this.currentIndex = Math.min(
+    Math.max(index, 0),
+    this.colors.length - 1
+  );
+}
 
-    this.currentIndex = Math.min(Math.max(index, 0), 4);
+get trackTransform() {
+
+  if (window.innerWidth <= 768) {
+    return 'none';
   }
+
+  return `translateX(-${this.currentIndex * 100}vw)`;
+}
 }

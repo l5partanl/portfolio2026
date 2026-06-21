@@ -2,10 +2,14 @@
 
 <div class="bg-layer" [style.background]="colors[currentIndex]"></div>
 
-<div class="viewport" #viewport>
+<div
+  class="viewport"
+>
 
-  <div class="track"
-       [style.transform]="'translateX(-' + currentIndex * 100 + 'vw)'">
+<div
+  class="track"
+  [style.transform]="trackTransform"
+>
 
     <section class="slide hero"><app-hero /></section>
     <section class="slide about"><app-about /></section>
