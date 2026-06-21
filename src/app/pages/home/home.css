@@ -17,7 +17,7 @@
 }
 
 /* =========================
-   NOISE
+   NOISE (To be modified)
 ========================= */
 
 .noise-layer {
@@ -25,14 +25,15 @@
   inset: -100%;
   opacity: 0.05;
   pointer-events: none;
-  z-index: -2;
+  z-index: -1;
+  scale: 3;
 
   background-image:
     radial-gradient(circle, white 1px, transparent 1px);
 
-  background-size: 4px 4px;
+  background-size: 3px 3px;
 
-  animation: noiseMove 8s steps(10) infinite;
+  animation: noiseMove 56s steps(3000) infinite;
 }
 
 @keyframes noiseMove {

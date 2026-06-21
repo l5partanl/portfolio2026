@@ -79,13 +79,13 @@ export class Home {
   }
 
   // =========================
-  // SMOOTH FOLLOW (CRITICAL FIX)
+  // SMOOTH FOLLOW
   // =========================
   private animateSmooth() {
 
     const diff = this.targetIndex - this.smoothIndex;
 
-    this.smoothIndex += diff * 0.12;
+    this.smoothIndex += diff * 1.02;
 
     requestAnimationFrame(() => this.animateSmooth());
   }
@@ -105,7 +105,7 @@ export class Home {
 
     const vh = window.innerHeight;
 
-    const t = window.scrollY / (vh * (this.sections - 1));
+    const t = window.scrollY / (0.25*vh * (this.sections - 1));
 
     this.targetIndex = this.clamp(t, 0, this.sections - 1);
     this.smoothIndex = this.targetIndex;
@@ -166,4 +166,12 @@ export class Home {
     document.documentElement.style.setProperty('--mx', `${x}px`);
     document.documentElement.style.setProperty('--my', `${y}px`);
   }
+
+    // =========================
+  // FOR NAME UNDERLINE ANIMATION
+  // =========================
+get isAboutVisible() {
+  return this.smoothIndex > 0.6 && this.smoothIndex < 1.4;
+}
+
   }
