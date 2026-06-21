@@ -1,0 +1,20 @@
+<app-header />
+
+<div class="bg-layer" [style.background]="colors[currentIndex]"></div>
+
+<div class="viewport" #viewport>
+
+  <div class="track"
+       [style.transform]="'translateX(-' + currentIndex * 100 + 'vw)'">
+
+    <section class="slide hero"><app-hero /></section>
+    <section class="slide about"><app-about /></section>
+    <section class="slide projects"><app-projects /></section>
+    <section class="slide background"><app-background /></section>
+    <section class="slide contact"><app-contact /></section>
+
+  </div>
+
+</div>
+
+<app-footer />

@@ -1,0 +1,27 @@
+.hero {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8vw;
+  color: white;
+}
+
+.title {
+  font-size: 5vw;
+  font-weight: 700;
+}
+
+.subtitle {
+  opacity: 0.7;
+  margin-top: 1rem;
+}
+
+.layer-back {
+  transform: translateY(-20px);
+  opacity: 0.3;
+}
+
+.layer-front {
+  transform: translateY(10px);
+}

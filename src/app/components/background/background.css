@@ -1,0 +1,21 @@
+.background {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 8vw;
+  color: white;
+}
+
+.block {
+  max-width: 520px;
+}
+
+h2 {
+  font-size: 3vw;
+  margin-bottom: 1rem;
+}
+
+p {
+  opacity: 0.8;
+  line-height: 1.5;
+}

@@ -1,0 +1,28 @@
+.contact {
+  height: 100%;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 8vw;
+  color: white;
+}
+
+.card {
+  width: 220px;
+  height: 120px;
+
+  border: 1px solid rgba(255,255,255,0.3);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1rem;
+
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
