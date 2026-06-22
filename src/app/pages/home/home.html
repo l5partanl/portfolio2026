@@ -1,4 +1,7 @@
-<app-header />
+<app-header
+  [currentSection]="smoothIndex"
+  (navigate)="goToSection($event)">
+</app-header>
 
 <div class="bg-layer" [style.background]="bgColor"></div>
 

@@ -174,4 +174,22 @@ get isAboutVisible() {
   return this.smoothIndex > 0.6 && this.smoothIndex < 1.4;
 }
 
+
+    // =========================
+  // FOR SCROLL INDICATOR
+  // =========================
+goToSection(index: number) {
+
+  this.targetIndex = index;
+
+  if (window.innerWidth <= 768) {
+
+    window.scrollTo({
+      top: index * window.innerHeight,
+      behavior: 'smooth'
+    });
+
+  }
+}
+
   }
