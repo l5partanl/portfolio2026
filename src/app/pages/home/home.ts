@@ -153,7 +153,7 @@ export class Home {
   }
 
   // =========================
-  // MOUSE PARALLAX (UN SOLO LISTENER)
+  // MOUSE PARALLAX 
   // =========================
   @HostListener('document:mousemove', ['$event'])
   onMouseMove(e: MouseEvent) {

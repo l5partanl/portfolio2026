@@ -1,8 +1,9 @@
 .about {
-  height: 100%;
+  height: 100vh;
   display: flex;
   align-items: center;
-  padding: 8vw;
+  padding-inline: 8vw;
+padding-block: clamp(1rem, 4vh, 5rem);
   color: white;
   width: 90vw;
   max-width: 880px;
@@ -14,22 +15,32 @@
 .about-col.photo img {
   max-width: 240px;
   border-radius: 12px;
-  box-shadow: 0 6px 20px var(--shadow-light);
 }
 
 .about-col.text {
   flex: 1;
 }
 
-.about-col.text h1 {
-  font-size: 2.4rem;
-  font-weight: 800;
-  margin-bottom: 0.5rem;
+.about h1 {
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  line-height: 1;
+}
+
+.about h1 img {
+  width: 260px;
+  height: auto;
+
+  margin-bottom: 0rem;
+
+  transform: translateY(16px) translateX(-45px) rotate(-6deg);
 }
 
 .highlighted-name {
   position: relative;
-  font-weight: 800;
+  font-weight: 900;
+  font-size: 3.5rem;
   display: inline-block;
 }
 
