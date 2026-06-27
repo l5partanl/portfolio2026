@@ -29,12 +29,12 @@ padding-block: clamp(1rem, 4vh, 5rem);
 }
 
 .about h1 img {
-  width: 260px;
+  width: 300px;
   height: auto;
 
   margin-bottom: 0rem;
 
-  transform: translateY(16px) translateX(-45px) rotate(-6deg);
+  transform: translateY(16px) translateX(-60px) rotate(-8deg);
 }
 
 .highlighted-name {
@@ -104,35 +104,34 @@ font-family: 'Dancing Script', cursive;
   list-style: none;
   padding: 0;
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
   margin-top: 1rem;
+  align-items: center;
 }
 
-.btn-pill {
-  display: inline-block;
-  padding: 0.5rem 1.2rem;
-  border-radius: 999px;
-  background: linear-gradient(135deg, var(--pill-color-start), var(--pill-color-end));
-  background-blend-mode: overlay;
-  color: var(--primary-color);
-  font-weight: 600;
-  font-size: 0.9rem;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  border: 1px solid var(--secondary-color);
+.icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 30px;
 }
 
-.btn-pill:hover {
-  background-color: var(--pill-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-  border: 1px solid var(--primary-color);
+.icon-btn img {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  transition: transform 0.5s ease;
+}
+
+.icon-btn:hover img {
+  transform: scale(1.4) rotate(7deg);
+  opacity: 1;
 }
 
 @media (max-width: 576px) {
   .about-bio {
     flex-direction: column;
-    padding: 1.5rem 1rem;
+    padding: 1rem;
     gap: 2rem;
     margin-top: 2rem;
   }
@@ -141,6 +140,10 @@ font-family: 'Dancing Script', cursive;
     max-width: 200px;
     margin: 0 auto;
   }
+
+  .highlighted-name {
+  font-size: 2.75rem;
+}
 
   .about-col.text {
     width: 100%;
@@ -151,6 +154,11 @@ font-family: 'Dancing Script', cursive;
     font-size: 1.8rem;
     text-align: left;
   }
+
+  .about h1 img {
+  width: 240px;
+  transform: translateY(16px) translateX(-30px) rotate(-8deg);
+}
 
   .about-col.text .hello {
     font-size: 1.2rem;
@@ -184,9 +192,16 @@ font-family: 'Dancing Script', cursive;
     font-size: 1.2rem;
   }
 
-  .btn-pill {
-    font-size: 0.85rem;
-    padding: 0.4rem 1rem;
+  .icon-btn {
+    width: 42px;
+    height: 42px;
   }
+
+
+  .about-col.text ul.social {
+    margin: 50px;
+    gap: 2.5rem;
+  }
+
   
 }
