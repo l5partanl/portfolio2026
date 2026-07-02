@@ -14,7 +14,7 @@ padding-block: clamp(1rem, 4vh, 5rem);
 
 .about-col.photo img {
   max-width: 240px;
-  border-radius: 12px;
+  border-radius: 16px;
 }
 
 .about-col.text {
@@ -139,6 +139,7 @@ font-family: 'Dancing Script', cursive;
   .about-col.photo img {
     max-width: 200px;
     margin: 0 auto;
+    transform: translateY(40px);
   }
 
   .highlighted-name {

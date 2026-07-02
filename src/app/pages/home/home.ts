@@ -8,6 +8,7 @@ import { Projects } from '../../components/projects/projects';
 import { Background } from '../../components/background/background';
 import { Contact } from '../../components/contact/contact';
 import { Footer } from '../../components/footer/footer';
+import { Divider } from "../../components/divider/divider";
 
 @Component({
   selector: 'app-home',
@@ -18,8 +19,9 @@ import { Footer } from '../../components/footer/footer';
     Projects,
     Background,
     Contact,
-    Footer
-  ],
+    Footer,
+    Divider
+],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
@@ -118,7 +120,7 @@ export class Home {
 
     if (window.innerWidth <= 768) return 'none';
 
-    return `translate3d(-${this.smoothIndex * 100}vw, 0, 0)`;
+    return `translate3d(-${this.smoothIndex * 112}vw, 0, 0)`; // 112vw (100%vw of section + 12vw of divider)
   }
 
   // =========================

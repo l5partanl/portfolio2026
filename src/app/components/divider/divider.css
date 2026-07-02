@@ -1,0 +1,284 @@
+/* =====================================
+   DIVIDER
+===================================== */
+
+:host{
+
+    flex:0 0 12vw;
+
+    height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    position:relative;
+
+    overflow:visible;
+
+    pointer-events:none;
+}
+
+.divider{
+
+    width:100%;
+    height:100%;
+
+    position:relative;
+}
+
+/* =====================================
+   BASE
+===================================== */
+
+.shape{
+
+    position:absolute;
+
+    animation:float 8s ease-in-out infinite;
+}
+
+/* =====================================
+   DIAMOND
+===================================== */
+
+.diamond{
+
+    width:44px;
+    height:44px;
+
+    border:2px solid rgba(255,255,255,.35);
+
+    transform:rotate(45deg);
+
+    left:18%;
+    top:18%;
+}
+
+/* =====================================
+   CIRCLE
+===================================== */
+
+.circle{
+
+    width:26px;
+    height:26px;
+
+    border-radius:50%;
+
+    border:2px solid rgba(255,255,255,.45);
+
+    left:72%;
+    top:58%;
+}
+
+/* =====================================
+   SQUARE
+===================================== */
+
+.square{
+
+    width:18px;
+    height:18px;
+
+    background:rgba(255,255,255,.12);
+
+    left:28%;
+    top:78%;
+}
+
+/* =====================================
+   RING
+===================================== */
+
+.ring{
+
+    width:60px;
+    height:60px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    left:58%;
+    top:22%;
+}
+
+/* =====================================
+   TRIANGLE
+===================================== */
+
+.triangle{
+
+    width:0;
+    height:0;
+
+    border-left:14px solid transparent;
+    border-right:14px solid transparent;
+    border-bottom:26px solid rgba(255,255,255,.18);
+
+    left:12%;
+    top:60%;
+}
+
+/* =====================================
+   LINE
+===================================== */
+
+.line{
+
+    width:180px;
+    height:1px;
+
+    background:rgba(255,255,255,.15);
+
+    transform:rotate(-28deg);
+
+    left:-40px;
+    top:48%;
+}
+
+/* =====================================
+   CROSS
+===================================== */
+
+.cross{
+
+    width:22px;
+    height:22px;
+
+    left:78%;
+    top:82%;
+}
+
+.cross::before,
+.cross::after{
+
+    content:"";
+
+    position:absolute;
+
+    background:rgba(255,255,255,.4);
+}
+
+.cross::before{
+
+    width:22px;
+    height:2px;
+
+    top:10px;
+}
+
+.cross::after{
+
+    width:2px;
+    height:22px;
+
+    left:10px;
+}
+
+/* =====================================
+   FLOAT
+===================================== */
+
+@keyframes float{
+
+0%{
+
+transform:translateY(0px) rotate(0deg);
+
+}
+
+50%{
+
+transform:translateY(-20px) rotate(8deg);
+
+}
+
+100%{
+
+transform:translateY(0px) rotate(0deg);
+
+}
+
+}
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width:768px){
+
+:host{
+
+    width:100vw;
+
+    height:18vh;
+
+    flex:0 0 auto;
+}
+
+/* redistribución */
+
+.line{
+
+    width:75vw;
+
+    left:12%;
+    top:48%;
+
+    transform:rotate(12deg);
+}
+
+.diamond{
+
+left:15%;
+top:18%;
+
+}
+
+.circle{
+
+left:72%;
+top:22%;
+
+}
+
+.square{
+
+left:25%;
+top:70%;
+
+}
+
+.ring{
+
+left:62%;
+top:62%;
+
+}
+
+.cross{
+
+left:82%;
+top:76%;
+
+}
+
+.triangle{
+
+left:45%;
+top:40%;
+
+}
+
+}
+
+.layer-fast,
+.layer-medium,
+.layer-slow{
+
+    position:absolute;
+    inset:0;
+
+}

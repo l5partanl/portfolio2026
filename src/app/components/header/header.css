@@ -117,7 +117,7 @@ header {
 }
 
 /* =========================
-   SEPARATOR DOTS (VISUAL ONLY)
+   SEPARATOR DOTS
 ========================= */
 
 .dot-separator {
@@ -215,7 +215,7 @@ header {
 
 
 /* =========================
-   MOBILE (VERTICAL RIGHT)
+   MOBILE (INDICATOR DISPLAYED VERTICAL RIGHT)
 ========================= */
 @media (max-width: 768px) {
 
