@@ -64,7 +64,7 @@ x:Math.random()*80+10,
 
 y:Math.random()*80+10,
 
-size:20+Math.random()*60,
+size:180+Math.random()*20,
 
 rotation:Math.random()*360,
 

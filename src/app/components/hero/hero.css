@@ -44,15 +44,13 @@
 
    color: white;
 
-  /*-webkit-text-stroke: 0.25rem rgba(255, 255, 255, 1);*/
-
   max-width: 18ch;
 }
 
 .image-box {
   position: absolute;
-left: -50px;
-top: 50px;
+  left: -50px;
+  top: 50px;
   width: 1200px;
   height: 90vh;
   background-image: url('/images/lines/heroline.png');

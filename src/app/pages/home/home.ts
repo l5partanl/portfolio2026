@@ -105,12 +105,16 @@ export class Home {
 
     if (window.innerWidth > 768) return;
 
-    const vh = window.innerHeight;
+    const step = this.mobileStepHeight;
 
-    const t = window.scrollY / (0.25*vh * (this.sections - 1));
+const t = window.scrollY / step;
 
-    this.targetIndex = this.clamp(t, 0, this.sections - 1);
-    this.smoothIndex = this.targetIndex;
+this.targetIndex = this.clamp(
+  t,
+  0,
+  this.sections - 1
+);
+this.smoothIndex = this.targetIndex;
   }
 
   // =========================
@@ -120,7 +124,7 @@ export class Home {
 
     if (window.innerWidth <= 768) return 'none';
 
-    return `translate3d(-${this.smoothIndex * 112}vw, 0, 0)`; // 112vw (100%vw of section + 12vw of divider)
+    return `translate3d(-${this.smoothIndex * 112}vw, 0, 0)`; // 112vw (100vw of section + 12vw of divider)
   }
 
   // =========================
@@ -186,12 +190,26 @@ goToSection(index: number) {
 
   if (window.innerWidth <= 768) {
 
-    window.scrollTo({
-      top: index * window.innerHeight,
-      behavior: 'smooth'
-    });
+ window.scrollTo({
+  top: index * this.mobileStepHeight,
+  behavior:'smooth'
+});
 
   }
+}
+
+// =========================
+// MOBILE LAYOUT
+// =========================
+
+mobileSectionHeight = 100; // vh
+mobileDividerHeight = 60;  // vh
+
+get mobileStepHeight(){
+
+  return window.innerHeight *
+  ((this.mobileSectionHeight + this.mobileDividerHeight) / 100);
+
 }
 
   }

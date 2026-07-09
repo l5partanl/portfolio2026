@@ -6,8 +6,6 @@
 
     flex:0 0 12vw;
 
-    height:100vh;
-
     display:flex;
     align-items:center;
     justify-content:center;
@@ -19,163 +17,106 @@
     pointer-events:none;
 }
 
+
 .divider{
 
-    width:100%;
-    height:100%;
+
+    width:300%;
+    height:180%;
 
     position:relative;
 }
 
+
 /* =====================================
-   BASE
+   BASE SHAPE
 ===================================== */
 
 .shape{
 
     position:absolute;
 
+    width:clamp(180px, 18vw, 320px);
+    height:clamp(180px, 18vw, 320px);
+
+    background-size:contain;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    --scale:1;
+
     animation:float 8s ease-in-out infinite;
+
 }
 
+
 /* =====================================
-   DIAMOND
+   INDIVIDUAL SCALE CONTROL
 ===================================== */
+
 
 .diamond{
 
-    width:44px;
-    height:44px;
+    background-image:url('/images/lines/twist.png');
 
-    border:2px solid rgba(255,255,255,.35);
+    --scale:1;
 
-    transform:rotate(45deg);
-
-    left:18%;
-    top:18%;
 }
 
-/* =====================================
-   CIRCLE
-===================================== */
 
 .circle{
 
-    width:26px;
-    height:26px;
+    background-image:url('/images/lines/circle.png');
 
-    border-radius:50%;
+    --scale:.65;
 
-    border:2px solid rgba(255,255,255,.45);
-
-    left:72%;
-    top:58%;
 }
 
-/* =====================================
-   SQUARE
-===================================== */
 
 .square{
 
-    width:18px;
-    height:18px;
+    background-image:url('/images/lines/linesoft.png');
 
-    background:rgba(255,255,255,.12);
+    --scale: 3.8;
 
-    left:28%;
-    top:78%;
 }
 
-/* =====================================
-   RING
-===================================== */
 
 .ring{
 
-    width:60px;
-    height:60px;
+    background-image:url('/images/lines/linecorner.png');
 
-    border-radius:50%;
+    --scale: 2.5;
 
-    border:1px solid rgba(255,255,255,.15);
-
-    left:58%;
-    top:22%;
 }
 
-/* =====================================
-   TRIANGLE
-===================================== */
 
 .triangle{
 
-    width:0;
-    height:0;
+    background-image:url('/images/lines/zigzag.png');
 
-    border-left:14px solid transparent;
-    border-right:14px solid transparent;
-    border-bottom:26px solid rgba(255,255,255,.18);
+    --scale:1.3;
 
-    left:12%;
-    top:60%;
 }
 
-/* =====================================
-   LINE
-===================================== */
 
 .line{
 
-    width:180px;
-    height:1px;
+    background-image:url('/images/lines/linesolid.png');
 
-    background:rgba(255,255,255,.15);
+    --scale:3.2;
 
-    transform:rotate(-28deg);
-
-    left:-40px;
-    top:48%;
 }
 
-/* =====================================
-   CROSS
-===================================== */
 
 .cross{
 
-    width:22px;
-    height:22px;
+    background-image:url('/images/lines/wave.png');
 
-    left:78%;
-    top:82%;
+    --scale: 1.6;
+
 }
 
-.cross::before,
-.cross::after{
-
-    content:"";
-
-    position:absolute;
-
-    background:rgba(255,255,255,.4);
-}
-
-.cross::before{
-
-    width:22px;
-    height:2px;
-
-    top:10px;
-}
-
-.cross::after{
-
-    width:2px;
-    height:22px;
-
-    left:10px;
-}
 
 /* =====================================
    FLOAT
@@ -183,96 +124,105 @@
 
 @keyframes float{
 
+
 0%{
 
-transform:translateY(0px) rotate(0deg);
+transform:
+translateY(0)
+rotate(0deg)
+scale(var(--scale));
 
 }
+
 
 50%{
 
-transform:translateY(-20px) rotate(8deg);
+transform:
+translateY(-20px)
+rotate(8deg)
+scale(var(--scale));
 
 }
+
 
 100%{
 
-transform:translateY(0px) rotate(0deg);
+transform:
+translateY(0)
+rotate(0deg)
+scale(var(--scale));
 
 }
 
 }
+
+
 
 /* =====================================
-   MOBILE
+   OPTIONAL RANDOM POSITIONS DESKTOP
 ===================================== */
 
-@media (max-width:768px){
-
-:host{
-
-    width:100vw;
-
-    height:18vh;
-
-    flex:0 0 auto;
-}
-
-/* redistribución */
-
-.line{
-
-    width:75vw;
-
-    left:12%;
-    top:48%;
-
-    transform:rotate(12deg);
-}
 
 .diamond{
 
-left:15%;
-top:18%;
+left:10%;
+top:20%;
 
 }
+
 
 .circle{
 
-left:72%;
-top:22%;
+left:65%;
+top:15%;
 
 }
+
 
 .square{
 
-left:25%;
-top:70%;
+left:35%;
+top:60%;
 
 }
+
 
 .ring{
 
-left:62%;
-top:62%;
+left:75%;
+top:55%;
 
 }
+
 
 .cross{
 
-left:82%;
-top:76%;
+left:55%;
+top:75%;
 
 }
 
+
 .triangle{
+
+left:20%;
+top:65%;
+
+}
+
+
+.line{
 
 left:45%;
 top:40%;
 
 }
 
-}
+
+
+/* =====================================
+   PARALLAX
+===================================== */
 
 .layer-fast,
 .layer-medium,
@@ -280,5 +230,104 @@ top:40%;
 
     position:absolute;
     inset:0;
+
+}
+
+
+
+/* =====================================
+   MOBILE
+===================================== */
+
+
+@media(max-width:768px){
+
+
+:host{
+
+    width:200%;
+    height:80vh;
+    margin-left: -50vw;
+    margin-top: -20vh;
+
+    flex:0 0 35vh;
+
+}
+
+
+
+/* todos mantienen escala pero reducida */
+
+.shape{
+
+    width:150px;
+    height:150px;
+
+}
+
+
+
+/* redistribución vertical */
+
+
+.diamond{
+
+left:5%;
+top:15%;
+
+}
+
+
+.circle{
+
+left:65%;
+top:10%;
+
+}
+
+
+.square{
+
+left:25%;
+top:60%;
+
+}
+
+
+.ring{
+
+left:70%;
+top:55%;
+
+}
+
+
+.cross{
+
+left:75%;
+top:75%;
+
+}
+
+
+.triangle{
+
+left:40%;
+top:35%;
+
+}
+
+
+.line{
+
+left:10%;
+top:45%;
+
+transform:
+rotate(12deg)
+scale(var(--scale));
+
+}
+
 
 }
