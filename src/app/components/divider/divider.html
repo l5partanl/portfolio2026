@@ -1,34 +1,16 @@
 <div class="divider">
-
-@for(shape of shapes; track $index){
-
-<div
-[class]="shape.layer">
-
-<div
-
-class="shape"
-
-[class]="shape.type"
-
-[style.left.%]="shape.x"
-
-[style.top.%]="shape.y"
-
-[style.width.px]="shape.size"
-
-[style.height.px]="shape.size"
-
-[style.animation-delay.s]="shape.delay"
-
-[style.rotate.deg]="shape.rotation"
-
->
-
-</div>
-
-</div>
-
-}
-
+  @for (shape of shapes; track $index) {
+    <div [class]="shape.layer">
+      <div
+        class="shape"
+        [class]="shape.type"
+        [style.left.%]="shape.x"
+        [style.top.%]="shape.y"
+        [style.width.px]="shape.size"
+        [style.height.px]="shape.size"
+        [style.animation-delay.s]="shape.delay"
+        [style.rotate.deg]="shape.rotation"
+      ></div>
+    </div>
+  }
 </div>

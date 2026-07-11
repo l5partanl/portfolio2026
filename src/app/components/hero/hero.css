@@ -9,7 +9,6 @@
 }
 
 .hero-statement {
-
   position: absolute;
 
   top: 50%;
@@ -23,7 +22,6 @@
 }
 
 .hero-statement-inner {
-
   display: flex;
   flex-direction: column;
 
@@ -31,7 +29,6 @@
 }
 
 .hero-statement-inner span {
-
   font-size: clamp(8rem, 7vw, 8rem);
 
   line-height: 0.9;
@@ -42,7 +39,7 @@
 
   text-transform: uppercase;
 
-   color: white;
+  color: white;
 
   max-width: 18ch;
 }
@@ -61,16 +58,13 @@
 }
 
 @media (max-width: 768px) {
-
   .hero-statement-inner {
     display: flex;
     justify-content: flex-start;
     padding: 0 0.3rem;
-
   }
 
   .hero-statement-inner span {
-
     font-size: clamp(3rem, 12vw, 4.6rem);
 
     line-height: 0.92;
@@ -82,20 +76,18 @@
     text-align: left;
 
     display: inline-block;
-
   }
 
   .image-box {
-
-left: -150px;
-top: 50px;
-  width: 720px;
-  height: 90vh;
-  margin-bottom: 50vh;
-  background-image: url('/images/lines/heroline.png');
-  background-position: left;
-  background-size: contain;
-  background-repeat: no-repeat;
-  isolation: isolate;
-}
+    left: -150px;
+    top: 50px;
+    width: 720px;
+    height: 90vh;
+    margin-bottom: 50vh;
+    background-image: url('/images/lines/heroline.png');
+    background-position: left;
+    background-size: contain;
+    background-repeat: no-repeat;
+    isolation: isolate;
+  }
 }

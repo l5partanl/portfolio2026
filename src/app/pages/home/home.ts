@@ -1,4 +1,3 @@
-
 import { Component, HostListener } from '@angular/core';
 
 import { Header } from '../../components/header/header';
@@ -8,25 +7,15 @@ import { Projects } from '../../components/projects/projects';
 import { Background } from '../../components/background/background';
 import { Contact } from '../../components/contact/contact';
 import { Footer } from '../../components/footer/footer';
-import { Divider } from "../../components/divider/divider";
+import { Divider } from '../../components/divider/divider';
 
 @Component({
   selector: 'app-home',
-  imports: [
-    Header,
-    Hero,
-    About,
-    Projects,
-    Background,
-    Contact,
-    Footer,
-    Divider
-],
+  imports: [Header, Hero, About, Projects, Background, Contact, Footer, Divider],
   templateUrl: './home.html',
-  styleUrl: './home.css'
+  styleUrl: './home.css',
 })
 export class Home {
-
   // =========================
   // CONFIG
   // =========================
@@ -44,11 +33,11 @@ export class Home {
   scrollStrength = 0.0004;
 
   colors = [
-[17, 17, 17], // hero
-[30, 58, 95], // about
-[179, 58, 58], // projects
-[59, 95, 58], // background
-[216, 210, 196] // contact
+    [17, 17, 17], // hero
+    [30, 58, 95], // about
+    [179, 58, 58], // projects
+    [59, 95, 58], // background
+    [216, 210, 196], // contact
   ];
 
   // =========================
@@ -56,7 +45,6 @@ export class Home {
   // =========================
   @HostListener('wheel', ['$event'])
   onWheel(event: WheelEvent) {
-
     if (window.innerWidth <= 768) return;
 
     this.velocity += event.deltaY * this.scrollStrength;
@@ -68,7 +56,6 @@ export class Home {
   // PHYSICS → TARGET INDEX
   // =========================
   private animatePhysics() {
-
     this.targetIndex += this.velocity;
 
     this.velocity *= this.friction;
@@ -84,7 +71,6 @@ export class Home {
   // SMOOTH FOLLOW
   // =========================
   private animateSmooth() {
-
     const diff = this.targetIndex - this.smoothIndex;
 
     this.smoothIndex += diff * 1.02;
@@ -102,26 +88,20 @@ export class Home {
   // =========================
   @HostListener('window:scroll', [])
   onScroll() {
-
     if (window.innerWidth > 768) return;
 
     const step = this.mobileStepHeight;
 
-const t = window.scrollY / step;
+    const t = window.scrollY / step;
 
-this.targetIndex = this.clamp(
-  t,
-  0,
-  this.sections - 1
-);
-this.smoothIndex = this.targetIndex;
+    this.targetIndex = this.clamp(t, 0, this.sections - 1);
+    this.smoothIndex = this.targetIndex;
   }
 
   // =========================
   // TRANSFORM (USES smoothIndex)
   // =========================
   get trackTransform() {
-
     if (window.innerWidth <= 768) return 'none';
 
     return `translate3d(-${this.smoothIndex * 112}vw, 0, 0)`; // 112vw (100vw of section + 12vw of divider)
@@ -131,7 +111,6 @@ this.smoothIndex = this.targetIndex;
   // COLOR (USES SAME smoothIndex → FIX DESYNC)
   // =========================
   get bgColor() {
-
     const i = Math.floor(this.smoothIndex);
     const j = Math.min(i + 1, this.sections - 1);
 
@@ -159,11 +138,10 @@ this.smoothIndex = this.targetIndex;
   }
 
   // =========================
-  // MOUSE PARALLAX 
+  // MOUSE PARALLAX
   // =========================
   @HostListener('document:mousemove', ['$event'])
   onMouseMove(e: MouseEvent) {
-
     if (window.innerWidth <= 768) return;
 
     const x = (e.clientX / window.innerWidth - 0.5) * 40;
@@ -173,43 +151,35 @@ this.smoothIndex = this.targetIndex;
     document.documentElement.style.setProperty('--my', `${y}px`);
   }
 
-    // =========================
+  // =========================
   // FOR NAME UNDERLINE ANIMATION
   // =========================
-get isAboutVisible() {
-  return this.smoothIndex > 0.6 && this.smoothIndex < 1.4;
-}
+  get isAboutVisible() {
+    return this.smoothIndex > 0.6 && this.smoothIndex < 1.4;
+  }
 
-
-    // =========================
+  // =========================
   // FOR SCROLL INDICATOR
   // =========================
-goToSection(index: number) {
+  goToSection(index: number) {
+    this.targetIndex = index;
 
-  this.targetIndex = index;
+    if (window.innerWidth <= 768) {
+      window.scrollTo({
+        top: index * this.mobileStepHeight,
+        behavior: 'smooth',
+      });
+    }
+  }
 
-  if (window.innerWidth <= 768) {
+  // =========================
+  // MOBILE LAYOUT
+  // =========================
 
- window.scrollTo({
-  top: index * this.mobileStepHeight,
-  behavior:'smooth'
-});
+  mobileSectionHeight = 100; // vh
+  mobileDividerHeight = 60; // vh
 
+  get mobileStepHeight() {
+    return window.innerHeight * ((this.mobileSectionHeight + this.mobileDividerHeight) / 100);
   }
 }
-
-// =========================
-// MOBILE LAYOUT
-// =========================
-
-mobileSectionHeight = 100; // vh
-mobileDividerHeight = 60;  // vh
-
-get mobileStepHeight(){
-
-  return window.innerHeight *
-  ((this.mobileSectionHeight + this.mobileDividerHeight) / 100);
-
-}
-
-  }

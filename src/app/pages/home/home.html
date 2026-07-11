@@ -1,35 +1,31 @@
-<app-header
-  [currentSection]="smoothIndex"
-  (navigate)="goToSection($event)">
-</app-header>
+<app-header [currentSection]="smoothIndex" (navigate)="goToSection($event)"> </app-header>
 
 <div class="bg-layer" [style.background]="bgColor"></div>
 
 <div class="viewport">
-
-  <div class="track"
-       [style.transform]="trackTransform">
-
+  <div class="track" [style.transform]="trackTransform">
     <section class="slide hero"><app-hero /></section>
-
+    
     <app-divider></app-divider>
-
+    
     <section class="slide about"><app-about [active]="isAboutVisible" /></section>
     
     <app-divider></app-divider>
-
+    
     <section class="slide projects"><app-projects /></section>
-
+    
     <app-divider></app-divider>
-
+    
     <section class="slide background"><app-background /></section>
-
+    
     <app-divider></app-divider>
     
     <section class="slide contact"><app-contact /></section>
-
   </div>
+</div>
 
+<div class="frame">
+  <div class="frame-noise"></div>
 </div>
 
 <app-footer />

@@ -2,223 +2,148 @@
    DIVIDER
 ===================================== */
 
-:host{
+:host {
+  flex: 0 0 12vw;
 
-    flex:0 0 12vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+  position: relative;
 
-    position:relative;
+  overflow: visible;
 
-    overflow:visible;
-
-    pointer-events:none;
+  pointer-events: none;
 }
 
+.divider {
+  width: 300%;
+  height: 180%;
 
-.divider{
-
-
-    width:300%;
-    height:180%;
-
-    position:relative;
+  position: relative;
 }
-
 
 /* =====================================
    BASE SHAPE
 ===================================== */
 
-.shape{
+.shape {
+  position: absolute;
 
-    position:absolute;
+  width: clamp(180px, 18vw, 320px);
+  height: clamp(180px, 18vw, 320px);
 
-    width:clamp(180px, 18vw, 320px);
-    height:clamp(180px, 18vw, 320px);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 
-    background-size:contain;
-    background-position:center;
-    background-repeat:no-repeat;
+  --scale: 1;
 
-    --scale:1;
-
-    animation:float 8s ease-in-out infinite;
-
+  animation: float 8s ease-in-out infinite;
 }
-
 
 /* =====================================
    INDIVIDUAL SCALE CONTROL
 ===================================== */
 
+.diamond {
+  background-image: url('/images/lines/twist.png');
 
-.diamond{
-
-    background-image:url('/images/lines/twist.png');
-
-    --scale:1;
-
+  --scale: 1;
 }
 
+.circle {
+  background-image: url('/images/lines/circle.png');
 
-.circle{
-
-    background-image:url('/images/lines/circle.png');
-
-    --scale:.65;
-
+  --scale: 0.65;
 }
 
+.square {
+  background-image: url('/images/lines/linesoft.png');
 
-.square{
-
-    background-image:url('/images/lines/linesoft.png');
-
-    --scale: 3.8;
-
+  --scale: 3.8;
 }
 
+.ring {
+  background-image: url('/images/lines/linecorner.png');
 
-.ring{
-
-    background-image:url('/images/lines/linecorner.png');
-
-    --scale: 2.5;
-
+  --scale: 2.5;
 }
 
+.triangle {
+  background-image: url('/images/lines/zigzag.png');
 
-.triangle{
-
-    background-image:url('/images/lines/zigzag.png');
-
-    --scale:1.3;
-
+  --scale: 1.3;
 }
 
+.line {
+  background-image: url('/images/lines/linesolid.png');
 
-.line{
-
-    background-image:url('/images/lines/linesolid.png');
-
-    --scale:3.2;
-
+  --scale: 3.2;
 }
 
+.cross {
+  background-image: url('/images/lines/wave.png');
 
-.cross{
-
-    background-image:url('/images/lines/wave.png');
-
-    --scale: 1.6;
-
+  --scale: 1.6;
 }
-
 
 /* =====================================
    FLOAT
 ===================================== */
 
-@keyframes float{
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(var(--scale));
+  }
 
+  50% {
+    transform: translateY(-20px) rotate(8deg) scale(var(--scale));
+  }
 
-0%{
-
-transform:
-translateY(0)
-rotate(0deg)
-scale(var(--scale));
-
+  100% {
+    transform: translateY(0) rotate(0deg) scale(var(--scale));
+  }
 }
-
-
-50%{
-
-transform:
-translateY(-20px)
-rotate(8deg)
-scale(var(--scale));
-
-}
-
-
-100%{
-
-transform:
-translateY(0)
-rotate(0deg)
-scale(var(--scale));
-
-}
-
-}
-
-
 
 /* =====================================
    OPTIONAL RANDOM POSITIONS DESKTOP
 ===================================== */
 
-
-.diamond{
-
-left:10%;
-top:20%;
-
+.diamond {
+  left: 10%;
+  top: 20%;
 }
 
-
-.circle{
-
-left:65%;
-top:15%;
-
+.circle {
+  left: 65%;
+  top: 15%;
 }
 
-
-.square{
-
-left:35%;
-top:60%;
-
+.square {
+  left: 35%;
+  top: 60%;
 }
 
-
-.ring{
-
-left:75%;
-top:55%;
-
+.ring {
+  left: 75%;
+  top: 55%;
 }
 
-
-.cross{
-
-left:55%;
-top:75%;
-
+.cross {
+  left: 55%;
+  top: 75%;
 }
 
-
-.triangle{
-
-left:20%;
-top:65%;
-
+.triangle {
+  left: 20%;
+  top: 65%;
 }
 
-
-.line{
-
-left:45%;
-top:40%;
-
+.line {
+  left: 45%;
+  top: 40%;
 }
-
-
 
 /* =====================================
    PARALLAX
@@ -226,108 +151,68 @@ top:40%;
 
 .layer-fast,
 .layer-medium,
-.layer-slow{
-
-    position:absolute;
-    inset:0;
-
+.layer-slow {
+  position: absolute;
+  inset: 0;
 }
-
-
 
 /* =====================================
    MOBILE
 ===================================== */
 
-
-@media(max-width:768px){
-
-
-:host{
-
-    width:200%;
-    height:80vh;
+@media (max-width: 768px) {
+  :host {
+    width: 200%;
+    height: 80vh;
     margin-left: -50vw;
     margin-top: -20vh;
 
-    flex:0 0 35vh;
+    flex: 0 0 35vh;
+  }
 
-}
+  /* todos mantienen escala pero reducida */
 
+  .shape {
+    width: 150px;
+    height: 150px;
+  }
 
+  /* redistribución vertical */
 
-/* todos mantienen escala pero reducida */
+  .diamond {
+    left: 5%;
+    top: 15%;
+  }
 
-.shape{
+  .circle {
+    left: 65%;
+    top: 10%;
+  }
 
-    width:150px;
-    height:150px;
+  .square {
+    left: 25%;
+    top: 60%;
+  }
 
-}
+  .ring {
+    left: 70%;
+    top: 55%;
+  }
 
+  .cross {
+    left: 75%;
+    top: 75%;
+  }
 
+  .triangle {
+    left: 40%;
+    top: 35%;
+  }
 
-/* redistribución vertical */
+  .line {
+    left: 10%;
+    top: 45%;
 
-
-.diamond{
-
-left:5%;
-top:15%;
-
-}
-
-
-.circle{
-
-left:65%;
-top:10%;
-
-}
-
-
-.square{
-
-left:25%;
-top:60%;
-
-}
-
-
-.ring{
-
-left:70%;
-top:55%;
-
-}
-
-
-.cross{
-
-left:75%;
-top:75%;
-
-}
-
-
-.triangle{
-
-left:40%;
-top:35%;
-
-}
-
-
-.line{
-
-left:10%;
-top:45%;
-
-transform:
-rotate(12deg)
-scale(var(--scale));
-
-}
-
-
+    transform: rotate(12deg) scale(var(--scale));
+  }
 }

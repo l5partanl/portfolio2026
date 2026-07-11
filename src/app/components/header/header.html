@@ -1,55 +1,40 @@
 <header>
-
   <div class="logo">
-  <img src="/images/lines/firm.png" alt="Gian">
-      <span>Full-stack developer | Industrial designer</span>
-    </div>
+    <img src="/images/lines/firm.png" alt="Gian" />
+    <span>Full-stack developer | Industrial designer</span>
+  </div>
 
   <nav class="section-indicator">
-
     @for (section of sections; track section; let i = $index) {
-
       <!-- MAGNETIC HIT AREA (only UX layer) -->
       <div class="dot-hit-area">
-
         <button
           class="dot"
           (click)="goTo(i)"
           (mouseenter)="onEnter(i, $event)"
           (mousemove)="onMove($event)"
           (mouseleave)="onLeave()"
-           [style.transform]="getMagnetStyle(i)"
+          [style.transform]="getMagnetStyle(i)"
         >
-
-          <div class="dot-fill"
-               [style.transform]="'scaleY(' + getFill(i) + ')'">
-          </div>
-
+          <div class="dot-fill" [style.transform]="'scaleY(' + getFill(i) + ')'"></div>
         </button>
-
       </div>
 
       <!-- separator dots (NOT after last item) -->
-  @if (i < sections.length - 1) {
-    <div class="dot-separator">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-
+      @if (i < sections.length - 1) {
+        <div class="dot-separator">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      }
     }
-}
   </nav>
-
 </header>
 
 <!-- TOOLTIP -->
 @if (hoveredIndex !== null) {
-  <div
-    class="tooltip-floating"
-    [style.--x]="mouseX + 12 + 'px'"
-[style.--y]="mouseY + 12 + 'px'"
-  >
+  <div class="tooltip-floating" [style.--x]="mouseX + 12 + 'px'" [style.--y]="mouseY + 12 + 'px'">
     {{ hoveredLabel }}
   </div>
 }

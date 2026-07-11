@@ -23,7 +23,7 @@
 .viewport {
   width: 100vw;
   height: 100vh;
-  overflow:hidden;
+  overflow: hidden;
 }
 
 .track {
@@ -39,14 +39,31 @@
 }
 
 /* =========================
+   FRAME
+========================= */
+
+.frame {
+  position: fixed;
+  inset: 22px;
+  border: 2px solid white;
+  opacity: 0.25;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 999;
+}
+
+/* =========================
    MOBILE
 ========================= */
 
 @media (max-width: 768px) {
-
   :host {
     height: auto;
     overflow: visible;
+  }
+
+  .frame {
+    inset: 12px;
   }
 
   .viewport {

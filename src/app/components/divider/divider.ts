@@ -1,20 +1,18 @@
 import { Component } from '@angular/core';
-interface Shape{
+interface Shape {
+  type: string;
 
-type:string;
+  x: number;
 
-x:number;
+  y: number;
 
-y:number;
+  size: number;
 
-size:number;
+  layer: string;
 
-layer:string;
+  delay: number;
 
-delay:number;
-
-rotation:number;
-
+  rotation: number;
 }
 
 @Component({
@@ -24,56 +22,35 @@ rotation:number;
   styleUrl: './divider.css',
 })
 export class Divider {
-  
-shapes: Shape[] = [];
+  shapes: Shape[] = [];
 
-types = [
-'diamond',
-'circle',
-'square',
-'ring',
-'triangle',
-'cross'
-];
+  types = ['diamond', 'circle', 'square', 'ring', 'triangle', 'cross'];
 
-layers=[
-'layer-fast',
-'layer-medium',
-'layer-slow'
-];
+  layers = ['layer-fast', 'layer-medium', 'layer-slow'];
 
-constructor(){
+  constructor() {
+    this.generateShapes();
+  }
 
-this.generateShapes();
+  generateShapes() {
+    const amount = 8;
 
-}
+    for (let i = 0; i < amount; i++) {
+      this.shapes.push({
+        type: this.types[Math.floor(Math.random() * this.types.length)],
 
-generateShapes(){
+        layer: this.layers[Math.floor(Math.random() * this.layers.length)],
 
-const amount=8;
+        x: Math.random() * 80 + 10,
 
-for(let i=0;i<amount;i++){
+        y: Math.random() * 80 + 10,
 
-this.shapes.push({
+        size: 180 + Math.random() * 20,
 
-type:this.types[Math.floor(Math.random()*this.types.length)],
+        rotation: Math.random() * 360,
 
-layer:this.layers[Math.floor(Math.random()*this.layers.length)],
-
-x:Math.random()*80+10,
-
-y:Math.random()*80+10,
-
-size:180+Math.random()*20,
-
-rotation:Math.random()*360,
-
-delay:Math.random()*6
-
-});
-
-}
-
-}
-
+        delay: Math.random() * 6,
+      });
+    }
+  }
 }

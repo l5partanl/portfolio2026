@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, HostListener  } from '@angular/core';
+import { Component, Input, Output, EventEmitter, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,17 +7,10 @@ import { Component, Input, Output, EventEmitter, HostListener  } from '@angular/
   styleUrl: './header.css',
 })
 export class Header {
-
   @Input() currentSection = 0;
   @Output() navigate = new EventEmitter<number>();
 
-  sections = [
-    'Hero',
-    'About',
-    'Projects',
-    'Background',
-    'Contact'
-  ];
+  sections = ['Hero', 'About', 'Projects', 'Background', 'Contact'];
 
   // =========================
   // TOOLTIP STATE
@@ -27,10 +20,10 @@ export class Header {
   mouseX = 0;
   mouseY = 0;
 
-   // store dot positions
+  // store dot positions
   private dots: DOMRect[] = [];
 
-    // =========================
+  // =========================
   // TRACK MOUSE
   // =========================
   @HostListener('document:mousemove', ['$event'])
@@ -39,20 +32,19 @@ export class Header {
     this.mouseY = e.clientY;
   }
 
-    // =========================
+  // =========================
   // REGISTER DOTS AFTER VIEW
   // =========================
   @HostListener('window:load')
   updateDots() {
     const els = document.querySelectorAll('.dot');
-    this.dots = Array.from(els).map(el => el.getBoundingClientRect());
+    this.dots = Array.from(els).map((el) => el.getBoundingClientRect());
   }
 
   // =========================
   // MAGNET POSITION
   // =========================
   getMagnetStyle(i: number): string {
-
     const el = this.dots[i];
     if (!el) return 'translate(0px,0px)';
 
@@ -116,8 +108,6 @@ export class Header {
   }
 
   get hoveredLabel(): string {
-    return this.hoveredIndex !== null
-      ? this.sections[this.hoveredIndex]
-      : '';
+    return this.hoveredIndex !== null ? this.sections[this.hoveredIndex] : '';
   }
 }

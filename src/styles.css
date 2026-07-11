@@ -6,36 +6,35 @@ body {
   margin: 0;
   overflow-x: hidden;
   overflow-y: hidden;
-      font-family: 'Inter', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 :root {
-
- /* =========================
+  /* =========================
      BASE BACKGROUNDS
   ========================= */
 
-  --primary-bg: #120f10;     
-  --secondary-bg: #1c1517;  
-  --accent-bg: #2a1c1f;  
+  --primary-bg: #120f10;
+  --secondary-bg: #1c1517;
+  --accent-bg: #2a1c1f;
 
   /* =========================
      CORE IDENTITY COLORS
   ========================= */
 
-  --primary-color: #ff4d6d;  
-  --primary-hover: #ff7a8a; 
+  --primary-color: #ff4d6d;
+  --primary-hover: #ff7a8a;
 
-  --accent-color: #ffb703; 
+  --accent-color: #ffb703;
   --secondary-color: #8ecae6;
 
   /* =========================
      EXTRA EXPRESSION COLORS (FOR SECTIONS / STATES)
   ========================= */
 
-  --extra-1: #06d6a0;       
-  --extra-2: #8338ec;      
-  --extra-3: #fb5607;    
+  --extra-1: #06d6a0;
+  --extra-2: #8338ec;
+  --extra-3: #fb5607;
 
   /* =========================
      TEXT SYSTEM
@@ -66,9 +65,7 @@ body {
   --pill-color-start: #ff4d6d;
   --pill-color-end: #ffb703;
   --pill-hover: #8338ec;
-
 }
-
 
 /* layers */
 .layer-fast {
