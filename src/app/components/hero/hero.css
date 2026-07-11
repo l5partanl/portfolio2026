@@ -55,6 +55,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   isolation: isolate;
+  opacity: 42%;
 }
 
 @media (max-width: 768px) {
@@ -66,15 +67,10 @@
 
   .hero-statement-inner span {
     font-size: clamp(3rem, 12vw, 4.6rem);
-
     line-height: 0.92;
-
     letter-spacing: -0.05em;
-
     max-width: 85vw;
-
     text-align: left;
-
     display: inline-block;
   }
 

@@ -46,6 +46,7 @@
   position: fixed;
   inset: 22px;
   border: 2px solid white;
+  border-radius: 16px;
   opacity: 0.25;
   pointer-events: none;
   overflow: hidden;

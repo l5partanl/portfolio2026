@@ -14,12 +14,12 @@
   overflow: visible;
 
   pointer-events: none;
+  opacity: 42%;
 }
 
 .divider {
-  width: 300%;
+  width: 250%;
   height: 180%;
-
   position: relative;
 }
 
