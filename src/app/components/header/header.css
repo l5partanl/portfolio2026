@@ -225,10 +225,10 @@ header {
     right: -36vw;
     top: 50%;
     transform: translateY(-50%);
-
+    width: 0;
+    margin: auto;
     flex-direction: column;
     gap: 24px;
-
     z-index: 2000;
   }
 
