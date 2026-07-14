@@ -33,9 +33,9 @@ export class Home {
   scrollStrength = 0.0004;
 
   colors = [
-    [17, 17, 17], // hero
+    [150, 100, 107], // hero
     [30, 58, 95], // about
-    [179, 58, 58], // projects
+    [179, 58, 8], // projects
     [59, 95, 58], // background
     [216, 210, 196], // contact
   ];
