@@ -1,7 +1,101 @@
-<div class="projects-layout">
-  <div class="project-card layer-fast">PROJECT 01</div>
+<section class="projects">
+  <div class="projects-grid"></div>
 
-  <div class="project-card layer-medium">PROJECT 02</div>
+  <div class="projects-header">
+    <span> SELECTED WORK </span>
 
-  <div class="project-card layer-slow">PROJECT 03</div>
-</div>
+    <h2>PROJECTS</h2>
+  </div>
+
+  <div class="deck">
+    @for (project of projects; track project.title; let i = $index) {
+      <article
+        class="project-card"
+        [class.active]="i === activeIndex"
+        [style]="cardStyle(i)"
+        (click)="selectProject(i)"
+      >
+        <div class="card-inner">
+          <div class="card-surface">
+            <div class="paper-noise"></div>
+
+            <div class="hologram"></div>
+
+            <div class="ticket-cut">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+
+            <div class="card-top">
+              <span> PROJECT 0{{ i + 1 }} </span>
+
+              <span>
+                {{ project.year }}
+              </span>
+            </div>
+
+            <div class="card-content">
+              <div class="info">
+                <span class="type">
+                  {{ project.type }}
+                </span>
+
+                <h3>
+                  {{ project.title }}
+                </h3>
+
+                <p>
+                  {{ project.description }}
+                </p>
+
+                <div class="stack">
+                  @for (item of project.stack; track item) {
+                    <span>
+                      {{ item }}
+                    </span>
+                  }
+                </div>
+
+                @if (i === activeIndex) {
+                  <div class="details">
+                    <span> CASE STUDY READY </span>
+
+                    <p>Process, challenges and technical decisions.</p>
+                  </div>
+                }
+              </div>
+            </div>
+          </div>
+          <div class="barcode">|||| |||| |||| ||||</div>
+        </div>
+
+        <!-- POLAROID -->
+
+        <div
+          class="preview"
+          [class.flipped]="project.flipped"
+          (click)="flipProject(project, $event)"
+        >
+          <div class="photo-front">
+            <img [src]="project.image" [alt]="project.title" />
+
+            <span class="photo-label"> PROJECT VIEW </span>
+          </div>
+
+          <div class="photo-back">
+            <img src="assets/images/project-back.jpg" />
+
+            <div class="back-info">
+              <span> CASE STUDY </span>
+
+              <p>
+                {{ project.description }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+    }
+  </div>
+</section>
