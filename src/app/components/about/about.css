@@ -124,6 +124,22 @@
   opacity: 1;
 }
 
+.model {
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  left: 180%;
+  top: 20%;
+
+  transform: translate(-50%, -50%) translateX(16vw) translateY(12vh);
+
+  z-index: 15;
+
+  pointer-events: auto;
+}
+
 @media (max-width: 576px) {
   .about-bio {
     flex-direction: column;
@@ -191,5 +207,9 @@
   .icon-btn {
     width: 42px;
     height: 42px;
+  }
+
+  .model {
+    transform: translate(-160%, -50%) translateY(410% ) translateY(0) scale(.9);
   }
 }
