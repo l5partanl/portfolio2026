@@ -63,6 +63,10 @@ export class Projects {
   flipProject(project: any, event: MouseEvent) {
     event.stopPropagation();
 
+    if (this.projects.indexOf(project) !== this.activeIndex) {
+      return;
+    }
+
     project.flipped = !project.flipped;
   }
 

@@ -47,43 +47,43 @@
 ===================================== */
 
 .diamond {
-  background-image: url('/images/lines/twist.png');
+  background-image: url('/assets/images/lines/twist.png');
 
   --scale: 1;
 }
 
 .circle {
-  background-image: url('/images/lines/circle.png');
+  background-image: url('/assets/images/lines/circle.png');
 
   --scale: 0.65;
 }
 
 .square {
-  background-image: url('/images/lines/linesoft.png');
+  background-image: url('/assets/images/lines/linesoft.png');
 
   --scale: 3.8;
 }
 
 .ring {
-  background-image: url('/images/lines/linecorner.png');
+  background-image: url('/assets/images/lines/linecorner.png');
 
   --scale: 2.5;
 }
 
 .triangle {
-  background-image: url('/images/lines/zigzag.png');
+  background-image: url('/assets/images/lines/zigzag.png');
 
   --scale: 1.3;
 }
 
 .line {
-  background-image: url('/images/lines/linesolid.png');
+  background-image: url('/assets/images/lines/linesolid.png');
 
   --scale: 3.2;
 }
 
 .cross {
-  background-image: url('/images/lines/wave.png');
+  background-image: url('/assets/images/lines/wave.png');
 
   --scale: 1.6;
 }

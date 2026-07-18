@@ -1,13 +1,13 @@
 <section class="projects">
   <div class="projects-grid"></div>
 
-  <div class="projects-header">
+  <div class="projects-header layer-fast">
     <span> SELECTED WORK </span>
 
     <h2>PROJECTS</h2>
   </div>
 
-  <div class="deck">
+  <div class="deck layer-slow">
     @for (project of projects; track project.title; let i = $index) {
       <article
         class="project-card"
@@ -57,13 +57,12 @@
                   }
                 </div>
 
-                @if (i === activeIndex) {
                   <div class="details">
                     <span> CASE STUDY READY </span>
 
                     <p>Process, challenges and technical decisions.</p>
                   </div>
-                }
+                
               </div>
             </div>
           </div>
@@ -79,13 +78,10 @@
         >
           <div class="photo-front">
             <img [src]="project.image" [alt]="project.title" />
-
             <span class="photo-label"> PROJECT VIEW </span>
           </div>
 
           <div class="photo-back">
-            <img src="assets/images/project-back.jpg" />
-
             <div class="back-info">
               <span> CASE STUDY </span>
 
@@ -95,6 +91,9 @@
             </div>
           </div>
         </div>
+
+        <!-- PAPERCLIP -->
+        <img class="paperclip" src="assets/images/clip.png" alt="" draggable="false" />
       </article>
     }
   </div>

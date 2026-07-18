@@ -101,12 +101,8 @@
   pointer-events: auto;
 }
 
-.project-card:not(.active) {
-  filter: brightness(0.75);
-}
-
-.project-card:hover:not(.active) {
-  transform: translateY(-35px) translateX(20px) rotateY(-12deg);
+.project-card:not(.active):hover {
+  filter: brightness(0.85);
 }
 
 /* ======================================
@@ -153,7 +149,7 @@
   border: 1px solid rgba(255, 255, 255, 0.8);
 
   box-shadow:
-    0 60px 120px rgba(0, 0, 0, 0.35),
+    0 20px 20px rgba(0, 0, 0, 0.35),
     inset 0 0 60px rgba(0, 0, 0, 0.08);
 
   z-index: 1;
@@ -169,6 +165,7 @@
   z-index: 20;
 
   animation: floatCard 7s ease-in-out infinite;
+  pointer-events: auto;
 }
 
 .project-card.active.selected {
@@ -177,10 +174,8 @@
   z-index: 100;
 }
 
-.project-card.active:hover .card-inner {
-  box-shadow:
-    0 100px 180px rgba(0, 0, 0, 0.55),
-    inset 0 0 80px rgba(255, 255, 255, 0.2);
+.project-card:not(.active) .preview {
+  pointer-events: none;
 }
 
 /* ======================================
@@ -213,7 +208,7 @@
   mix-blend-mode: screen;
 }
 
-.project-card:hover .hologram {
+.project-card.active:hover .hologram {
   opacity: 1;
 
   transform: translateX(100%) rotate(20deg);
@@ -309,19 +304,17 @@
 
   overflow: visible;
 
-  right: -8%;
+  right: -10px;
 
-  top: 5%;
+  top: 4%;
 
-  width: 35%;
+  width: 360px;
 
-  height: 75%;
+  height: 320px;
 
   padding: 20px 20px 45px;
 
-  background: white;
-
-  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 20px 10px rgba(0, 0, 0, 0.35);
 
   transform: rotate(6deg);
 
@@ -331,23 +324,54 @@
 
   z-index: 40;
 
-  transition: transform 0.7s cubic-bezier(0.22, 1.4, 0.36, 1);
+  transition: transform 0.9s cubic-bezier(0.22, 1.4, 0.36, 1);
 }
 
-.project-card.active:hover .preview {
-  transform: rotate(-3deg) translateY(-20px) translateX(-50px) scale(1.18);
+.preview:hover:not(.flipped) {
+  transform: rotate(-7deg) translateY(-20px) translateX(-50px) scale(1.18);
 }
 
 /* FLIP */
 
 .preview.flipped {
-  transform: rotateY(180deg) rotate(-3deg);
+  transform: rotateY(180deg) rotate(-7deg);
 }
 
 /* HOVER FLIPPED */
 
-.project-card.active:hover .preview.flipped {
-  transform: rotateY(180deg) rotate(-6deg) translateY(-20px) translateX(-50px) scale(1.18);
+.preview.flipped:hover {
+  transform: rotateY(180deg) rotate(7deg) translateY(-30px) translateX(40px) scale(1.18);
+}
+
+.photo-front {
+  background: url('/assets/images/polaf.png');
+
+  transform: rotateY(0deg);
+}
+
+.photo-front img {
+  position: absolute;
+
+  left: 5%;
+  top: 5%;
+  width: 90%;
+  height: 76%;
+
+  object-fit: cover;
+}
+
+.photo-back {
+  background: url('/assets/images/polab.png');
+
+  transform: rotateY(180deg);
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  color: #111;
 }
 
 .photo-front,
@@ -362,38 +386,54 @@
 
   overflow: hidden;
 
-  border-radius: 18px;
-
-  background: white;
+  border-radius: 6px;
 
   padding: 18px 18px 40px;
 
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.photo-front {
-  transform: rotateY(0deg);
+/* ======================================
+PAPERCLIP
+====================================== */
+.paperclip {
+  position: absolute;
+
+  right: 200px;
+  top: -18px;
+
+  width: 130px;
+
+  z-index: 60;
+
+  pointer-events: none;
+
+  transform: rotate(-75deg) translateY(10px) translateX(-35px);
+
+  transition:
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.5s;
+
+  filter: drop-shadow(0 10px 12px rgba(0, 0, 0, 0.25));
 }
 
-.photo-back {
-  transform: rotateY(180deg);
-
-  display: flex;
-
-  flex-direction: column;
-
-  justify-content: center;
-
-  color: #111;
+.preview:hover + .paperclip,
+.preview.flipped:hover + .paperclip {
+  transform: rotate(-75deg) translateX(-112px) translateY(-280px);
 }
 /* ======================================
-   DETAILS
+DETAILS
 ====================================== */
 
 .details {
+  position: absolute;
   border-top: 1px dashed rgba(0, 0, 0, 0.2);
 
-  padding-top: 1rem;
+  right: 340px;
 
   font-family: monospace;
 }
@@ -407,7 +447,7 @@
 
   bottom: 25px;
 
-  right: 40px;
+  right: 340px;
 
   font-family: monospace;
 
