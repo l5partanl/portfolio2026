@@ -29,12 +29,12 @@
 }
 
 .about h1 img {
-  width: 220px;
+  width: 240px;
   height: auto;
 
   margin-bottom: 0rem;
 
-  transform: translateY(10px) translateX(-12px) rotate(-2deg);
+  transform: translateY(10px) translateX(-36px) rotate(-2deg);
 }
 
 .highlighted-name {

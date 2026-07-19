@@ -12,8 +12,6 @@
   align-items: center;
   justify-content: center;
 
-  overflow: hidden;
-
   color: white;
 }
 
@@ -74,11 +72,24 @@
 .deck {
   position: relative;
 
-  width: 65vw;
-
-  height: 48vh;
+  margin-left: -80px;
+  width: 1000px;
+  height: 350px;
 
   perspective: 1200px;
+}
+
+.lines {
+  position: absolute;
+  overflow: visible;
+  left: -380px;
+  top: 100px;
+}
+
+.lines img {
+  width: 360px;
+  display: block;
+  transform: rotate(-15deg);
 }
 
 /* ======================================
@@ -146,7 +157,7 @@
 
   background: linear-gradient(145deg, #f1ede2, #d6cfbd);
 
-  border: 1px solid rgba(255, 255, 255, 0.8);
+  border: px solid rgba(255, 255, 255, 0.8);
 
   box-shadow:
     0 20px 20px rgba(0, 0, 0, 0.35),
@@ -160,18 +171,9 @@
 ====================================== */
 
 .project-card.active {
-  transform: rotate(-2deg) translateY(0);
-
   z-index: 20;
-
   animation: floatCard 7s ease-in-out infinite;
   pointer-events: auto;
-}
-
-.project-card.active.selected {
-  transform: translateY(-20px);
-
-  z-index: 100;
 }
 
 .project-card:not(.active) .preview {
@@ -228,16 +230,6 @@
   opacity: 0.12;
 
   pointer-events: none;
-}
-
-/* ======================================
-   LAYERS
-====================================== */
-
-.paper-noise,
-.hologram,
-.ticket-cut {
-  z-index: 2;
 }
 
 /* ======================================
@@ -304,7 +296,7 @@
 
   overflow: visible;
 
-  right: -10px;
+  right: -65px;
 
   top: 4%;
 
@@ -352,10 +344,10 @@
 .photo-front img {
   position: absolute;
 
-  left: 5%;
+  left: 4%;
   top: 5%;
-  width: 90%;
-  height: 76%;
+  width: 91%;
+  height: 77%;
 
   object-fit: cover;
 }
@@ -404,7 +396,7 @@ PAPERCLIP
   position: absolute;
 
   right: 200px;
-  top: -18px;
+  top: -14px;
 
   width: 130px;
 
@@ -412,7 +404,7 @@ PAPERCLIP
 
   pointer-events: none;
 
-  transform: rotate(-75deg) translateY(10px) translateX(-35px);
+  transform: rotate(-74deg) translateY(10px) translateX(-35px);
 
   transition:
     transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
@@ -423,7 +415,7 @@ PAPERCLIP
 
 .preview:hover + .paperclip,
 .preview.flipped:hover + .paperclip {
-  transform: rotate(-75deg) translateX(-112px) translateY(-280px);
+  transform: rotate(-75deg) translateX(-113px) translateY(-280px);
 }
 /* ======================================
 DETAILS

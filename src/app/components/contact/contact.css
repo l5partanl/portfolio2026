@@ -1,4 +1,6 @@
 .contact-layout {
+  position: relative;
+
   height: 100%;
 
   display: flex;
@@ -6,6 +8,18 @@
   justify-content: center;
 
   gap: 2rem;
+}
+
+.lines {
+  position: absolute;
+  right: 10vw;
+  bottom: 15vh;
+}
+
+.lines img {
+  width: 360px;
+  display: block;
+  transform: rotate(-15deg);
 }
 
 .contact-card {

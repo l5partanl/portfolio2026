@@ -34,10 +34,10 @@ export class Home {
 
   colors = [
     [150, 100, 107], // hero
-    [30, 58, 95], // about
+    [59, 95, 58], // about
     [179, 58, 8], // projects
-    [59, 95, 58], // background
-    [216, 210, 196], // contact
+    [30, 58, 95], // background
+    [210, 180, 56], // contact
   ];
 
   // =========================

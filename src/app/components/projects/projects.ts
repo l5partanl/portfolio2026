@@ -79,8 +79,8 @@ export class Projects {
       'z-index': this.projects.length - distance,
 
       transform: `
-      translateX(${offset * 90}px)
-      translateY(${distance * 70}px)
+      translateX(${offset * 120}px)
+      translateY(${distance * 80}px)
       scale(${1 - distance * 0.08})
       rotate(${offset * 6}deg)
     `,

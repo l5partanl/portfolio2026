@@ -11,16 +11,21 @@
   </div>
 
   <!-- 3D OBJECT -->
+  <div class="hero-object">
+    <app-model3d
+      class="model"
+      model="assets/models/donut.glb"
+      [scale]="9"
+      [rotY]="1.6"
+      [rotX]="0.2"
+      [rotZ]="0"
+    >
+    </app-model3d>
 
-  <app-model3d
-    class="model"
-    model="assets/models/donut.glb"
-    [scale]="9"
-    [rotY]="1.6"
-    [rotX]="0.2"
-    [rotZ]="0"
-  >
-  </app-model3d>
+    <div class="lines layer-medium">
+      <img src="/assets/images/lines/dontut.png" alt="Gian Caorlin" />
+    </div>
+  </div>
 
   <!-- DECOR ELEMENTS -->
 
