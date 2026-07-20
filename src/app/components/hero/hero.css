@@ -34,7 +34,7 @@ GRID
 
   left: 50%;
   top: 50%;
-  z-index: 15;
+  z-index: 16;
 
   transform: translate(-50%, -50%) translateX(16vw) translateY(12vh);
 }

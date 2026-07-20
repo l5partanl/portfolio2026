@@ -1,14 +1,22 @@
 .about {
+  position: relative;
+
   height: 100vh;
   display: flex;
   align-items: center;
+
   padding-inline: 8vw;
   padding-block: clamp(1rem, 4vh, 5rem);
+
   color: white;
+
   width: 90vw;
   max-width: 880px;
+
   gap: 3rem;
+
   margin: 0 auto;
+
   flex-wrap: wrap;
 }
 
@@ -49,10 +57,10 @@
 
   position: absolute;
   left: 0;
-  bottom: 0.05em;
+  bottom: -0.1em;
 
   width: 100%;
-  height: 0.4em;
+  height: 0.3em;
 
   background: linear-gradient(135deg, var(--pill-color-start), var(--pill-color-end));
 
@@ -64,8 +72,8 @@
   transform-origin: right center;
 
   transition:
-    transform 9s cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 0.6s ease;
+    transform 9s cubic-bezier(0.01, 0.01, 0.16, 1) 2s,
+    opacity 1s ease 2.25s;
 }
 
 .highlighted-name.is-visible::after {
@@ -123,21 +131,56 @@
   transform: scale(1.4) rotate(7deg);
   opacity: 1;
 }
+/* =====================================
+   ABOUT OBJECT
+===================================== */
 
-.model {
+.about-object {
   position: absolute;
 
-  width: 500px;
-  height: 500px;
+  right: -16%;
+  top: 30%;
 
-  left: 180%;
-  top: 20%;
+  transform: translateY(-50%);
 
-  transform: translate(-50%, -50%) translateX(16vw) translateY(12vh);
+  width: clamp(420px, 30vw, 620px);
+  aspect-ratio: 1;
 
   z-index: 15;
+}
+
+/* =====================================
+   MODEL
+===================================== */
+
+.model {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
 
   pointer-events: auto;
+}
+
+/* =====================================
+   DOODLE
+===================================== */
+
+.lines {
+  position: absolute;
+
+  left: 54%;
+  top: 20%;
+
+  z-index: -20;
+}
+
+.lines img {
+  width: clamp(180px, 16vw, 260px);
+
+  display: block;
+
+  transform: rotate(4deg);
 }
 
 @media (max-width: 576px) {
@@ -210,6 +253,6 @@
   }
 
   .model {
-    transform: translate(-160%, -50%) translateY(410% ) translateY(0) scale(.9);
+    transform: translate(-160%, -50%) translateY(410%) translateY(0) scale(0.9);
   }
 }
