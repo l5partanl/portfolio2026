@@ -1,48 +1,136 @@
-footer {
+/* =====================================
+   MINIMAL FIXED SIGNATURE FOOTER
+===================================== */
+
+.site-footer {
   position: fixed;
 
-  /* left: 50%;
-    bottom: 1.8rem;
-    transform: translateX(-50%);*/
+  left: 0;
+
+  bottom: 0;
+
+  width: 100%;
+
+  height: 22px;
+
+  z-index: 3000;
+
+  pointer-events: none;
+
+  overflow: hidden;
+}
+
+/* =====================================
+   BACKGROUND STACK
+===================================== */
+
+.footer-stack {
+  position: absolute;
+  color: white;
+
+  bottom: -5px;
+
+  left: 0;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  opacity: 0.12;
+}
+
+.footer-track {
+  display: flex;
+
+  width: max-content;
+
+  animation: footerScroll 32s linear infinite;
+}
+
+.footer-track span {
+  white-space: nowrap;
+
+  font-size: 2rem;
+
+  line-height: 1;
+
+  font-weight: 600;
+
+  letter-spacing: -0.06em;
+}
+
+@keyframes footerScroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* =====================================
+   SIGNATURE
+===================================== */
+
+.footer-signature {
+  position: absolute;
+
   right: 22px;
-  bottom: 0.1rem;
-  transform: none;
+
+  bottom: 4px;
 
   display: flex;
+
   align-items: center;
+
   gap: 0.8rem;
-  z-index: 3000;
-  pointer-events: none;
-  opacity: 0.65;
+
+  opacity: 0.7;
 }
 
-footer img {
+.footer-signature img {
   height: 16px;
+
   width: auto;
+
   object-fit: contain;
-  margin: 2px;
 }
 
-footer span {
-  font-size: 0.8rem;
-  letter-spacing: 0.1rem;
-  color: rgba(255, 255, 255, 0.8);
+.footer-signature span {
+  font-size: 0.65rem;
+
+  letter-spacing: -1.25em;
+
+  color: rgba(255, 255, 255, 0.75);
+
   white-space: nowrap;
-  transform: translateX(10px);
 }
 
 @media (max-width: 768px) {
-  footer {
-    bottom: 1rem;
-    right: 18px;
+  .site-footer {
+    height: 34px;
   }
 
-  footer img {
-    height: 15px;
+  .footer-stack {
+    opacity: 0.08;
   }
 
-  footer span {
-    font-size: 0.62rem;
-    letter-spacing: 0.18em;
+  .footer-track span {
+    font-size: 2rem;
+  }
+
+  .footer-signature {
+    right: 15px;
+
+    bottom: 5px;
+  }
+
+  .footer-signature img {
+    height: 14px;
+  }
+
+  .footer-signature span {
+    display: none;
   }
 }

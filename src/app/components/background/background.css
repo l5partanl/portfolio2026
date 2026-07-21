@@ -1,153 +1,391 @@
+/* =====================================
+BACKGROUND SECTION
+===================================== */
+
 .background {
   position: relative;
 
-  height: 100%;
+  width: 100%;
+  height: 100vh;
 
   overflow: hidden;
 
   color: white;
 }
 
-.blueprint-grid {
+.background-grid {
   position: absolute;
 
   inset: 0;
 
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
 
   background-size: 80px 80px;
 
-  mask-image: radial-gradient(circle, black, transparent 70%);
+  opacity: 0.35;
 }
 
-.model {
-  position: absolute;
-  transform: translateX(12%) translateY(10%) scale(1.2);
-  inset: 0;
+/* TITLE */
 
-  z-index: 3;
-}
-
-.bg-label {
+.background-title {
   position: absolute;
 
-  top: 12%;
+  left: 6vw;
 
-  left: 8%;
-
-  display: flex;
-
-  flex-direction: column;
-
-  gap: 0.5rem;
-
-  font-size: 0.8rem;
-
-  letter-spacing: 0.3em;
-
-  opacity: 0.8;
+  top: 8vh;
 }
 
-.bg-label small {
-  font-size: 0.55rem;
+.background-title span {
+  font-family: monospace;
+
+  font-size: 0.7rem;
+
+  letter-spacing: 0.5em;
 
   opacity: 0.5;
 }
 
-.statement {
-  position: absolute;
-
-  bottom: 10%;
-
-  left: 8%;
-
-  z-index: 5;
-}
-
-.statement h2 {
-  font-size: clamp(3rem, 7vw, 7rem);
+.background-title h2 {
+  font-size: clamp(3rem, 5vw, 6rem);
 
   line-height: 0.85;
 
-  letter-spacing: -0.06em;
+  letter-spacing: -0.07em;
+
+  margin: 1rem 0;
 
   font-weight: 900;
-
-  margin: 0;
 }
 
-.spec-card {
+.background-title strong {
+  -webkit-text-stroke: 1px white;
+
+  color: transparent;
+}
+
+/* ARTIFACT */
+
+.artifact {
   position: absolute;
 
-  right: 8%;
+  left: 50%;
 
-  bottom: 15%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  width: 430px;
+
+  height: 430px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+.artifact-frame {
+  width: 100%;
+
+  height: 100%;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.12), transparent 70%);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+.artifact app-model3d {
+  width: 100%;
+  height: 100%;
+  z-index: 15;
+}
+
+.artifact-tag {
+  position: absolute;
+
+  bottom: -30px;
+
+  font-family: monospace;
+
+  font-size: 0.65rem;
+
+  letter-spacing: 0.35em;
+
+  opacity: 0.6;
+}
+
+.orbit {
+  position: absolute;
+
+  inset: -50px;
+
+  border-radius: 50%;
+
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+
+  animation: spin 20s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* PANELS */
+
+.panel {
+  position: absolute;
+
+  width: 260px;
+}
+
+.label {
+  font-family: monospace;
+
+  font-size: 0.65rem;
+
+  letter-spacing: 0.4em;
+
+  opacity: 0.45;
+}
+
+.panel h3 {
+  font-size: 2.4rem;
+
+  line-height: 0.9;
+
+  letter-spacing: -0.05em;
+
+  margin: 0.8rem 0;
+}
+
+.panel p {
+  font-size: 0.9rem;
+
+  line-height: 1.6;
+
+  opacity: 0.75;
+}
+
+.origin {
+  left: 7vw;
+
+  bottom: 14vh;
+}
+
+.process {
+  left: 50%;
+
+  bottom: 7vh;
+
+  transform: translateX(-50%);
+}
+
+.systems {
+  right: 7vw;
+
+  bottom: 14vh;
+}
+
+.tags,
+.stack {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 0.5rem;
+
+  margin-top: 1rem;
+}
+
+.tags span,
+.stack span {
+  padding: 0.4rem 0.8rem;
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  border-radius: 50px;
+
+  font-size: 0.65rem;
+
+  font-family: monospace;
+}
+
+.process ul {
+  list-style: none;
+
+  padding: 0;
+
+  margin: 1rem 0;
+}
+
+.process li {
+  display: flex;
+
+  gap: 1rem;
+
+  margin: 0.7rem 0;
+
+  font-family: monospace;
+
+  font-size: 0.8rem;
+}
+
+.process b {
+  opacity: 0.4;
+}
+
+/* =====================================
+   TIMELINE BACKGROUND
+===================================== */
+
+.timeline {
+  position: absolute;
+
+  left: 5%;
+  bottom: 52%;
+
+  width: 70%;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-start;
+
+  z-index: 2;
+
+  opacity: 0.35;
+
+  pointer-events: none;
+}
+
+/* horizontal technical line */
+
+.timeline-line {
+  position: absolute;
+
+  top: 18px;
+
+  left: 0;
+
+  width: 100%;
+
+  height: 1px;
+
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+}
+
+/* points */
+
+.timeline-item {
+  position: relative;
 
   display: flex;
 
   flex-direction: column;
 
-  gap: 0.5rem;
+  gap: 0.4rem;
 
-  font-size: 0.65rem;
+  align-items: center;
 
-  letter-spacing: 0.25em;
-
-  border-left: 1px solid rgba(255, 255, 255, 0.3);
-
-  padding-left: 1rem;
-
-  opacity: 0.7;
+  text-align: center;
 }
 
-/* floating circles */
+/* node */
 
-.orbit {
-  position: absolute;
+.timeline-item::before {
+  content: '';
+
+  width: 10px;
+
+  height: 10px;
 
   border-radius: 50%;
 
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: white;
+
+  border: 2px solid rgba(255, 255, 255, 0.4);
+
+  margin-bottom: 0.4rem;
 }
 
-.orbit-one {
-  width: 500px;
+/* years */
 
-  height: 500px;
+.timeline .year {
+  font-family: monospace;
 
-  right: 10%;
+  font-size: 0.75rem;
 
-  top: 15%;
+  letter-spacing: 0.3em;
 }
 
-.orbit-two {
-  width: 700px;
+/* descriptions */
 
-  height: 700px;
+.timeline .label {
+  font-size: 0.55rem;
 
-  right: 0;
+  letter-spacing: 0.25em;
 
-  top: -10%;
+  opacity: 0.6;
 }
 
-@media (max-width: 768px) {
-  .statement h2 {
-    font-size: 3rem;
+/* current */
+
+.timeline-item.active {
+  opacity: 1;
+}
+
+.timeline-item.active::before {
+  transform: scale(1.6);
+
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 900px) {
+  .background-title {
+    top: 5vh;
+
+    left: 5vw;
   }
 
-  .model {
-    transform: translateX(0) translateY(0) scale(1);
+  .artifact {
+    width: 280px;
+
+    height: 280px;
+
+    top: 45%;
   }
 
-  .spec-card,
-  .orbit-two {
+  .panel {
+    width: 180px;
+  }
+
+  .origin {
+    left: 3vw;
+
+    bottom: 8vh;
+  }
+
+  .systems {
+    right: 3vw;
+
+    bottom: 8vh;
+  }
+
+  .process {
     display: none;
-  }
-
-  .orbit-one {
-    width: 300px;
-    height: 300px;
   }
 }

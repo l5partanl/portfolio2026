@@ -1,40 +1,152 @@
 <section class="background">
   <!-- GRID -->
-  <div class="blueprint-grid"></div>
+  <div class="background-grid"></div>
 
-  <!-- HEADER LABEL -->
+  <!-- HEADER -->
+  <div class="background-title layer-fast">
+    <span>BACKGROUND / PROCESS</span>
 
-  <div class="bg-label layer-fast">
-    <span>OBJECT STUDY</span>
-
-    <small> DIGITAL / PHYSICAL SYSTEMS </small>
-  </div>
-
-  <!-- 3D OBJECT -->
-
-  <app-model3d class="model layer-medium"> </app-model3d>
-
-  <!-- DECOR ELEMENTS -->
-
-  <div class="orbit orbit-one layer-slow"></div>
-
-  <div class="orbit orbit-two layer-fast"></div>
-
-  <div class="spec-card layer-slow">
-    <span>MODEL_01</span>
-
-    <span>3D / INTERACTION</span>
-
-    <span>2026</span>
-  </div>
-
-  <div class="statement layer-medium">
     <h2>
       DESIGNING
       <br />
-      DIGITAL
-      <br />
-      OBJECTS.
+      <strong>SYSTEMS</strong>
     </h2>
+  </div>
+
+  <!-- CENTRAL OBJECT -->
+
+  <div class="artifact layer-medium">
+    <div class="artifact-frame">
+      <!-- aquí iría tu modelo 3d -->
+      <app-model3d
+        model="assets/models/cup.glb"
+        [scale]="15"
+        [rotY]="1.8"
+        [rotX]=".6"
+        [rotZ]=".3"
+      >
+      </app-model3d>
+
+      <div class="artifact-tag">
+        THESIS PROJECT
+        <br />
+        INDUSTRIAL DESIGN
+      </div>
+    </div>
+
+    <div class="orbit"></div>
+  </div>
+
+  <!-- LEFT COLUMN -->
+
+  <div class="panel origin layer-slow">
+    <span class="label"> 01 / ORIGIN </span>
+
+    <h3>
+      Industrial
+      <br />
+      Design
+    </h3>
+
+    <p>
+      My foundation comes from designing physical objects, understanding materials, manufacturing
+      processes and human interaction.
+    </p>
+
+    <div class="tags">
+      <span>3D MODELING</span>
+      <span>CAD</span>
+      <span>PROTOTYPING</span>
+    </div>
+  </div>
+
+  <!-- PROCESS -->
+
+  <div class="panel process layer-medium">
+    <span class="label"> 02 / PROCESS </span>
+
+    <h3>
+      From idea
+      <br />
+      to product
+    </h3>
+
+    <ul>
+      <li>
+        <b>01</b>
+        Research & exploration
+      </li>
+
+      <li>
+        <b>02</b>
+        Design systems
+      </li>
+
+      <li>
+        <b>03</b>
+        Development
+      </li>
+
+      <li>
+        <b>04</b>
+        Iteration
+      </li>
+    </ul>
+  </div>
+
+  <!-- RIGHT COLUMN -->
+
+  <div class="panel systems layer-fast">
+    <span class="label"> 03 / SYSTEMS </span>
+
+    <h3>
+      Creative
+      <br />
+      Development
+    </h3>
+
+    <p>
+      Combining design thinking with modern technologies to create functional digital experiences.
+    </p>
+
+    <div class="stack">
+      <span>Angular</span>
+      <span>TypeScript</span>
+      <span>Node.js</span>
+      <span>MySQL</span>
+      <span>Three.js</span>
+      <span>CSS Motion</span>
+    </div>
+  </div>
+
+  <!-- TIMELINE -->
+
+  <div class="timeline">
+    <div class="timeline-line"></div>
+
+    <div class="timeline-item start">
+      <span class="year">2009</span>
+      <span class="label">CREATIVE ROOTS</span>
+    </div>
+
+    <div class="timeline-item">
+      <span class="year">2014</span>
+      <span class="label">DESIGN THINKING</span>
+    </div>
+
+    <div class="timeline-item">
+      <span class="year">2019</span>
+      <span class="label">INDUSTRIAL DESIGN</span>
+    </div>
+
+    <div class="timeline-item">
+      <span class="year">2023</span>
+      <span class="label">DIGITAL SYSTEMS</span>
+    </div>
+
+    <div class="timeline-item active">
+      <span class="year">2026</span>
+      <span class="label">FULL STACK</span>
+    </div>
   </div>
 </section>
