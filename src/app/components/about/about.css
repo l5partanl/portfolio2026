@@ -168,9 +168,9 @@
 
 .lines {
   position: absolute;
-
-  left: 54%;
-  top: 20%;
+opacity: 80%;
+  left: 38%;
+  bottom: -6%;
 
   z-index: -20;
 }
@@ -180,7 +180,33 @@
 
   display: block;
 
-  transform: rotate(4deg);
+  transform: rotate(180deg);
+}
+
+.spec-card {
+  position: absolute;
+  z-index: -20;
+  font-family: monospace;
+
+  left: 62%;
+
+  top: 22%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 0.5rem;
+
+  font-size: 0.65rem;
+
+  letter-spacing: 0.25em;
+
+  border-left: 1px solid rgb(255, 255, 255);
+
+  padding-left: 1rem;
+
+  opacity: 0.7;
 }
 
 @media (max-width: 576px) {

@@ -40,29 +40,40 @@
 .projects-header {
   position: absolute;
 
-  top: 6vh;
+  left: 6vw;
+  top: 14vh;
 
-  left: 8vw;
-
-  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 
 .projects-header span {
+  font-family: monospace;
+
   font-size: 0.7rem;
 
   letter-spacing: 0.5em;
 
-  opacity: 0.45;
+  opacity: 0.5;
+
+  margin-left: 0.15rem;
+
+  margin-bottom: -0.25rem;
+
+  z-index: 2;
 }
 
 .projects-header h2 {
   margin: 0;
 
-  font-size: clamp(2rem, 4vw, 4rem);
+  font-size: clamp(3rem, 5vw, 6rem);
+
+  line-height: 0.85;
+
+  letter-spacing: -0.07em;
 
   font-weight: 900;
-
-  letter-spacing: -0.06em;
 }
 
 /* ======================================

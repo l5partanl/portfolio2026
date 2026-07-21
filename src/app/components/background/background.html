@@ -3,7 +3,7 @@
   <div class="background-grid"></div>
 
   <!-- HEADER -->
-  <div class="background-title layer-fast">
+  <div class="background-title layer-medium">
     <span>BACKGROUND / PROCESS</span>
 
     <h2>
@@ -13,28 +13,24 @@
     </h2>
   </div>
 
-  <!-- CENTRAL OBJECT -->
+  <!-- OBJECTS -->
 
-  <div class="artifact layer-medium">
+  <div class="artifact layer-slow">
     <div class="artifact-frame">
       <!-- aquí iría tu modelo 3d -->
-      <app-model3d
-        model="assets/models/cup.glb"
-        [scale]="15"
-        [rotY]="1.8"
-        [rotX]=".6"
-        [rotZ]=".3"
-      >
+      <app-model3d model="assets/models/cup.glb" [scale]="15" [rotY]="2" [rotX]="0.6" [rotZ]="0.2">
       </app-model3d>
 
-      <div class="artifact-tag">
-        THESIS PROJECT
-        <br />
-        INDUSTRIAL DESIGN
+      <div class="spec-card layer-slow">
+        <span>CUP_01</span>
+
+        <span>3D MODELING TEST</span>
+
+        <span>2011</span>
       </div>
     </div>
 
-    <div class="orbit"></div>
+    <div class="orbit layer-slow"></div>
   </div>
 
   <!-- LEFT COLUMN -->
@@ -135,7 +131,7 @@
     </div>
 
     <div class="timeline-item">
-      <span class="year">2019</span>
+      <span class="year">2017</span>
       <span class="label">INDUSTRIAL DESIGN</span>
     </div>
 

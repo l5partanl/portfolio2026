@@ -15,12 +15,12 @@ header {
 .logo {
   position: absolute;
   left: 2vw;
-  top: 50%;
+  top: 45%;
   transform: translateY(-50%);
   display: flex;
   align-items: flex-end;
   gap: 0.6rem;
-  height: 80px;
+  height: 60px;
 }
 
 .logo img {
@@ -165,26 +165,14 @@ header {
   position: fixed;
   top: 0;
   left: 0;
+  font-family: monospace;
+  padding: 6px;
 
-  padding: 8px 12px;
-
-  font-size: 11px;
-  letter-spacing: 0.14em;
+  font-size: 13px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
 
-  color: rgba(255, 255, 255, 0.9);
-
-  /* GLASS EFFECT  */
-  background: rgba(20, 20, 20, 0.35);
-  backdrop-filter: blur(14px) saturate(160%);
-  -webkit-backdrop-filter: blur(14px) saturate(160%);
-
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
-
-  box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  color: white;
 
   pointer-events: none;
   white-space: nowrap;
