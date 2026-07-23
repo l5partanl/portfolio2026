@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-projects',
@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   templateUrl: './projects.html',
   styleUrl: './projects.css',
 })
-export class Projects {
+export class Projects implements AfterViewInit {
   projects = [
     {
       title: 'TRAVEL PLATFORM',
@@ -70,6 +70,62 @@ export class Projects {
     project.flipped = !project.flipped;
   }
 
+  tilt(event: MouseEvent) {
+    const card = event.currentTarget as HTMLElement;
+
+    const rect = card.getBoundingClientRect();
+
+    const x = event.clientX - rect.left;
+
+    const y = event.clientY - rect.top;
+
+    const px = x / rect.width;
+
+    const py = y / rect.height;
+
+    const mx = px * 100;
+
+    const my = py * 100;
+
+    card.style.setProperty('--mx', `${mx}%`);
+
+    card.style.setProperty('--my', `${my}%`);
+
+    /*holo movement*/
+
+    const hx = 50 + (px - 0.5) * 80;
+
+    const hy = 50 + (py - 0.5) * 80;
+
+    card.style.setProperty('--hx', `${hx}%`);
+
+    card.style.setProperty('--hy', `${hy}%`);
+
+    /*
+    card tilt
+  */
+
+    card.style.setProperty('--ry', `${(px - 0.5) * 14}deg`);
+
+    card.style.setProperty('--rx', `${-(py - 0.5) * 14}deg`);
+  }
+
+  leave(event: MouseEvent) {
+    const card = event.currentTarget as HTMLElement;
+
+    card.style.setProperty('--rx', '0deg');
+
+    card.style.setProperty('--ry', '0deg');
+
+    card.style.setProperty('--mx', '50%');
+
+    card.style.setProperty('--my', '50%');
+
+    card.style.setProperty('--hx', '50%');
+
+    card.style.setProperty('--hy', '50%');
+  }
+
   cardStyle(index: number) {
     const offset = index - this.activeIndex;
 
@@ -87,5 +143,44 @@ export class Projects {
 
       opacity: Math.max(0.35, 1 - distance * 0.15),
     };
+  }
+  onMove(e: MouseEvent, card: HTMLElement) {
+    const rect = card.getBoundingClientRect();
+
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const mx = x / rect.width;
+    const my = y / rect.height;
+
+    card.style.setProperty('--mx', `${mx * 100}%`);
+    card.style.setProperty('--my', `${my * 100}%`);
+
+    card.style.setProperty('--ry', `${(mx - 0.5) * 18}deg`);
+    card.style.setProperty('--rx', `${-(my - 0.5) * 18}deg`);
+  }
+
+  private idleFrame = 0;
+
+  ngAfterViewInit() {
+    const cards = document.querySelectorAll<HTMLElement>('.project-card');
+
+    const loop = () => {
+      const t = Date.now() / 1500;
+
+      cards.forEach((card) => {
+        card.style.setProperty('--idleX', `${Math.sin(t) * 12}%`);
+
+        card.style.setProperty('--idleY', `${Math.cos(t) * 12}%`);
+      });
+
+      requestAnimationFrame(loop);
+    };
+
+    loop();
+  }
+
+  ngOnDestroy() {
+    cancelAnimationFrame(this.idleFrame);
   }
 }

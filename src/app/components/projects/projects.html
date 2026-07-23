@@ -16,12 +16,12 @@
         [class.active]="i === activeIndex"
         [style]="cardStyle(i)"
         (click)="selectProject(i)"
+        (mousemove)="tilt($event)"
+        (mouseleave)="leave($event)"
       >
         <div class="card-inner">
           <div class="card-surface">
-            <div class="paper-noise"></div>
-
-            <div class="hologram"></div>
+            <div class="foil"></div>
 
             <div class="ticket-cut">
               <span></span>
