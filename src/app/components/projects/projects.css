@@ -114,6 +114,10 @@
 
   transform-origin: center;
 
+  transform: var(--card-transform) perspective(1600px) rotateX(var(--rx)) rotateY(var(--ry));
+
+  transform-style: preserve-3d;
+
   transition:
     transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
     opacity 0.5s;
@@ -156,7 +160,7 @@
 
   transform-style: preserve-3d;
 
-  transform: perspective(1600px) rotateX(var(--rx)) rotateY(var(--ry));
+  transform: none;
 
   transition: transform 2.7s cubic-bezier(0.22, 1, 0.36, 1);
 
@@ -450,21 +454,19 @@
 .preview {
   position: absolute;
 
-  overflow: hidden;
+  overflow: visible;
 
   right: -65px;
-
   top: 4%;
 
   width: 360px;
-
   height: 320px;
 
   padding: 20px 20px 45px;
 
   box-shadow: 0 20px 10px rgba(0, 0, 0, 0.35);
 
-  transform: rotate(6deg);
+  transform: rotate(6deg) translateZ(20px);
 
   transform-style: preserve-3d;
 
@@ -475,77 +477,44 @@
   transition: transform 0.9s cubic-bezier(0.22, 1.4, 0.36, 1);
 }
 
-.preview::before {
-  content: '';
-
-  position: absolute;
-
-  inset: 0;
-
-  border-radius: 6px;
-
-  background: linear-gradient(
-    120deg,
-    transparent 20%,
-
-    rgba(255, 255, 255, 0.45),
-    transparent 55%
-  );
-
-  opacity: 0.35;
-
-  mix-blend-mode: screen;
-
-  pointer-events: none;
-
-  z-index: 10;
-
-  transform: translateX(-120%);
-
-  transition: transform 0.8s ease;
-}
-
 .preview:hover::before {
   transform: translateX(120%);
 }
 
 .preview:hover:not(.flipped) {
-  transform: rotate(-7deg) translateY(-20px) translateX(-50px) scale(1.18);
+  transform: translateZ(190px) rotate(-7deg) translateY(-20px) translateX(-50px) scale(1.18);
 }
 
 /* FLIP */
 
 .preview.flipped {
-  transform: rotateY(180deg) rotate(-7deg);
+  transform: translateZ(20px) rotateY(180deg) rotate(-7deg);
 }
 
 /* HOVER FLIPPED */
 
 .preview.flipped:hover {
-  transform: rotateY(180deg) rotate(7deg) translateY(-30px) translateX(40px) scale(1.18);
+  transform: translateZ(190px) rotateY(180deg) rotate(7deg) translateY(-30px) translateX(40px)
+    scale(1.18);
 }
 
 .photo-front {
   background: url('/assets/images/polaf.png');
-
   transform: rotateY(0deg);
 }
 
 .photo-front img {
   position: absolute;
-
   left: 4%;
   top: 5%;
   width: 91%;
   height: 77%;
-
   object-fit: cover;
 }
 
 .photo-back {
   background: url('/assets/images/polab.png');
-
-  transform: rotateY(180deg);
+  transform: rotateY(180deg) translateY(3px);
 
   display: flex;
 
@@ -559,7 +528,7 @@
 .photo-front,
 .photo-back {
   position: absolute;
-
+  transform-style: preserve-3d;
   inset: 0;
 
   backface-visibility: hidden;
@@ -577,6 +546,35 @@
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+/* ======================================
+PHOTO REFLECTION EFFECT
+====================================== */
+.photo-front::after,
+.photo-back::after {
+  content: '';
+
+  position: absolute;
+  inset: 0;
+
+  border-radius: 6px;
+
+  background: linear-gradient(120deg, transparent 20%, rgba(255, 255, 255, 0.45), transparent 55%);
+
+  opacity: 0.35;
+
+  mix-blend-mode: screen;
+
+  transform: translateX(-120%);
+  transition: transform 0.8s ease;
+
+  pointer-events: none;
+}
+
+.preview:hover .photo-front::after,
+.preview:hover .photo-back::after {
+  transform: translateX(120%);
 }
 /* ======================================
    DISABLE POLAROID INTERACTION
@@ -602,8 +600,8 @@ PAPERCLIP
 .paperclip {
   position: absolute;
 
-  right: 200px;
-  top: -14px;
+  right: 230px;
+  top: -16px;
 
   width: 130px;
 
@@ -611,7 +609,7 @@ PAPERCLIP
 
   pointer-events: none;
 
-  transform: rotate(-74deg) translateY(10px) translateX(-35px);
+  transform: translateZ(25px) rotate(-70deg) translateY(10px) translateX(-35px);
 
   transition:
     transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
@@ -622,7 +620,7 @@ PAPERCLIP
 
 .preview:hover + .paperclip,
 .preview.flipped:hover + .paperclip {
-  transform: rotate(-75deg) translateX(-113px) translateY(-280px);
+  transform: rotate(-75deg) translateX(-115px) translateY(-280px);
 }
 /* ======================================
 DETAILS

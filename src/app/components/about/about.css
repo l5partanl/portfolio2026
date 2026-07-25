@@ -163,25 +163,8 @@
 }
 
 /* =====================================
-   DOODLE
+   3D SPECS DATA
 ===================================== */
-
-.lines {
-  position: absolute;
-opacity: 80%;
-  left: 38%;
-  bottom: -6%;
-
-  z-index: -20;
-}
-
-.lines img {
-  width: clamp(180px, 16vw, 260px);
-
-  display: block;
-
-  transform: rotate(180deg);
-}
 
 .spec-card {
   position: absolute;
