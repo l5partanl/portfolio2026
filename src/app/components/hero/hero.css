@@ -30,16 +30,16 @@ GRID
 .hero-object {
   position: absolute;
 
-  left: 50%;
+  left: 65%;
   top: 50%;
   z-index: 16;
 
-  transform: translate(-50%, -50%) translateX(16vw) translateY(12vh);
+  transform: translate(-50%, -50%) translateY(12vh);
 }
 
 .model {
-  width: 500px;
-  height: 500px;
+  width: 580px;
+  height: 580px;
   pointer-events: auto;
 }
 
@@ -54,15 +54,14 @@ GRID
 
 .lines {
   position: absolute;
-  left: 380px;
-  top: -10px;
+  left: 83%;
+  top: 20%;
 }
 
 .lines img {
   width: 420px;
   display: block;
-
-  transform: rotate(-50deg);
+  transform: rotate(-35deg);
 }
 
 /*======================
@@ -74,7 +73,7 @@ mockup
 
   top: 12%;
 
-  left: 8%;
+  left: var(--page-margin);
 
   display: flex;
 
@@ -100,7 +99,7 @@ mockup
   color: white;
   bottom: 10%;
 
-  left: 8%;
+  left: var(--page-margin);
 
   z-index: 5;
 }
@@ -122,7 +121,9 @@ mockup
   z-index: -20;
   font-family: monospace;
   color: white;
-  left: 72%;
+
+  right: 20%;
+  left: auto;
 
   bottom: 16%;
 
@@ -154,23 +155,20 @@ mockup
 }
 
 .orbit-one {
-  width: 500px;
+  width: 600px;
 
-  height: 500px;
-
-  right: 10%;
+  height: 600px;
+  right: calc(var(--page-margin));
 
   top: 15%;
 }
 
 .orbit-two {
-  width: 700px;
+  width: 750px;
 
-  height: 700px;
+  height: 750px;
 
-  right: 0;
-
-  top: -10%;
+  right: calc(var(--page-margin) - 100px);
 }
 
 @media (max-width: 768px) {

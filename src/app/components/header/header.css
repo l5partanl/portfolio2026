@@ -14,7 +14,7 @@ header {
 
 .logo {
   position: absolute;
-  left: 2vw;
+  left: var(--page-margin);
   top: 45%;
   transform: translateY(-50%);
   display: flex;
