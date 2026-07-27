@@ -12,8 +12,8 @@
 
 .lines {
   position: absolute;
-  right: 10vw;
-  bottom: 15vh;
+  right: var(--page-margin);
+  bottom: var(--page-top);
 }
 
 .lines img {

@@ -71,9 +71,8 @@ mockup
 .bg-label {
   position: absolute;
 
-  top: 12%;
-
   left: var(--page-margin);
+  top: var(--page-top);
 
   display: flex;
 

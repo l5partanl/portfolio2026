@@ -11,6 +11,7 @@ body {
 
 :root {
   --page-margin: clamp(48px, 6vw, 96px);
+  --page-top: clamp(90px, 12vh, 140px);
   --content-width: min(1600px, calc(100vw - var(--page-margin) * 2));
 
   /* =========================
