@@ -1,7 +1,11 @@
 <header>
-  <div class="logo">
+  <div class="logo" [class.compact]="currentSection > 0.85">
     <img src="/assets/images/lines/firm.png" alt="Gian" />
-    <span>Full-stack developer | Industrial designer</span>
+    <span class="logo-description" [class.visible]="currentSection > 1.65">
+      Full-stack developer
+      <br />
+      Industrial designer
+    </span>
   </div>
 
   <nav class="section-indicator">

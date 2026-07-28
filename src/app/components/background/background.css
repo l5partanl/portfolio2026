@@ -24,7 +24,7 @@ BACKGROUND SECTION
 
   background-size: 80px 80px;
 
-  opacity: 0.35;
+  opacity: 0.45;
 }
 
 /* TITLE */
@@ -45,11 +45,11 @@ BACKGROUND SECTION
 
   font-size: 0.7rem;
 
-  letter-spacing: 0.5em;
+  letter-spacing: 0.3em;
 
   opacity: 0.5;
 
-  margin-left: 0.15rem;
+  margin-left: 0.4rem;
 
   margin-bottom: -0.25rem;
 
