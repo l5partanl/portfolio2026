@@ -10,7 +10,7 @@ export class Projects implements AfterViewInit {
   projects = [
     {
       title: 'TRAVEL PLATFORM',
-      year: '2026',
+      year: '2025',
       type: 'FULL STACK APPLICATION',
 
       image:
@@ -19,38 +19,46 @@ export class Projects implements AfterViewInit {
       stack: ['Angular', 'Node.js', 'MySQL', 'TypeScript'],
 
       description:
-        'A collaborative travel platform where users create, manage and join experiences.',
+        'This is a fullstack project that allows users to create and be part of diverse trips. Kind of a traveling airBnb. Done with a MySql database, a back structured in node.js and an Angular typed front.',
 
       flipped: false,
+
+      note: 'A collaborative travel platform where users create, manage and join experiences.',
     },
 
     {
       title: 'INTERACTIVE TABLE',
-      year: '2026',
+      year: '2025',
       type: 'INTERACTION DESIGN',
 
       image:
         'https://res.cloudinary.com/dmfyesbwp/image/upload/v1746878625/blogdeviajes_wpl2k8.gif',
 
-      stack: ['Angular', 'Three.js', 'WebGL'],
+      stack: ['Angular', 'Three.js', 'WebGL', 'MongoDB'],
 
-      description: 'A spatial interface connecting physical objects with digital interaction.',
+      description:
+        'This is a fullstack project loaded via REST client. The culmination of my full-stack course that alows me to experiment with different logics and where i can put all my knowledge not just from programing but from design as well.',
 
       flipped: false,
+
+      note: 'A spatial interface connecting physical objects with digital interaction.',
     },
 
     {
-      title: 'PORTFOLIO SYSTEM',
-      year: '2026',
+      title: 'TRIPS BLOG',
+      year: '2024',
       type: 'CREATIVE DEVELOPMENT',
 
-      image: 'assets/projects/portfolio.gif',
+      image:
+        'https://res.cloudinary.com/dmfyesbwp/image/upload/v1746878625/blogdeviajes_wpl2k8.gif',
 
       stack: ['Angular', 'CSS', 'Motion'],
 
       description: 'A digital playground exploring interfaces, animation and creative coding.',
 
       flipped: false,
+
+      note: 'A fullstack projectwith a badass parallax effect.',
     },
   ];
 
