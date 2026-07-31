@@ -24,6 +24,8 @@ export class Projects implements AfterViewInit {
       flipped: false,
 
       note: 'A collaborative travel platform where users create, manage and join experiences.',
+
+      link: '',
     },
 
     {
@@ -42,6 +44,8 @@ export class Projects implements AfterViewInit {
       flipped: false,
 
       note: 'A spatial interface connecting physical objects with digital interaction.',
+
+      link: 'https://portfolio-faf73.web.app/',
     },
 
     {
@@ -54,11 +58,14 @@ export class Projects implements AfterViewInit {
 
       stack: ['Angular', 'CSS', 'Motion'],
 
-      description: 'A digital playground exploring interfaces, animation and creative coding.',
+      description:
+        'A small digital playground exploring interfaces, animation and creative coding.',
 
       flipped: false,
 
-      note: 'A fullstack projectwith a badass parallax effect.',
+      note: 'A fullstack (mostly front-end) project with a badass parallax effect and other experiments.',
+
+      link: '',
     },
   ];
 

@@ -42,7 +42,14 @@
                 <span class="type">
                   {{ project.type }}
                 </span>
-
+                @if (project.link && activeIndex === i) {
+                  <a class="project-link" [href]="project.link" target="_blank" rel="noopener">
+                    <span class="sticker-text">
+                      <small>AVAILABLE</small>
+                      <strong>LIVE PROJECT</strong>
+                    </span>
+                  </a>
+                }
                 <h3>
                   {{ project.title }}
                 </h3>

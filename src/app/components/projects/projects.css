@@ -646,6 +646,125 @@ DETAILS
 }
 
 /* ======================================
+LINK
+====================================== */
+
+.project-link {
+  position: absolute;
+
+  right: 8rem;
+  top: -1.8rem;
+
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+
+  padding: 1.2rem 1.6rem;
+
+  color: #111;
+  text-decoration: none;
+
+  background: #e5e3af;
+
+  border-radius: 8px;
+
+  border: 2px solid rgba(0, 0, 0, 0.15);
+
+  box-shadow:
+    0 6px 2px rgba(0, 0, 0, 0.18),
+    0 4px 5px rgba(0, 0, 0, 0.05);
+
+  transform: rotate(3deg) translateY(-20px);
+
+  animation: stickerDrop 2.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+
+  z-index: 20;
+}
+
+.project-link ::before {
+  content: '';
+
+  position: absolute;
+
+  inset: 4px;
+
+  border: 1px dashed rgba(0, 0, 0, 0.12);
+
+  border-radius: 5px;
+
+  pointer-events: none;
+}
+
+.sticker-text {
+  display: flex;
+
+  flex-direction: column;
+
+  line-height: 1;
+}
+
+.sticker-text small {
+  font-size: 0.6rem;
+
+  letter-spacing: 0.3em;
+
+  opacity: 0.55;
+}
+
+.sticker-text strong {
+  font-size: 0.8rem;
+
+  letter-spacing: 0.12em;
+}
+
+/* hover */
+
+.project-link:hover {
+  color: darkred;
+  border: 2px solid rgba(139, 0, 0, 0.439);
+}
+
+@keyframes stickerDrop {
+  0% {
+    opacity: 0;
+
+    transform: scale(2) rotate(-20deg);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform: scale(0.9) rotate(8deg);
+  }
+
+  75% {
+    transform: scale(1.05) rotate(2deg);
+  }
+
+  100% {
+    transform: scale(1) rotate(4deg);
+  }
+}
+
+.project-link::after {
+  content: '';
+
+  position: absolute;
+
+  inset: 0;
+
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+
+  opacity: 0;
+
+  transition: 0.5s;
+}
+
+.project-link:hover::after {
+  opacity: 0.5;
+}
+
+/* ======================================
    MOBILE
 ====================================== */
 
