@@ -1,6 +1,20 @@
 <div class="about">
   <div class="about-col photo layer-slow">
-    <img src="/assets/images/profile.png" alt="Gian Caorlin" />
+    <div
+      class="photo-hover"
+      (mousemove)="moveCvTooltip($event)"
+      (mouseenter)="showCvTooltip = true"
+      (mouseleave)="showCvTooltip = false"
+      (click)="downloadCV()"
+    >
+      <img src="/assets/images/profile.png" alt="Gian Caorlin" />
+
+      @if (showCvTooltip) {
+        <div class="cv-tooltip" [style.left.px]="tooltipX" [style.top.px]="tooltipY">
+          DOWNLOAD CV ↗
+        </div>
+      }
+    </div>
   </div>
 
   <div class="about-col text">
