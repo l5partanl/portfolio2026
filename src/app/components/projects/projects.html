@@ -16,7 +16,7 @@
         [class.active]="i === activeIndex"
         [style]="cardStyle(i)"
         (click)="selectProject(i)"
-        (mousemove)="tilt($event)"
+        (mousemove)="tilt($event); photoLight($event)"
         (mouseleave)="leave($event)"
       >
         <div class="card-inner">
@@ -57,12 +57,6 @@
                       {{ item }}
                     </span>
                   }
-                </div>
-
-                <div class="details">
-                  <span> CASE STUDY READY </span>
-
-                  <p>Process, challenges and technical decisions.</p>
                 </div>
               </div>
             </div>

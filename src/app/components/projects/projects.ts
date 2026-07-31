@@ -143,15 +143,16 @@ export class Projects implements AfterViewInit {
       'z-index': this.projects.length - distance,
 
       '--card-transform': `
-translateX(${offset * 120}px)
-translateY(${distance * 80}px)
-scale(${1 - distance * 0.08})
-rotate(${offset * 6}deg)
-`,
+      translateX(${offset * 120}px)
+      translateY(${distance * 80}px)
+      scale(${1 - distance * 0.08})
+      rotate(${offset * 6}deg)
+      `,
 
-      opacity: Math.max(0.35, 1 - distance * 0.15),
+      opacity: Math.max(0.85, 1 - distance * 0.05),
     };
   }
+
   onMove(e: MouseEvent, card: HTMLElement) {
     const rect = card.getBoundingClientRect();
 
@@ -190,5 +191,27 @@ rotate(${offset * 6}deg)
 
   ngOnDestroy() {
     cancelAnimationFrame(this.idleFrame);
+  }
+
+  photoLight(event: MouseEvent) {
+    const card = event.currentTarget as HTMLElement;
+
+    const photo = card.querySelector('.photo-front') as HTMLElement;
+    const back = card.querySelector('.photo-back') as HTMLElement;
+
+    if (!photo) return;
+
+    const rect = photo.getBoundingClientRect();
+
+    const x = ((event.clientX - rect.left) / rect.width) * 100;
+    const y = ((event.clientY - rect.top) / rect.height) * 100;
+
+    photo.style.setProperty('--photo-x', `${x}%`);
+    photo.style.setProperty('--photo-y', `${y}%`);
+
+    if (back) {
+      back.style.setProperty('--photo-x', `${x}%`);
+      back.style.setProperty('--photo-y', `${y}%`);
+    }
   }
 }
