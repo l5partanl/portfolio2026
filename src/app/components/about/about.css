@@ -55,8 +55,8 @@
   color: white;
   border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 999px;
+  font-family: monospace;
   font-size: 1.1rem;
-  font-weight: 700;
   letter-spacing: 0.18em;
   white-space: nowrap;
   pointer-events: none;
@@ -67,13 +67,10 @@
 @keyframes tooltipIn {
   from {
     opacity: 0;
-
     transform: translateY(8px) scale(0.9);
   }
-
   to {
     opacity: 1;
-
     transform: translateY(0) scale(1);
   }
 }
@@ -97,9 +94,7 @@
 .about h1 img {
   width: 240px;
   height: auto;
-
   margin-bottom: 0rem;
-
   transform: translateY(10px) translateX(-36px) rotate(-2deg);
 }
 
@@ -112,23 +107,16 @@
 
 .highlighted-name::after {
   content: '';
-
   position: absolute;
   left: 0;
-  bottom: -0.1em;
-
+  bottom: 0;
   width: 100%;
-  height: 0.3em;
-
+  height: .6rem;
   background: linear-gradient(135deg, var(--pill-color-start), var(--pill-color-end));
-
   z-index: -1;
-
   opacity: 0;
-
   transform: scaleX(0);
   transform-origin: right center;
-
   transition:
     transform 9s cubic-bezier(0.01, 0.01, 0.16, 1) 2s,
     opacity 1s ease 2.25s;
@@ -136,9 +124,7 @@
 
 .highlighted-name.is-visible::after {
   opacity: 1;
-
   transform: scaleX(1);
-
   transform-origin: left center;
 }
 
@@ -189,21 +175,18 @@
   transform: scale(1.4) rotate(7deg);
   opacity: 1;
 }
+
 /* =====================================
    ABOUT OBJECT
 ===================================== */
 
 .about-object {
   position: absolute;
-
   right: -16%;
   top: 30%;
-
   transform: translateY(-50%);
-
   width: clamp(420px, 30vw, 620px);
   aspect-ratio: 1;
-
   z-index: 15;
 }
 
@@ -213,10 +196,8 @@
 
 .model {
   position: relative;
-
   width: 100%;
   height: 100%;
-
   pointer-events: auto;
 }
 
@@ -228,25 +209,15 @@
   position: absolute;
   z-index: -20;
   font-family: monospace;
-
   left: 62%;
-
   top: 22%;
-
   display: flex;
-
   flex-direction: column;
-
   gap: 0.5rem;
-
-  font-size: 0.65rem;
-
+  font-size: 0.875rem;
   letter-spacing: 0.25em;
-
   border-left: 1px solid rgb(255, 255, 255);
-
   padding-left: 1rem;
-
   opacity: 0.7;
 }
 

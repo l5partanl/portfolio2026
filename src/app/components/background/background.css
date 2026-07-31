@@ -43,7 +43,7 @@ BACKGROUND SECTION
 .background-title span {
   font-family: monospace;
 
-  font-size: 0.7rem;
+  font-size: 0.875rem;
 
   letter-spacing: 0.3em;
 
@@ -136,7 +136,7 @@ BACKGROUND SECTION
 
   gap: 0.5rem;
 
-  font-size: 0.65rem;
+  font-size: 0.875rem;
 
   letter-spacing: 0.25em;
 
@@ -176,7 +176,7 @@ BACKGROUND SECTION
 .label {
   font-family: monospace;
 
-  font-size: 0.65rem;
+  font-size: 0.875rem;
 
   letter-spacing: 0.4em;
 
@@ -347,7 +347,7 @@ BACKGROUND SECTION
 .timeline .year {
   font-family: monospace;
 
-  font-size: 0.75rem;
+  font-size: 0.875rem;
 
   letter-spacing: 0.3em;
 }
@@ -355,7 +355,7 @@ BACKGROUND SECTION
 /* descriptions */
 
 .timeline .label {
-  font-size: 0.55rem;
+  font-size: 0.65rem;
 
   letter-spacing: 0.25em;
 

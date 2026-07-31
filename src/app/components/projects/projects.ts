@@ -34,7 +34,7 @@ export class Projects implements AfterViewInit {
       type: 'INTERACTION DESIGN',
 
       image:
-        'https://res.cloudinary.com/dmfyesbwp/image/upload/v1746878625/blogdeviajes_wpl2k8.gif',
+        '',
 
       stack: ['Angular', 'Three.js', 'WebGL', 'MongoDB'],
 
@@ -63,7 +63,7 @@ export class Projects implements AfterViewInit {
 
       flipped: false,
 
-      note: 'A fullstack (mostly front-end) project with a badass parallax effect and other experiments.',
+      note: 'A fullstack (mostly front) project with a badass parallax effect and other experiments.',
 
       link: '',
     },

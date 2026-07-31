@@ -5,30 +5,20 @@ header {
   position: fixed;
   top: 18px;
   left: 0;
-
   width: 100%;
   padding: 2.25rem 0rem;
-
   z-index: 1000;
 }
 
 .logo {
   position: absolute;
-
   left: calc(var(--page-margin) - 8px);
-
   top: 95%;
-
   transform: translateY(-50%);
-
   display: flex;
-
   align-items: flex-end;
-
   gap: 0.6rem;
-
   height: 120px;
-
   transition:
     height 3s cubic-bezier(0.16, 1, 0.3, 1),
     left 10s cubic-bezier(0.16, 1, 0.3, 1),
@@ -43,63 +33,47 @@ header {
 
 .logo img {
   display: block;
-
   height: 100%;
-
   width: auto;
-
   object-fit: contain;
-
   user-select: none;
-
   pointer-events: none;
-
   transition: height 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .logo span {
   font-family: monospace;
   color: rgba(255, 255, 255, 0.6);
-
   line-height: 1.4;
   margin-bottom: 4px;
-
-  font-size: 0.7rem;
-
+  font-size: 0.875rem;
   letter-spacing: 0.3em;
 }
 
 .logo-description {
   display: inline-block;
-
   overflow: hidden;
-
   white-space: nowrap;
-
   max-width: 0;
-
   opacity: 0;
-
   transform: translateX(-15px);
-
   transition:
     max-width 24s cubic-bezier(0.06, 1, 0.03, 1),
     opacity 2.8s ease,
     transform 24s cubic-bezier(0.06, 1, 0.03, 1);
-
   vertical-align: bottom;
 }
 
 .logo-description.visible {
   max-width: 500px;
-
   opacity: 1;
-
   transform: translateX(0);
 }
+
 /* =========================
    INDICATOR (DESKTOP)
 ========================= */
+
 .section-indicator {
   position: absolute;
   left: 50%;
@@ -113,6 +87,7 @@ header {
 /* =========================
    DOT HIT AREA
 ========================= */
+
 .dot-hit-area {
   width: 1.2vw;
   height: 1.2vw;
@@ -132,42 +107,32 @@ header {
 /* =========================
    DOT BASE
 ========================= */
+
 .dot {
   width: 16px;
   height: 16px;
-
   border-radius: 80%;
-
   border: 3px solid white;
-
   background: transparent;
-
   position: relative;
-
   overflow: hidden;
-
   cursor: pointer;
-
   transition: transform 0.08s linear; /* smooth follow */
 }
 
 /* =========================
    FILL INSIDE DOT
 ========================= */
+
 .dot-fill {
   position: absolute;
-
   bottom: 0;
   left: 0;
-
   width: 105%;
   height: 105%;
-
   background: white;
-
   transform-origin: bottom;
   transform: scaleY(0);
-
   transition: transform 0.35s ease;
 }
 
@@ -179,7 +144,6 @@ header {
   display: flex;
   align-items: center;
   gap: 1vw;
-
   opacity: 0.65;
   pointer-events: none;
 }
@@ -188,10 +152,8 @@ header {
 .dot-separator span {
   width: 3px;
   height: 3px;
-
   border-radius: 50%;
   background: white;
-
   animation: separatorPulse 2.4s ease-in-out infinite;
 }
 
@@ -218,6 +180,7 @@ header {
 /* =========================
    TOOLTIP
 ========================= */
+
 .tooltip-floating {
   position: fixed;
   top: 0;
@@ -227,19 +190,13 @@ header {
   color: rgba(255, 255, 255, 0.6);
   text-transform: uppercase;
   line-height: 2;
-
   font-size: 0.7rem;
-
   letter-spacing: 0.3em;
-
   pointer-events: none;
   white-space: nowrap;
-
   z-index: 2000;
-
   /* ENTRY ANIMATION */
   animation: tooltipIn 250ms ease-out forwards;
-
   transform-origin: top left;
 }
 
@@ -249,7 +206,6 @@ header {
     transform: translate(var(--x, 0px), var(--y, 0px)) scale(0.92);
     filter: blur(4px);
   }
-
   100% {
     opacity: 1;
     transform: translate(var(--x, 0px), var(--y, 0px)) scale(1.2);
@@ -260,6 +216,7 @@ header {
 /* =========================
    MOBILE (INDICATOR DISPLAYED VERTICAL RIGHT)
 ========================= */
+
 @media (max-width: 768px) {
   header {
     padding: 1.5rem;

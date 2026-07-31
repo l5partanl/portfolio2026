@@ -41,7 +41,7 @@
 
 .projects-header span {
   font-family: monospace;
-  font-size: 0.7rem;
+  font-size: 0.875rem;
   letter-spacing: 0.3em;
   opacity: 0.5;
   margin-left: 0.4rem;
@@ -296,7 +296,7 @@
 
 .card-top {
   font-family: monospace;
-  font-size: 0.72rem;
+  font-size: 0.875rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;
   opacity: 0.65;
@@ -324,7 +324,7 @@
 }
 
 .type {
-  margin: 20px 0 20px 0;
+  margin: 14px 0 14px 0;
   padding: 0.45rem 0.85rem;
   border: 3px solid rgba(0, 0, 0, 0.22);
   border-radius: 999px;
@@ -445,7 +445,7 @@
   font-size: 2rem;
   font-weight: 700;
   line-height: 1.3;
-  transform: rotate(-22deg) translateY(-26px) translateX(24px);
+  transform: rotate(-12deg) translateY(-26px) translateX(24px);
   user-select: none;
 }
 

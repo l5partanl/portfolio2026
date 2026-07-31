@@ -8,50 +8,34 @@
 
 .hero-content {
   position: absolute;
-
   z-index: 20;
-
   left: var(--page-margin);
   top: var(--page-top);
 }
 
 .eyebrow {
   font-family: monospace;
-
-  font-size: 0.7rem;
-
+  font-size: 0.875rem;
   letter-spacing: 0.3em;
-
   margin-top: 3.6rem;
-
   margin-left: 0.4rem;
-
   color: rgba(255, 255, 255, 0.6);
-
   z-index: 2;
-
   animation: fadeUp 2s 0.2s both;
 }
 
 .title {
   font-size: clamp(3rem, 5vw, 6rem);
-
   line-height: 0.88;
-
   letter-spacing: -0.07em;
-
   font-weight: 900;
-
   margin: 0;
 }
 
 .line {
   display: block;
-
   overflow: visible;
-
   padding-bottom: 0.08em;
-
   animation: titleReveal 2s cubic-bezier(0.86, 1, 0.6, 1) both;
 }
 
@@ -69,46 +53,32 @@
 
 .muted {
   -webkit-text-stroke: 1px rgba(255, 255, 255, 0.9);
-
   color: transparent;
-
   display: block;
-
   margin-top: 0.12em;
 }
 
 .subtitle {
   font-size: 20px;
-
   line-height: 1.5;
-
   color: rgba(255, 255, 255, 0.6);
-
   margin-top: 14vh;
-
   max-width: 420px;
-
   animation: fadeUp 5s 0.8s both;
 }
 
 .stack {
   display: flex;
-
   gap: 10px;
-
   margin-top: 35px;
-
   animation: fadeUp 5s 1s both;
 }
 
 .stack span {
   padding: 8px 15px;
-
   border: 1px solid rgba(255, 255, 255, 0.15);
-
   border-radius: 50px;
-
-  font-size: 12px;
+  font-size: 0.875rem;
 }
 
 /*====================
@@ -117,23 +87,19 @@ GRID
 
 .blueprint-grid {
   position: absolute;
-
   inset: 0;
-
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-
   background-size: 80px 80px;
-
   mask-image: radial-gradient(circle at 70% 50%, black, transparent 70%);
-
   animation: gridIn 2s ease both;
 }
 
 /*======================
 3d MODE
  ======================*/
+
 .hero-object {
   position: absolute;
   left: 65%;
@@ -141,23 +107,28 @@ GRID
   z-index: 16;
   transform: translate(-50%, -50%) translateY(12vh);
 }
+
 .model {
   width: 580px;
   height: 580px;
   pointer-events: auto;
 }
+
 .blueprint-grid,
 .orbit {
   pointer-events: none;
 }
+
 .model {
   position: relative;
 }
+
 .lines {
   position: absolute;
   left: 83%;
   top: 20%;
 }
+
 .lines img {
   width: 420px;
   display: block;
@@ -175,28 +146,32 @@ GRID
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  font-size: 0.65rem;
+  font-size: 0.875rem;
   letter-spacing: 0.25em;
   border-left: 1px solid rgb(255, 255, 255);
   padding-left: 1rem;
   opacity: 0.7;
-} /* floating circles */
+}
+/* floating circles */
 .orbit {
   position: absolute;
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.15);
 }
+
 .orbit-one {
   width: 600px;
   height: 600px;
   right: calc(var(--page-margin));
   top: 15%;
 }
+
 .orbit-two {
   width: 750px;
   height: 750px;
   right: calc(var(--page-margin) - 100px);
 }
+
 @media (max-width: 768px) {
   .hero-object {
     left: 50%;
@@ -214,7 +189,6 @@ ANIMATION
   100% {
     transform: translate(-50%, -50%) translateY(0);
   }
-
   50% {
     transform: translate(-50%, -50%) translateY(-25px);
   }
@@ -223,7 +197,6 @@ ANIMATION
 @keyframes pulse {
   50% {
     transform: scale(1.15);
-
     opacity: 0.5;
   }
 }
@@ -232,7 +205,6 @@ ANIMATION
   from {
     transform: translateY(120%);
   }
-
   to {
     transform: none;
   }
@@ -241,13 +213,11 @@ ANIMATION
 @keyframes fadeUp {
   from {
     opacity: 0;
-
     transform: translateY(30px);
   }
 
   to {
     opacity: 1;
-
     transform: none;
   }
 }
@@ -256,7 +226,6 @@ ANIMATION
   from {
     opacity: 0;
   }
-
   to {
     opacity: 1;
   }
