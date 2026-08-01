@@ -43,7 +43,7 @@ header {
 
 .logo span {
   font-family: monospace;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--muted-text);
   line-height: 1.4;
   margin-bottom: 4px;
   font-size: 0.875rem;

@@ -37,7 +37,7 @@ export class Home {
     [59, 95, 58], // about
     [179, 58, 8], // projects
     [30, 58, 95], // background
-    [210, 180, 56], // contact
+    [200, 160, 56], // contact
   ];
 
   // =========================

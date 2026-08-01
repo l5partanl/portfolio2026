@@ -15,59 +15,26 @@ body {
   --content-width: min(1600px, calc(100vw - var(--page-margin) * 2));
 
   /* =========================
-     BASE BACKGROUNDS
-  ========================= */
-
-  --primary-bg: #120f10;
-  --secondary-bg: #1c1517;
-  --accent-bg: #2a1c1f;
-
-  /* =========================
      CORE IDENTITY COLORS
   ========================= */
 
-  --primary-color: #ff4d6d;
-  --primary-hover: #ff7a8a;
-
-  --accent-color: #ffb703;
-  --secondary-color: #8ecae6;
-
-  /* =========================
-     EXTRA EXPRESSION COLORS (FOR SECTIONS / STATES)
-  ========================= */
-
-  --extra-1: #06d6a0;
-  --extra-2: #8338ec;
-  --extra-3: #fb5607;
+  --primary-color: #ffffff;
+  --primary-hover: #8f1e2b;
 
   /* =========================
      TEXT SYSTEM
   ========================= */
 
-  --text-dark: #f5f1f0;
+  --text-dark: #ffffff;
   --text-light: #120f10;
-
-  --muted-text: #c9b3b3;
-
-  /* =========================
-     SHADOWS
-  ========================= */
-
-  --shadow-light: rgba(0, 0, 0, 0.25);
-  --shadow-medium: rgba(0, 0, 0, 0.5);
-
-  /* =========================
-     SURFACES
-  ========================= */
-
-  --tag-bg: rgba(255, 255, 255, 0.06);
+  --muted-text: #d5c2c2;
 
   /* =========================
      HIGHLIGHT / PILLS (KEY UI MOMENT)
   ========================= */
 
-  --pill-color-start: #ff4d6d;
-  --pill-color-end: #ffb703;
+  --pill-color-start: #e73d5c;
+  --pill-color-end: #e1b954;
   --pill-hover: #8338ec;
 }
 

@@ -34,12 +34,12 @@ export class Projects implements AfterViewInit {
       type: 'INTERACTION DESIGN',
 
       image:
-        '',
+        'https://res.cloudinary.com/dmfyesbwp/image/upload/v1785576874/7C6E5F84-3E7D-4159-9C52-26F8156FC347_snhvze.png',
 
       stack: ['Angular', 'Three.js', 'WebGL', 'MongoDB'],
 
       description:
-        'This is a fullstack project loaded via REST client. The culmination of my full-stack course that alows me to experiment with different logics and where i can put all my knowledge not just from programing but from design as well.',
+        'Another fullstack project loaded via REST client. The culmination of my full-stack course that alows me to experiment with different logics and where i can put all my knowledge not just from programing but from design as well.',
 
       flipped: false,
 

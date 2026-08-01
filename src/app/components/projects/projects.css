@@ -9,7 +9,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: var(--primary-color)
 }
 
 /* ======================================
@@ -43,7 +43,7 @@
   font-family: monospace;
   font-size: 0.875rem;
   letter-spacing: 0.3em;
-  opacity: 0.5;
+  color: var(--muted-text);
   margin-left: 0.4rem;
   margin-bottom: -0.25rem;
   z-index: 2;
@@ -189,24 +189,6 @@
   transition: background-position 0.15s ease-out;
 }
 
-.card-surface::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  background: repeating-linear-gradient(
-    115deg,
-    rgba(255, 255, 255, 0.035) 0px,
-    rgba(255, 255, 255, 0.035) 2px,
-    transparent 2px,
-    transparent 6px
-  );
-  opacity: 0.35;
-  z-index: 11;
-  mix-blend-mode: overlay;
-}
-
 /* ======================================
    MOUSE REFLECTION
 ====================================== */
@@ -251,36 +233,6 @@
   }
   100% {
     filter: brightness(0.75) contrast(0.85) saturate(1.8);
-  }
-}
-
-/* ============================
-   HOLO
-============================ */
-
-.foil::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(120deg, transparent 25%, rgba(255, 255, 255, 0.75), transparent 45%);
-  background-size: 200% 200%;
-  background-position: var(--hx, 50%) var(--hy, 50%);
-  mix-blend-mode: screen;
-  opacity: 0.45;
-  animation: foilFlash 5s ease-in-out infinite;
-}
-
-@keyframes foilFlash {
-  0% {
-    transform: translateX(-40%);
-    opacity: 0.15;
-  }
-  40% {
-    opacity: 0.7;
-  }
-  100% {
-    transform: translateX(60%);
-    opacity: 0.15;
   }
 }
 
@@ -395,7 +347,7 @@
 }
 
 .photo-front {
-  background: url('/assets/images/polaf.png');
+  background: url('https://res.cloudinary.com/dmfyesbwp/image/upload/v1785577806/polaf_qisczo.png');
   transform: rotateY(0deg);
 }
 
@@ -409,12 +361,11 @@
 }
 
 .photo-back {
-  background: url('/assets/images/polab.png');
+  background: url('https://res.cloudinary.com/dmfyesbwp/image/upload/v1785577800/polab_rwts4k.png');
   transform: rotateY(180deg) translateY(3px);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: #111;
 }
 
 .photo-front,
@@ -440,7 +391,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: rgba(214, 212, 242, 0.92);
+  color: var(--muted-text);
   font-family: 'Patrick Hand', cursive;
   font-size: 2rem;
   font-weight: 700;
@@ -455,15 +406,10 @@ PHOTO REFLECTION EFFECT
 .photo-front::after,
 .photo-back::after {
   content: '';
-
   position: absolute;
-
   inset: 0;
-
   border-radius: 6px;
-
   pointer-events: none;
-
   background:
     linear-gradient(120deg, transparent 20%, rgba(255, 255, 255, 0.55), transparent 55%),
     repeating-linear-gradient(
@@ -473,13 +419,9 @@ PHOTO REFLECTION EFFECT
       transparent 2px,
       transparent 5px
     );
-
   mix-blend-mode: screen;
-
   opacity: 0.75;
-
   transform: translateX(-120%);
-
   transition: transform 0.8s ease;
 }
 
@@ -651,96 +593,68 @@ LINK
 
 .project-link {
   position: absolute;
-
   right: 8rem;
   top: -1.8rem;
-
   display: flex;
   align-items: center;
   gap: 0.55rem;
-
   padding: 1.2rem 1.6rem;
-
-  color: #111;
+  color: var(--text-light);
   text-decoration: none;
-
-  background: #e5e3af;
-
+  background: var(--muted-text);
   border-radius: 8px;
-
   border: 2px solid rgba(0, 0, 0, 0.15);
-
   box-shadow:
     0 6px 2px rgba(0, 0, 0, 0.18),
     0 4px 5px rgba(0, 0, 0, 0.05);
-
   transform: rotate(3deg) translateY(-20px);
-
   animation: stickerDrop 2.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-
   z-index: 20;
 }
 
 .project-link ::before {
   content: '';
-
   position: absolute;
-
   inset: 4px;
-
   border: 1px dashed rgba(0, 0, 0, 0.12);
-
   border-radius: 5px;
-
   pointer-events: none;
 }
 
 .sticker-text {
   display: flex;
-
   flex-direction: column;
-
   line-height: 1;
 }
 
 .sticker-text small {
   font-size: 0.6rem;
-
   letter-spacing: 0.3em;
-
   opacity: 0.55;
 }
 
 .sticker-text strong {
   font-size: 0.8rem;
-
   letter-spacing: 0.12em;
 }
-
 /* hover */
-
 .project-link:hover {
-  color: darkred;
-  border: 2px solid rgba(139, 0, 0, 0.439);
+  color: var(--primary-hover);
+  border: 2px solid var(--primary-hover);
 }
 
 @keyframes stickerDrop {
   0% {
     opacity: 0;
-
     transform: scale(2) rotate(-20deg);
   }
-
   50% {
     opacity: 1;
-
     transform: scale(0.9) rotate(8deg);
   }
-
   75% {
     transform: scale(1.05) rotate(2deg);
   }
-
   100% {
     transform: scale(1) rotate(4deg);
   }
@@ -748,15 +662,10 @@ LINK
 
 .project-link::after {
   content: '';
-
   position: absolute;
-
   inset: 0;
-
   background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.8), transparent);
-
   opacity: 0;
-
   transition: 0.5s;
 }
 

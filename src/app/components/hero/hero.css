@@ -3,7 +3,7 @@
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  color: white;
+  color: var(--primary-color);
 }
 
 .hero-content {
@@ -19,7 +19,7 @@
   letter-spacing: 0.3em;
   margin-top: 3.6rem;
   margin-left: 0.4rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--muted-text);
   z-index: 2;
   animation: fadeUp 2s 0.2s both;
 }
@@ -52,7 +52,7 @@
 }
 
 .muted {
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.9);
+  -webkit-text-stroke: 1px var(--muted-text);
   color: transparent;
   display: block;
   margin-top: 0.12em;
@@ -61,7 +61,7 @@
 .subtitle {
   font-size: 20px;
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--muted-text);
   margin-top: 14vh;
   max-width: 420px;
   animation: fadeUp 5s 0.8s both;
@@ -76,7 +76,7 @@
 
 .stack span {
   padding: 8px 15px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid var(--muted-text);
   border-radius: 50px;
   font-size: 0.875rem;
 }
@@ -89,8 +89,8 @@ GRID
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
   background-size: 80px 80px;
   mask-image: radial-gradient(circle at 70% 50%, black, transparent 70%);
   animation: gridIn 2s ease both;
@@ -139,7 +139,6 @@ GRID
   position: absolute;
   z-index: -20;
   font-family: monospace;
-  color: white;
   right: 20%;
   left: auto;
   bottom: 16%;
@@ -148,7 +147,7 @@ GRID
   gap: 0.5rem;
   font-size: 0.875rem;
   letter-spacing: 0.25em;
-  border-left: 1px solid rgb(255, 255, 255);
+  border-left: 1px solid;
   padding-left: 1rem;
   opacity: 0.7;
 }
