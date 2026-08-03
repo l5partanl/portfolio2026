@@ -255,38 +255,167 @@ BACKGROUND SECTION
   box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
 }
 
-@media (max-width: 900px) {
-  .background-title {
-    top: 5vh;
-
-    left: 5vw;
+@media (max-width: 576px) {
+  .background {
+    height: 100vh;
+    overflow: visible;
+    padding-bottom: 30vh;
   }
 
-  .artifact {
-    width: 280px;
+  .background-grid {
+    background-size: 50px 50px;
+    opacity: 0.25;
+  }
 
-    height: 280px;
+  /* =========================
+     TITLE
+  ========================= */
 
-    top: 45%;
+  .background-title {
+    position: absolute;
+    margin-top: 40px;
+    top: 5vh;
+    left: var(--page-margin-mobile);
+  }
+
+  .background-title span {
+    font-size: 0.65rem;
+  }
+
+  .background-title h2 {
+    font-size: 2.8rem;
+    line-height: 0.85;
+  }
+
+  .timeline {
+    position: absolute;
+    top: 180px;
+    left: calc(var(--page-margin-mobile) + 10px);
+    bottom: auto;
+    width: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    opacity: 0.25;
+    z-index: 1;
+  }
+
+  .timeline-line {
+    top: 0;
+    left: 5px;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  }
+
+  .timeline-item {
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    text-align: left;
+    padding-left: 25px;
+  }
+
+  .timeline-item::before {
+    position: absolute;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    margin: 0;
+  }
+
+  .timeline .year {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+  }
+
+  .timeline .label {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
   }
 
   .panel {
-    width: 180px;
+    position: absolute;
+
+  }
+
+  .panel h3 {
+    font-size: 2rem;
+    line-height: 0.9;
+    margin: 0.6rem 0;
+  }
+
+  .panel p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  .label {
+    font-size: 0.65rem;
+  }
+
+  .tags,
+  .stack {
+    gap: 0.35rem;
+
+    margin-top: 0.8rem;
+  }
+
+  .tags span,
+  .stack span {
+    padding: 0.35rem 0.65rem;
+    font-size: 0.55rem;
   }
 
   .origin {
-    left: 3vw;
-
-    bottom: 8vh;
-  }
-
-  .systems {
-    right: 3vw;
-
-    bottom: 8vh;
+    left: var(--page-margin-mobile);
+    top: 320px;
+    width: calc(100vw - var(--page-margin-mobile) * 2);
   }
 
   .process {
     display: none;
+  }
+
+  .systems {
+    left: var(--page-margin-mobile);
+    top: 900px;
+    width: calc(100vw - var(--page-margin-mobile) * 2);
+  }
+
+  .artifact {
+    width: 260px;
+    height: 260px;
+  }
+
+  .artifact-frame {
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .artifact.a {
+    left: 75%;
+    top: 680px;
+    transform: translate(-50%, -50%);
+  }
+
+  .artifact.b {
+    left: 25%;
+    top: 1250px;
+    transform: translate(-50%, -50%);
+  }
+
+  .spec-card {
+    display: none;
+  }
+
+  .orbit {
+    inset: -30px;
+  }
+
+  .systems .stack {
+    max-width: 220px;
   }
 }

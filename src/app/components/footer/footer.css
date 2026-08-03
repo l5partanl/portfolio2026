@@ -111,25 +111,25 @@
 
 @media (max-width: 768px) {
   .site-footer {
-    height: 34px;
+    height: 32px;
   }
 
   .footer-stack {
-    opacity: 0.08;
+    opacity: 0.18;
   }
 
   .footer-track span {
-    font-size: 2rem;
+    font-size: 1.1rem;
+    margin-bottom: 2px;
   }
 
   .footer-signature {
-    right: 15px;
-
+    right: 18px;
     bottom: 5px;
   }
 
   .footer-signature img {
-    height: 14px;
+    height: 16px;
   }
 
   .footer-signature span {

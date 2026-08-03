@@ -215,75 +215,102 @@
 }
 
 @media (max-width: 576px) {
-  .about-bio {
+  .about {
+    width: 100%;
+    padding-inline: var(--page-margin-mobile) calc(var(--page-margin-mobile) + 8vw);
+    box-sizing: border-box;
+    max-width: none;
+    height: auto;
+    min-height: 100vh;
+    display: flex;
     flex-direction: column;
-    padding: 1rem;
-    gap: 2rem;
-    margin-top: 2rem;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .photo-hover {
+    position: relative;
+    display: inline-block;
+      margin-top: 50px;
+  }
+
+  .photo-hover:hover::before {
+    opacity: 0;
+    transform: none;
+  }
+
+  .photo-hover img,
+  .photo-hover:hover img {
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+
+  .about-col.photo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: -0.5rem;
   }
 
   .about-col.photo img {
-    max-width: 200px;
-    margin: 0 auto;
-    transform: translateY(40px);
-  }
-
-  .highlighted-name {
-    font-size: 2.75rem;
+    width: 42vw;
+    max-width: 165px;
+    margin: 0;
   }
 
   .about-col.text {
-    width: 100%;
-    text-align: left;
-  }
-
-  .about-col.text h1 {
-    font-size: 1.8rem;
-    text-align: left;
+    width: 98%;
   }
 
   .about h1 img {
-    width: 200px;
-    transform: translateY(16px) translateX(-10px) rotate(-2deg);
+    width: 170px;
+    transform: translateY(12px) translateX(-8px) rotate(-2deg);
   }
 
-  .about-col.text .hello {
-    font-size: 1.2rem;
-    text-align: left;
+  .highlighted-name {
+    font-size: 2.5rem;
   }
 
   .about-col.text h2 {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
   }
 
   .about-col.text p {
-    font-size: 0.95rem;
-    line-height: 1.5;
-    padding-right: 2rem;
-  }
-
-  .about-col.text ul.social {
-    margin-top: 2rem;
-    gap: 0.5rem;
-
-    margin: 10;
-  }
-
-  .section-intro h1 {
-    font-size: 2rem;
-  }
-
-  .section-intro .hello {
-    font-size: 1.2rem;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    padding-right: 0;
   }
 
   .icon-btn {
-    width: 42px;
-    height: 42px;
+    margin-top: 1rem;
+    padding-right: 0;
+    margin-bottom: 5rem;
   }
 
-  .model {
-    transform: translate(-160%, -50%) translateY(410%) translateY(0) scale(0.9);
+  .about-object {
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
+    width: 100vw;
+    height: 100vw;
+    max-width: 380px;
+    margin: 0 auto;
+    align-self: baseline;
+    z-index: 5;
+  }
+
+  .spec-card {
+    display: none;
+  }
+
+  .cv-tooltip {
+    transform: translateX(50%) translateY(-100%);
+    animation: none;
+    pointer-events: none;
+    font-size: 0.65rem;
+    letter-spacing: 0.22em;
+    opacity: 0.8;
   }
 }

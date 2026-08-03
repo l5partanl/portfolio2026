@@ -44,14 +44,16 @@ header {
 .logo span {
   font-family: monospace;
   color: var(--muted-text);
-  line-height: 1.4;
+  line-height: 1.2;
   margin-bottom: 4px;
   font-size: 0.875rem;
   letter-spacing: 0.3em;
 }
 
 .logo-description {
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
   overflow: hidden;
   white-space: nowrap;
   max-width: 0;
@@ -61,7 +63,10 @@ header {
     max-width 24s cubic-bezier(0.06, 1, 0.03, 1),
     opacity 2.8s ease,
     transform 24s cubic-bezier(0.06, 1, 0.03, 1);
-  vertical-align: bottom;
+}
+
+.logo-description span {
+  line-height: 1;
 }
 
 .logo-description.visible {
@@ -219,10 +224,44 @@ header {
 
 @media (max-width: 768px) {
   header {
-    padding: 1.5rem;
+    top: 0;
+    left: 0;
+    width: 100%;
   }
 
-  /* RIGHT SIDE VERTICAL BAR */
+  .logo,
+  .logo.compact {
+    position: fixed;
+    left: 2%;
+    top: 0.3rem;
+    height: 64px;
+    display: flex;
+    align-items: flex-end;
+    gap: 0.5rem;
+    transform: none;
+    transition: none;
+  }
+
+  .logo img {
+    height: 100%;
+    width: auto;
+  }
+
+  .logo-description span {
+    margin-bottom: -5px;
+    width: 300px;
+  }
+
+  /* Block animation */
+  .logo-description,
+  .logo-description.visible {
+    max-width: none;
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  /* SIDEBAR*/
   .section-indicator {
     position: fixed;
     right: -36vw;
@@ -236,7 +275,29 @@ header {
   }
 
   .dot-separator {
-    flex-direction: column; /* 🔥 rotate layout */
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .tooltip-floating {
+    display: none;
+  }
+
+  /* RIGHT SIDE VERTICAL BAR */
+  .section-indicator {
+    position: fixed;
+    right: -34vw;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    margin: auto;
+    flex-direction: column;
+    gap: 24px;
+    z-index: 2000;
+  }
+
+  .dot-separator {
+    flex-direction: column; /* rotate layout */
     gap: 16px;
   }
 

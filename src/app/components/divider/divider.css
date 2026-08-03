@@ -4,15 +4,11 @@
 
 :host {
   flex: 0 0 12vw;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   position: relative;
-
   overflow: visible;
-
   pointer-events: none;
   opacity: 82%;
 }

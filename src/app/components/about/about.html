@@ -12,7 +12,7 @@
         alt="Gian Caorlin"
       />
 
-      @if (showCvTooltip) {
+      @if (showCvTooltip || isMobile) {
         <div class="cv-tooltip" [style.left.px]="tooltipX" [style.top.px]="tooltipY">
           DOWNLOAD CV ↗
         </div>

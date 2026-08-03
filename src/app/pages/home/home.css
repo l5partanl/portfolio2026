@@ -65,6 +65,7 @@
 
   .frame {
     inset: 12px;
+    margin-bottom: 12px;
   }
 
   .viewport {
@@ -76,7 +77,6 @@
     display: block;
     width: 100%;
     height: auto;
-    transform: none !important;
   }
 
   .slide {

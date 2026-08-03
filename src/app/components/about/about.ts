@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, HostListener, Input } from '@angular/core';
 import { Model3d } from '../model3d/model3d';
 
 @Component({
@@ -31,5 +31,12 @@ export class About {
     link.download = 'CV-GianCaorlin.pdf';
 
     link.click();
+  }
+
+  isMobile = window.innerWidth <= 576;
+
+  @HostListener('window:resize')
+  onResize() {
+    this.isMobile = window.innerWidth <= 576;
   }
 }
