@@ -702,7 +702,7 @@ LINK
     margin-left: var(--page-margin-mobile);
     margin-right: 22vw;
     margin-top: 9rem;
-    padding-bottom: 280px;
+    padding-bottom: 200px;
   }
 
   .card-inner {
@@ -748,13 +748,13 @@ LINK
   .info p {
     font-size: 0.85rem;
     line-height: 1.45;
-    max-width: 90%;
+    max-width: 100%;
   }
 
   .stack {
     position: relative;
     transform: none;
-    margin-top: 1rem;
+    margin-top: .2rem;
     gap: 0.4rem;
   }
 
@@ -767,7 +767,7 @@ LINK
   .preview {
     position: relative;
     width: 220px;
-    height: 220px;
+    height: 170px;
     left: 50%;
     transform: translateZ(30px) translateX(-40%) translateY(-112%) rotate(-6deg);
     z-index: 40;
@@ -809,4 +809,8 @@ LINK
   .sticker-text strong {
     font-size: 0.7rem;
   }
+
+  .lines {
+display: none;
+}
 }

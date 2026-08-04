@@ -267,10 +267,6 @@ BACKGROUND SECTION
     opacity: 0.25;
   }
 
-  /* =========================
-     TITLE
-  ========================= */
-
   .background-title {
     position: absolute;
     margin-top: 40px;
@@ -289,8 +285,8 @@ BACKGROUND SECTION
 
   .timeline {
     position: absolute;
-    top: 180px;
-    left: calc(var(--page-margin-mobile) + 10px);
+    top: 200px;
+    left: calc(var(--page-margin-mobile) + 15px);
     bottom: auto;
     width: auto;
     height: 100%;
@@ -298,7 +294,7 @@ BACKGROUND SECTION
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    opacity: 0.25;
+    opacity: 0.15;
     z-index: 1;
   }
 
@@ -307,7 +303,7 @@ BACKGROUND SECTION
     left: 5px;
     width: 1px;
     height: 100%;
-    background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+    background: linear-gradient(4deg, transparent, rgba(255, 255, 255, 0.95), transparent);
   }
 
   .timeline-item {
@@ -339,7 +335,6 @@ BACKGROUND SECTION
 
   .panel {
     position: absolute;
-
   }
 
   .panel h3 {
@@ -372,8 +367,8 @@ BACKGROUND SECTION
 
   .origin {
     left: var(--page-margin-mobile);
-    top: 320px;
-    width: calc(100vw - var(--page-margin-mobile) * 2);
+    top: 48%;
+    width: calc(90vw - var(--page-margin-mobile) * 2);
   }
 
   .process {
@@ -382,13 +377,14 @@ BACKGROUND SECTION
 
   .systems {
     left: var(--page-margin-mobile);
-    top: 900px;
-    width: calc(100vw - var(--page-margin-mobile) * 2);
+top: 93%;
+    width: calc(90vw - var(--page-margin-mobile) * 2);
   }
 
   .artifact {
     width: 260px;
     height: 260px;
+    z-index: 50;
   }
 
   .artifact-frame {
@@ -396,14 +392,14 @@ BACKGROUND SECTION
   }
 
   .artifact.a {
-    left: 75%;
-    top: 680px;
+    left: 65%;
+    top: 34%;
     transform: translate(-50%, -50%);
   }
 
   .artifact.b {
-    left: 25%;
-    top: 1250px;
+    left: 35%;
+    top: 80%;
     transform: translate(-50%, -50%);
   }
 

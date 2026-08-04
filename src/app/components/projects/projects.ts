@@ -30,7 +30,7 @@ export class Projects implements AfterViewInit {
         'https://res.cloudinary.com/dmfyesbwp/image/upload/v1785576874/7C6E5F84-3E7D-4159-9C52-26F8156FC347_snhvze.png',
       stack: ['Angular', 'Three.js', 'WebGL', 'MongoDB'],
       description:
-        'Another fullstack project loaded via REST client. The culmination of my full-stack course that alows me to experiment with different logics and where i can put all my knowledge not just from programing but from design as well.',
+        'Another fullstack project loaded via REST client. The culmination of my full-stack course that alows me to experiment with different logics, where i can put all my knowledge not just from programing but from design as well.',
       flipped: false,
       note: 'A spatial interface connecting physical objects with digital interaction.',
       link: 'https://portfolio-faf73.web.app/',
@@ -109,7 +109,7 @@ export class Projects implements AfterViewInit {
       return {
         'z-index': this.projects.length - distance,
         '--card-transform': `
-        translateY(${offset * 180}px)
+        translateY(${offset * 200}px)
         scale(${1 - distance * 0.04})
         rotate(${offset * 3}deg)
       `,
@@ -120,7 +120,7 @@ export class Projects implements AfterViewInit {
     return {
       'z-index': this.projects.length - distance,
       '--card-transform': `
-      translateX(${offset * 120}px)
+      translateX(${offset * 180}px)
       translateY(${distance * 80}px)
       scale(${1 - distance * 0.08})
       rotate(${offset * 6}deg)
