@@ -2,13 +2,16 @@
   <div class="projects-grid"></div>
 
   <div class="projects-header layer-medium">
-    <span> SELECTED WORK </span>
+    <!-- <span> SELECTED WORK </span> -->
 
     <h2 class="layer-medium">Projects</h2>
   </div>
   <div class="deck layer-slow">
     <div class="lines layer-medium">
-      <img src="https://res.cloudinary.com/dmfyesbwp/image/upload/v1785577776/cool_leurcd.png" alt="Gian Caorlin" />
+      <img
+        src="https://res.cloudinary.com/dmfyesbwp/image/upload/v1785577776/cool_leurcd.png"
+        alt="Gian Caorlin"
+      />
     </div>
     @for (project of projects; track project.title; let i = $index) {
       <article
@@ -93,7 +96,12 @@
         </div>
 
         <!-- PAPERCLIP -->
-        <img class="paperclip" src="https://res.cloudinary.com/dmfyesbwp/image/upload/v1785577794/clip_ezsbdo.png" alt="" draggable="false" />
+        <img
+          class="paperclip"
+          src="https://res.cloudinary.com/dmfyesbwp/image/upload/v1785577794/clip_ezsbdo.png"
+          alt=""
+          draggable="false"
+        />
       </article>
     }
   </div>

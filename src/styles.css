@@ -9,6 +9,11 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
+html,
+body {
+  touch-action: pan-y;
+}
+
 :root {
   --page-margin: clamp(48px, 6vw, 96px);
   --page-top: clamp(90px, 12vh, 140px);
@@ -55,8 +60,9 @@ body {
   transition: transform 0.5s ease-out;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 576px) {
   body {
+    overflow-x: hidden;
     overflow-y: auto;
   }
 }

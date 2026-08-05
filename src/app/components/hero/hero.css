@@ -110,6 +110,7 @@ GRID
 }
 
 .model {
+  position: relative;
   width: 580px;
   height: 580px;
   pointer-events: auto;
@@ -118,10 +119,6 @@ GRID
 .blueprint-grid,
 .orbit {
   pointer-events: none;
-}
-
-.model {
-  position: relative;
 }
 
 .lines {

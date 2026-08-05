@@ -181,6 +181,7 @@
   width: clamp(420px, 30vw, 620px);
   aspect-ratio: 1;
   z-index: 15;
+  pointer-events: none;
 }
 
 /* =====================================
@@ -230,7 +231,7 @@
   .photo-hover {
     position: relative;
     display: inline-block;
-      margin-top: 50px;
+    margin-top: 50px;
   }
 
   .photo-hover:hover::before {
