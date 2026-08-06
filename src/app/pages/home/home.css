@@ -65,6 +65,10 @@
     width: 100%;
   }
 
+  .bg-layer {
+    height: 120%;
+  }
+
   .frame {
     inset: 12px;
     margin-bottom: 12px;

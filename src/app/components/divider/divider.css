@@ -26,10 +26,9 @@
 @media (max-width: 768px) {
   :host {
     width: 200%;
-    height: 80vh;
+    height: 76vh;
     margin-left: -50vw;
     margin-top: -20vh;
-
     flex: 0 0 35vh;
   }
 }

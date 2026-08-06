@@ -20,6 +20,17 @@ export class Header {
   mouseX = 0;
   mouseY = 0;
 
+  isMobile = false;
+
+  constructor() {
+    this.isMobile = window.innerWidth <= 768;
+  }
+
+  @HostListener('window:resize')
+  onResize() {
+    this.isMobile = window.innerWidth <= 768;
+  }
+
   // store dot positions
   private dots: DOMRect[] = [];
 
@@ -45,6 +56,11 @@ export class Header {
   // MAGNET POSITION
   // =========================
   getMagnetStyle(i: number): string {
+    // MOBILE: sin magnetismo
+    if (this.isMobile) {
+      return 'translate(0px,0px)';
+    }
+
     const el = this.dots[i];
     if (!el) return 'translate(0px,0px)';
 
@@ -56,9 +72,11 @@ export class Header {
 
     const dist = Math.sqrt(dx * dx + dy * dy);
 
-    const radius = 80; // influence radius
+    const radius = 80;
 
-    if (dist > radius) return 'translate(0px,0px)';
+    if (dist > radius) {
+      return 'translate(0px,0px)';
+    }
 
     const strength = (1 - dist / radius) * 10;
 

@@ -218,7 +218,7 @@
 @media (max-width: 576px) {
   .about {
     width: 100%;
-    padding-inline: var(--page-margin-mobile) calc(var(--page-margin-mobile) + 8vw);
+    padding-inline: var(--page-margin-mobile) var(--page-margin-mobile);
     box-sizing: border-box;
     max-width: none;
     height: auto;
@@ -307,7 +307,7 @@
   }
 
   .cv-tooltip {
-    transform: translateX(50%) translateY(-100%);
+    transform: translateX(40%) translateY(-100%);
     animation: none;
     pointer-events: none;
     font-size: 0.65rem;

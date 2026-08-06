@@ -179,7 +179,9 @@ export class Model3d implements AfterViewInit, OnDestroy {
     this.renderer.setSize(width, height);
     this.viewer.nativeElement.appendChild(this.renderer.domElement);
     const canvas = this.renderer.domElement;
-    canvas.style.touchAction = 'none';
+
+    canvas.style.touchAction = 'pan-y';
+
     canvas.addEventListener('pointerdown', this.pointerDown);
     canvas.addEventListener('pointermove', this.pointerMove);
     canvas.addEventListener('pointerup', this.pointerUp);
@@ -293,9 +295,15 @@ export class Model3d implements AfterViewInit, OnDestroy {
   */
 
   private pointerDown = (e: PointerEvent) => {
+    if (e.pointerType === 'touch') {
+      this.renderer.domElement.style.touchAction = 'none';
+    }
+
     this.dragging = true;
+
     this.previousPointer.x = e.clientX;
     this.previousPointer.y = e.clientY;
+
     this.renderer.domElement.setPointerCapture(e.pointerId);
   };
 
@@ -311,6 +319,8 @@ export class Model3d implements AfterViewInit, OnDestroy {
 
   private pointerUp = () => {
     this.dragging = false;
+
+    this.renderer.domElement.style.touchAction = 'pan-y';
   };
 
   /*

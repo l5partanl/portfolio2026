@@ -16,8 +16,16 @@ canvas {
   height: 100%;
   touch-action: none;
   cursor: grab;
+  pointer-events: auto;
+  display: block;
 }
 
 canvas:active {
   cursor: grabbing;
+}
+
+@media (max-width: 768px) {
+  canvas {
+    touch-action: pan-y;
+  }
 }

@@ -262,7 +262,11 @@ header {
   }
 
   /* SIDEBAR*/
+
   .section-indicator {
+    display: none;
+  }
+  /*.section-indicator {
     position: fixed;
     right: -36vw;
     top: 50%;
@@ -277,29 +281,7 @@ header {
   .dot-separator {
     flex-direction: column;
     gap: 16px;
-  }
-
-  .tooltip-floating {
-    display: none;
-  }
-
-  /* RIGHT SIDE VERTICAL BAR */
-  .section-indicator {
-    position: fixed;
-    right: -34vw;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 0;
-    margin: auto;
-    flex-direction: column;
-    gap: 24px;
-    z-index: 2000;
-  }
-
-  .dot-separator {
-    flex-direction: column; /* rotate layout */
-    gap: 16px;
-  }
+  }*/
 
   .tooltip-floating {
     display: none;

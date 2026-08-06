@@ -232,7 +232,7 @@ ANIMATION
 
   .hero-content {
     left: var(--page-margin-mobile);
-    right: calc(var(--page-margin-mobile) + 8vw);
+    right: var(--page-margin-mobile);
     z-index: 20;
   }
 
@@ -248,13 +248,14 @@ ANIMATION
 
   .line {
     animation: none;
+    width: 80%;
   }
 
   .muted {
     text-align: right;
     width: 100%;
     padding-right: 0.5rem;
-    margin-top: 30vh;
+    margin-top: 32vh;
   }
 
   .subtitle {
@@ -306,8 +307,8 @@ ANIMATION
   }
 
   .hero-object {
-    left: 48%;
-    bottom: -44vh;
+    left: 50%;
+    bottom: -48%;
     z-index: 20;
   }
   .model {

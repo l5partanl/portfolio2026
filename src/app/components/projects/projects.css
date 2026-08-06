@@ -328,10 +328,6 @@
   transition: transform 0.9s cubic-bezier(0.22, 1.4, 0.36, 1);
 }
 
-.preview:hover::before {
-  transform: translateX(120%);
-}
-
 .preview:hover:not(.flipped) {
   transform: translateZ(190px) rotate(-7deg) translateY(-20px) translateX(-50px) scale(1.18);
 }
@@ -692,22 +688,21 @@ LINK
     top: 2rem;
     margin-top: 40px;
     left: var(--page-margin-mobile);
-    right: 18vw; /* deja espacio para la navegación */
+    right: var(--page-margin-mobile);
     z-index: 1;
   }
 
   .deck {
     width: calc(100vw - var(--page-margin-mobile) - 28vw);
     max-height: 620px;
-    margin-left: var(--page-margin-mobile);
-    margin-right: 22vw;
+    margin-left: -8%;
     margin-top: 9rem;
     padding-bottom: 200px;
   }
 
   .card-inner {
-  padding:1rem;
-  border-radius:24px;
+    padding: 1rem;
+    border-radius: 24px;
     display: flex;
     flex-direction: column;
   }
@@ -754,7 +749,7 @@ LINK
   .stack {
     position: relative;
     transform: none;
-    margin-top: .2rem;
+    margin-top: 0.2rem;
     gap: 0.4rem;
   }
 
@@ -773,22 +768,48 @@ LINK
     z-index: 40;
   }
 
-  .preview:hover:not(.flipped) {
-    transform: translateZ(120px) rotate(5deg) translateX(-46%) translateY(-112%) scale(1.18);
-  }
+  /* ======================================
+   MOBILE POLAROID - CLICK ONLY
+====================================== */
 
-  .preview.flipped {
-    transform: translateZ(30px) translateX(-40%) translateY(-112%) rotate(-6deg) rotateY(180deg);
-  }
+  @media (max-width: 576px) {
+    /* elimina cualquier reacción hover */
+    .preview:hover:not(.flipped),
+    .preview.flipped:hover {
+      transform: translateZ(30px) translateX(-40%) translateY(-112%) rotate(-6deg);
+    }
 
-  .preview.flipped:hover {
-    transform: translateZ(120px) rotate(5deg) translateX(-46%) translateY(-112%) rotateY(180deg)
-      scale(1.18);
+    /* mantiene solamente el flip */
+    .preview.flipped {
+      transform: translateZ(30px) translateX(-40%) translateY(-112%) rotate(-6deg) rotateY(180deg);
+    }
+
+    /* elimina reflejos activados por hover */
+    .preview:hover .photo-front::after,
+    .preview:hover .photo-back::after {
+      transform: translateX(-120%);
+    }
+
+    /* elimina brillo dinámico */
+    .photo-front::before,
+    .photo-back::before {
+      opacity: 0;
+    }
+
+    /* elimina transición de hover */
+    .preview {
+      transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* si la tarjeta está activa mantiene click */
+    .project-card.active .preview {
+      pointer-events: auto;
+    }
   }
 
   .back-info {
-  font-size: 1.4rem;
-}
+    font-size: 1.4rem;
+  }
 
   .paperclip {
     display: none;
@@ -811,6 +832,6 @@ LINK
   }
 
   .lines {
-display: none;
-}
+    display: none;
+  }
 }
