@@ -7,10 +7,7 @@
       (mouseleave)="showCvTooltip = false"
       (click)="downloadCV()"
     >
-      <img
-        src="https://res.cloudinary.com/dmfyesbwp/image/upload/v1785577818/profile_zktppk.png"
-        alt="Gian Caorlin"
-      />
+      <img src="..\assets\images\profile.png" alt="Gian Caorlin" />
 
       @if (showCvTooltip || isMobile) {
         <div class="cv-tooltip" [style.left.px]="tooltipX" [style.top.px]="tooltipY">
@@ -22,11 +19,7 @@
 
   <div class="about-col text">
     <h1 class="layer-slow">
-      <img
-        class="layer-slow"
-        src="https://res.cloudinary.com/dmfyesbwp/image/upload/v1785577737/himynameis_yhug8x.png"
-        alt="Gian"
-      /><br />
+      <img class="layer-slow" src="..\assets\images\himynameis.png" alt="Gian" /><br />
       <span class="highlighted-name layer-slow" [class.is-visible]="active"> Gian Caorlin </span>.
     </h1>
     <h2 class="layer-fast">Full-stack Developer & Industrial Designer</h2>
@@ -46,37 +39,25 @@
     <ul class="social layer-slow">
       <li>
         <a href="mailto:caorlingiancarlo@gmail.com" class="icon-btn">
-          <img
-            src="https://res.cloudinary.com/dmfyesbwp/image/upload/v1785577748/mail_cjuaet.png"
-            alt="Email"
-          />
+          <img src="..\assets\images\mail.png" alt="Email" />
         </a>
       </li>
 
       <li>
         <a href="https://github.com/l5partanl" target="_blank" class="icon-btn">
-          <img
-            src="https://res.cloudinary.com/dmfyesbwp/image/upload/v1785577731/git_dqe6vz.png"
-            alt="GitHub"
-          />
+          <img src="..\assets\images\git.png" alt="GitHub" />
         </a>
       </li>
 
       <li>
         <a href="https://www.linkedin.com/in/gian-caorlin" target="_blank" class="icon-btn">
-          <img
-            src="https://res.cloudinary.com/dmfyesbwp/image/upload/v1785577771/linkedin_tw5osd.png"
-            alt="LinkedIn"
-          />
+          <img src="..\assets\images\linkedin.png" alt="LinkedIn" />
         </a>
       </li>
 
       <li>
         <a href="https://instagram.com/gian.caorlin" target="_blank" class="icon-btn">
-          <img
-            src="https://res.cloudinary.com/dmfyesbwp/image/upload/v1785577743/insta_bbmmdp.png"
-            alt="Instagram"
-          />
+          <img src="..\assets\images\insta.png" alt="Instagram" />
         </a>
       </li>
     </ul>

@@ -13,7 +13,7 @@ export class Projects implements AfterViewInit {
       year: '2025',
       type: 'FULL STACK APPLICATION',
       image:
-        'https://res.cloudinary.com/dmfyesbwp/image/upload/v1746879800/ezgif-6cad2b15543c2b_rk6lyd.gif',
+        '../assets/images/viajes.png',
       stack: ['Angular', 'Node.js', 'MySQL', 'TypeScript'],
       description:
         'This is a fullstack project that allows users to create and be part of diverse trips. Kind of a traveling airBnb. Done with a MySql database, a back structured in node.js and an Angular typed front.',
@@ -27,7 +27,7 @@ export class Projects implements AfterViewInit {
       year: '2025',
       type: 'INTERACTION DESIGN',
       image:
-        'https://res.cloudinary.com/dmfyesbwp/image/upload/v1785576874/7C6E5F84-3E7D-4159-9C52-26F8156FC347_snhvze.png',
+        '../assets/images/portf.png',
       stack: ['Angular', 'Three.js', 'WebGL', 'MongoDB'],
       description:
         'Another fullstack project loaded via REST client. The culmination of my full-stack course that alows me to experiment with different logics, where i can put all my knowledge not just from programing but from design as well.',
@@ -41,7 +41,7 @@ export class Projects implements AfterViewInit {
       year: '2024',
       type: 'CREATIVE DEVELOPMENT',
       image:
-        'https://res.cloudinary.com/dmfyesbwp/image/upload/v1746878625/blogdeviajes_wpl2k8.gif',
+        '../assets/images/parallax.png',
       stack: ['Angular', 'CSS', 'Motion'],
       description:
         'A small digital playground exploring interfaces, animation and creative coding.',

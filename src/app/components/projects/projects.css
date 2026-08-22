@@ -344,7 +344,7 @@
 }
 
 .photo-front {
-  background: url('https://res.cloudinary.com/dmfyesbwp/image/upload/v1785577806/polaf_qisczo.png');
+  background: url('/assets/images/polaf.png');
   transform: rotateY(0deg);
 }
 
@@ -355,10 +355,11 @@
   width: 91%;
   height: 77%;
   object-fit: cover;
+    border: 2px solid #b8b8b8;
 }
 
 .photo-back {
-  background: url('https://res.cloudinary.com/dmfyesbwp/image/upload/v1785577800/polab_rwts4k.png');
+  background: url('/assets/images/polab.png');
   transform: rotateY(180deg) translateY(3px);
   display: flex;
   flex-direction: column;
