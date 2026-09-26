@@ -1,15 +1,8 @@
 <section class="projects">
   <div class="projects-grid"></div>
-
-  <div class="projects-header layer-medium">
-    <!-- <span> SELECTED WORK </span> -->
-
-    <h2 class="layer-medium">Projects</h2>
-  </div>
+  <div class="projects-header layer-medium"><h2>Projects</h2></div>
   <div class="deck layer-slow">
-    <div class="lines layer-medium">
-      <img src="..\assets\images\cool.png" alt="Cool stuff" />
-    </div>
+    <div class="lines layer-medium"><img src="/assets/images/cool.png" alt="Cool stuff" /></div>
     @for (project of projects; track project.title; let i = $index) {
       <article
         class="project-card"
@@ -21,48 +14,27 @@
       >
         <div class="card-inner">
           <div class="card-surface">
+            <!-- Lightweight holographic layer -->
             <div class="foil"></div>
-
-            <div class="ticket-cut">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-
+            <div class="ticket-cut"><span></span> <span></span> <span></span></div>
             <div class="card-top">
-              <span> PROJECT 0{{ i + 1 }} </span>
-
-              <span>
-                {{ project.year }}
-              </span>
+              <span>PROJECT 0{{ i + 1 }}</span> <span>{{ project.year }}</span>
             </div>
-
             <div class="card-content">
               <div class="info">
-                <span class="type">
-                  {{ project.type }}
-                </span>
+                <span class="type"> {{ project.type }} </span>
                 @if (project.link && activeIndex === i) {
                   <a class="project-link" [href]="project.link" target="_blank" rel="noopener">
                     <span class="sticker-text">
-                      <small>AVAILABLE</small>
-                      <strong>LIVE PROJECT</strong>
+                      <small>AVAILABLE</small> <strong>LIVE PROJECT</strong>
                     </span>
                   </a>
                 }
-                <h3>
-                  {{ project.title }}
-                </h3>
-
-                <p>
-                  {{ project.description }}
-                </p>
-
+                <h3>{{ project.title }}</h3>
+                <p>{{ project.description }}</p>
                 <div class="stack">
                   @for (item of project.stack; track item) {
-                    <span>
-                      {{ item }}
-                    </span>
+                    <span>{{ item }}</span>
                   }
                 </div>
               </div>
@@ -70,9 +42,7 @@
           </div>
           <div class="barcode">|||| |||| |||| ||||</div>
         </div>
-
         <!-- POLAROID -->
-
         <div
           class="preview"
           [class.flipped]="project.flipped"
@@ -82,23 +52,14 @@
             <img [src]="project.image" [alt]="project.title" />
             <span class="photo-label"> PROJECT VIEW </span>
           </div>
-
           <div class="photo-back">
             <div class="back-info">
-              <p>
-                {{ project.note }}
-              </p>
+              <p>{{ project.note }}</p>
             </div>
           </div>
         </div>
-
         <!-- PAPERCLIP -->
-        <img
-          class="paperclip"
-          src="..\assets\images\clip.png"
-          alt=""
-          draggable="false"
-        />
+        <img class="paperclip" src="/assets/images/clip.png" alt="" draggable="false" />
       </article>
     }
   </div>

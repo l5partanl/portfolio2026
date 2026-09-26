@@ -1,6 +1,6 @@
-/* ======================================
-   SECTION
-====================================== */
+/* =========================================================
+   PROJECTS
+   ========================================================= */
 
 .projects {
   position: relative;
@@ -12,10 +12,6 @@
   color: var(--primary-color);
 }
 
-/* ======================================
-   BACKGROUND
-====================================== */
-
 .projects-grid {
   position: absolute;
   inset: 0;
@@ -26,10 +22,6 @@
   opacity: 0.25;
 }
 
-/* ======================================
-   HEADER
-====================================== */
-
 .projects-header {
   position: absolute;
   left: var(--page-margin);
@@ -37,16 +29,7 @@
   display: flex;
   flex-direction: column;
   gap: 0;
-}
-
-.projects-header span {
-  font-family: monospace;
-  font-size: 0.875rem;
-  letter-spacing: 0.3em;
-  color: var(--muted-text);
-  margin-left: 0.4rem;
-  margin-bottom: -0.25rem;
-  z-index: 2;
+  z-index: 5;
 }
 
 .projects-header h2 {
@@ -56,10 +39,6 @@
   letter-spacing: -0.07em;
   font-weight: 900;
 }
-
-/* ======================================
-   DECK
-====================================== */
 
 .deck {
   position: relative;
@@ -81,22 +60,25 @@
   transform: rotate(-15deg);
 }
 
-/* ======================================
-   CARD STACK
-====================================== */
+/* =========================================================
+   CARD
+   ========================================================= */
 
 .project-card {
   position: absolute;
-  height: auto;
   inset: 0;
+  height: auto;
   cursor: pointer;
+
   transform-origin: center;
   transform: var(--card-transform) perspective(1600px) rotateX(var(--rx)) rotateY(var(--ry));
+
   transform-style: preserve-3d;
+
   transition:
     transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 0.5s;
-  pointer-events: auto;
+    opacity 0.5s ease;
+
   --mx: 50%;
   --my: 50%;
   --hx: 50%;
@@ -106,145 +88,136 @@
 }
 
 .project-card:not(.active):hover {
-  filter: brightness(0.75);
+  opacity: 0.78;
 }
 
 .project-card:hover .card-inner {
   transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* ======================================
-   CARD BODY
-====================================== */
-
 .card-inner {
   position: relative;
   width: 100%;
   height: 100%;
   padding: 2.2rem;
+
   border-radius: 35px;
   color: #111;
   overflow: visible;
+
   transform-style: preserve-3d;
-  transform: none;
-  transition: transform 2.7s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: transform;
+
   background: linear-gradient(145deg, #faf7ee, #d8ceb8);
+
   box-shadow:
     0 80px 140px rgba(0, 0, 0, 0.45),
     inset 0 0 90px rgba(0, 0, 0, 0.12);
 }
 
-/* ======================================
-   SURFACE
-====================================== */
+/* =========================================================
+   CARD SURFACE + HOLOGRAM
+   ========================================================= */
 
 .card-surface {
   position: absolute;
   inset: 0;
+
   padding: 2rem 4rem;
+
   border-radius: 32px;
   overflow: hidden;
+
   isolation: isolate;
   transform-style: preserve-3d;
+
   background:
-    radial-gradient(circle at var(--mx) var(--my), rgba(255, 255, 255, 0.45), transparent 85%),
-    linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent 80%),
+    radial-gradient(circle at var(--mx) var(--my), rgba(255, 255, 255, 0.45), transparent 65%),
     linear-gradient(145deg, #f5efe2, #d6ccb7);
+
   border: 2px solid rgba(255, 255, 255, 0.8);
+
   box-shadow:
     inset 0 0 80px rgba(0, 0, 0, 0.12),
     inset 0 2px 10px rgba(255, 255, 255, 0.5),
     0 30px 50px rgba(0, 0, 0, 0.3);
-
-  background-image: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.675)
-  ); /* main holo background reciever*/
 }
 
-/* ======================================
-   PLASTIC
-====================================== */
-
-.card-surface::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  background:
-    /* main reflex */
-    radial-gradient(ellipse at var(--mx) var(--my), rgba(255, 255, 255, 0.75), transparent 35%),
-    /* diagonal reflex */
-    linear-gradient(120deg, transparent 20%, rgba(255, 255, 255, 0.35), transparent 45%);
-  background-size:
-    140% 140%,
-    200% 200%;
-  background-position:
-    var(--mx) var(--my),
-    var(--hx) var(--hy);
-  opacity: 0.55;
-  z-index: 10;
-  mix-blend-mode: screen;
-  transition: background-position 0.15s ease-out;
-}
-
-/* ======================================
-   MOUSE REFLECTION
-====================================== */
+/* Main rainbow chrome */
 
 .foil {
   position: absolute;
-  inset: -40%;
-  border-radius: 60px;
-  background:
-  /* holo rainbow */ repeating-linear-gradient(
-    -45deg,
-    hsl(0, 100%, 60%) 0%,
-    hsl(35, 100%, 65%) 12%,
-    hsl(60, 100%, 65%) 24%,
-    hsl(120, 100%, 60%) 36%,
-    hsl(180, 100%, 65%) 48%,
-    hsl(220, 100%, 70%) 60%,
-    hsl(280, 100%, 70%) 72%,
-    hsl(330, 100%, 65%) 84%,
-    hsl(360, 100%, 60%) 100%
-  );
-  background-size: 250% 250%;
-  /* mouse movement + idle */
-  background-position: calc(var(--hx, 50%) + var(--idleX, 0%))
-    calc(var(--hy, 50%) + var(--idleY, 0%));
-  mix-blend-mode: overlay;
-  filter: brightness(0.85) contrast(0.85) saturate(2);
-  opacity: 0.65;
+  inset: 0;
+
+  border-radius: inherit;
   pointer-events: none;
   z-index: 2;
-  animation: holoBreath 7s ease-in-out infinite;
+
+  background:
+    radial-gradient(circle at var(--mx) var(--my), rgba(255, 255, 255, 0.5), transparent 5%),
+    repeating-linear-gradient(
+      115deg,
+      rgb(255, 40, 119) 0%,
+      rgb(255, 169, 40) 12%,
+      rgb(255, 240, 70) 22%,
+      rgb(70, 255, 150) 34%,
+      rgb(40, 219, 255) 46%,
+      rgb(80, 121, 255) 58%,
+      rgb(191, 80, 255) 70%,
+      rgb(255, 40, 169) 82%,
+      rgb(255, 40, 119) 100%
+    );
+
+  background-size:
+    100% 100%,
+    180% 180%;
+
+  background-position:
+    center,
+    var(--hx) var(--hy);
+
+  background-blend-mode: screen;
+  mix-blend-mode: overlay;
+
+  opacity: 0.7;
 }
 
-/* soft holo movement */
+/* Moving white reflection */
 
-@keyframes holoBreath {
-  0% {
-    filter: brightness(0.75) contrast(0.85) saturate(1.8);
-  }
-  50% {
-    filter: brightness(1) contrast(1) saturate(2.4);
-  }
-  100% {
-    filter: brightness(0.75) contrast(0.85) saturate(1.8);
-  }
+.card-surface::before {
+  content: '';
+
+  position: absolute;
+  inset: 0;
+
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 10;
+
+  background:
+    radial-gradient(ellipse at var(--mx) var(--my), rgba(255, 255, 255, 0.65), transparent 35%),
+    linear-gradient(120deg, transparent 25%, rgba(255, 255, 255, 0.35), transparent 48%);
+
+  background-size:
+    140% 140%,
+    200% 200%;
+
+  background-position:
+    var(--mx) var(--my),
+    var(--hx) var(--hy);
+
+  mix-blend-mode: screen;
+  opacity: 0.5;
 }
 
-/* ======================================
+/* =========================================================
    CONTENT
-====================================== */
+   ========================================================= */
 
 .card-content {
   position: relative;
-  height: 100%;
   width: 72%;
+  height: 100%;
+  z-index: 4;
 }
 
 .card-top {
@@ -253,6 +226,52 @@
   letter-spacing: 0.25em;
   text-transform: uppercase;
   opacity: 0.65;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.type {
+  width: fit-content;
+  margin: 14px 0;
+  padding: 0.45rem 0.85rem;
+
+  border: 3px solid rgba(0, 0, 0, 0.22);
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.35);
+
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.info h3 {
+  margin: 0 0 0.6rem;
+
+  font-size: clamp(2.6rem, 4.4vw, 5.2rem);
+  line-height: 0.82;
+  letter-spacing: -0.06em;
+
+  max-width: 8ch;
+  text-wrap: balance;
+
+  z-index: 5;
+
+  text-shadow: 0 2px 0 rgba(255, 255, 255, 0.18);
+}
+
+.info p {
+  max-width: 66ch;
+  margin: 0;
+
+  font-size: 0.98rem;
+  line-height: 1.7;
+
+  color: rgba(0, 0, 0, 0.72);
 }
 
 .stack {
@@ -264,163 +283,203 @@
 }
 
 .stack span {
-  border: 3px solid rgba(0, 0, 0, 0.224);
   padding: 0.45rem 1rem;
-  background: rgba(0, 0, 0, 0.08);
+
+  border: 3px solid rgba(0, 0, 0, 0.224);
   border-radius: 999px;
+
+  background: rgba(0, 0, 0, 0.08);
+
   font-size: 0.8rem;
 }
 
-.info {
+/* =========================================================
+   LIVE PROJECT — TICKET STRIP
+   ========================================================= */
+
+.project-link {
+  position: absolute;
+  top: -22px;
+  left: -120px;
+  overflow: visible;
+
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 170%;
+  height: 25px;
+
+  color: rgba(70, 8, 8, 0.742);
+  text-decoration: none;
+
+  background: linear-gradient(
+    90deg,
+    rgba(190, 45, 45, 0.18),
+    rgba(210, 55, 55, 0.32),
+    rgba(190, 45, 45, 0.18)
+  );
+
+  border-top: 1px solid rgba(150, 25, 25, 0.35);
+  border-bottom: 1px solid rgba(150, 25, 25, 0.35);
+
+  z-index: 20;
 }
 
-.type {
-  margin: 14px 0 14px 0;
-  padding: 0.45rem 0.85rem;
-  border: 3px solid rgba(0, 0, 0, 0.22);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.35);
-  font-size: 0.72rem;
+/* text */
+
+.sticker-text {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  gap: 0.55rem;
+
+  text-align: center;
+}
+
+.sticker-text small {
+  font-family: monospace;
+
+  font-size: 0.48rem;
   font-weight: 700;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
+
+  letter-spacing: 0.14em;
+
+  opacity: 0.55;
 }
 
-.info h3 {
-  font-size: clamp(2.6rem, 4.4vw, 5.2rem);
-  z-index: 5;
-  line-height: 0.82;
-  margin: 0;
-  letter-spacing: -0.06em;
-  max-width: 8ch;
-  text-wrap: balance;
-  text-shadow: 0 2px 0 rgba(255, 255, 255, 0.18);
-  margin-bottom: 0.6rem;
+.sticker-text strong {
+  font-size: 0.72rem;
+  font-weight: 900;
+
+  line-height: 1;
+
+  letter-spacing: 0.02em;
 }
 
-.info p {
-  max-width: 66ch;
-  margin: 0;
-  font-size: 0.98rem;
-  line-height: 1.7;
-  color: rgba(0, 0, 0, 0.72);
+/* hover */
+
+.project-link:hover {
+
+  background: linear-gradient(
+    90deg,
+    rgba(220, 60, 60, 0.4),
+    rgba(255, 205, 3, 0.548),
+    rgba(190, 35, 35, 0.22)
+  );
 }
 
-/* ======================================
+/* =========================================================
    POLAROID
-====================================== */
+   ========================================================= */
 
 .preview {
   position: absolute;
-  overflow: visible;
+
   right: -65px;
   top: 4%;
+
   width: 360px;
   height: 320px;
+
   padding: 20px 20px 45px;
+
+  overflow: visible;
+
   box-shadow: 0 20px 10px rgba(0, 0, 0, 0.35);
+
   transform: rotate(6deg) translateZ(20px);
   transform-style: preserve-3d;
+
   cursor: pointer;
   z-index: 40;
-  transition: transform 0.9s cubic-bezier(0.22, 1.4, 0.36, 1);
+
+  transition: transform 0.7s cubic-bezier(0.22, 1.2, 0.36, 1);
 }
 
 .preview:hover:not(.flipped) {
-  transform: translateZ(190px) rotate(-7deg) translateY(-20px) translateX(-50px) scale(1.18);
+  transform: translateZ(70px) rotate(-5deg) translateY(-12px);
 }
 
-/* FLIP */
 .preview.flipped {
-  transform: translateZ(20px) rotateY(180deg) rotate(-7deg);
+  transform: translateZ(20px) rotateY(180deg) rotate(-6deg);
 }
 
-/* HOVER FLIPPED */
 .preview.flipped:hover {
-  transform: translateZ(190px) rotateY(180deg) rotate(7deg) translateY(-30px) translateX(40px)
-    scale(1.18);
-}
-
-.photo-front {
-  background: url('/assets/images/polaf.png');
-  transform: rotateY(0deg);
-}
-
-.photo-front img {
-  position: absolute;
-  left: 4%;
-  top: 5%;
-  width: 91%;
-  height: 77%;
-  object-fit: cover;
-  border: 2px solid #b8b8b8;
-}
-
-.photo-back {
-  background: url('/assets/images/polab.png');
-  transform: rotateY(180deg) translateY(3px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  transform: translateZ(70px) rotateY(180deg) rotate(5deg) translateY(-12px);
 }
 
 .photo-front,
 .photo-back {
   position: absolute;
-  transform-style: preserve-3d;
   inset: 0;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  overflow: hidden;
-  border-radius: 6px;
+
   padding: 18px 18px 40px;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+
+  overflow: hidden;
+
+  border-radius: 6px;
+
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
+
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+
+  transform-style: preserve-3d;
+
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
-.back-info {
-  position: absolute;
-  inset: 0;
-  padding: 3rem;
+.photo-front {
+  background-image: url('/assets/images/polaf.png');
+  transform: rotateY(0deg);
+}
+
+.photo-back {
+  background-image: url('/assets/images/polab.png');
+  transform: rotateY(180deg) translateY(3px);
+
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: var(--muted-text);
-  font-family: 'Patrick Hand', cursive;
-  font-size: 2rem;
-  font-weight: 700;
-  line-height: 1.3;
-  transform: rotate(-12deg) translateY(-26px) translateX(24px);
-  user-select: none;
 }
 
-/* ======================================
-PHOTO REFLECTION EFFECT
-====================================== */
+.photo-front img {
+  position: absolute;
+
+  left: 4%;
+  top: 5%;
+
+  width: 91%;
+  height: 77%;
+
+  object-fit: cover;
+
+  border: 2px solid #b8b8b8;
+}
+
 .photo-front::after,
 .photo-back::after {
   content: '';
+
   position: absolute;
   inset: 0;
-  border-radius: 6px;
+
   pointer-events: none;
-  background:
-    linear-gradient(120deg, transparent 20%, rgba(255, 255, 255, 0.55), transparent 55%),
-    repeating-linear-gradient(
-      115deg,
-      rgba(255, 255, 255, 0.035) 0px,
-      rgba(255, 255, 255, 0.035) 1px,
-      transparent 2px,
-      transparent 5px
-    );
-  mix-blend-mode: screen;
-  opacity: 0.75;
+
+  background: linear-gradient(120deg, transparent 20%, rgba(255, 255, 255, 0.5), transparent 55%);
+
+  opacity: 0.55;
+
   transform: translateX(-120%);
-  transition: transform 0.8s ease;
+
+  transition: transform 0.7s ease;
 }
 
 .preview:hover .photo-front::after,
@@ -428,75 +487,58 @@ PHOTO REFLECTION EFFECT
   transform: translateX(120%);
 }
 
-/* ======================================
-   DISABLE POLAROID INTERACTION
-   WHEN CARD IS NOT ACTIVE
-====================================== */
-
-.project-card:not(.active) .preview {
-  pointer-events: none;
-}
-
-.project-card:not(.active) .preview::before {
-  transform: translateX(-120%);
-}
-
-.project-card:not(.active) .preview:hover {
-  transform: rotate(6deg);
-}
-
-/* ======================================
-   POLAROID GLOSSY LAMINATION
-====================================== */
-
-.photo-front::before,
-.photo-back::before {
-  content: '';
+.back-info {
   position: absolute;
   inset: 0;
-  border-radius: 6px;
-  pointer-events: none;
-  z-index: 5;
-  background:
-    radial-gradient(
-      ellipse at var(--photo-x, 50%) var(--photo-y, 50%),
-      rgba(255, 255, 255, 0.55),
-      transparent 35%
-    ),
-    linear-gradient(120deg, transparent 25%, rgba(255, 255, 255, 0.35), transparent 45%);
-  background-size:
-    180% 180%,
-    220% 220%;
-  background-position:
-    var(--photo-x, 50%) var(--photo-y, 50%),
-    var(--photo-x, 50%) var(--photo-y, 50%);
-  transform: rotate(36deg) scale(250%);
-  mix-blend-mode: screen;
-  opacity: 0.45;
-  transition: opacity 0.3s ease;
+
+  padding: 3rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  color: var(--muted-text);
+
+  font-family: 'Patrick Hand', cursive;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.3;
+
+  transform: rotate(-12deg) translateY(-26px) translateX(24px);
+
+  user-select: none;
 }
 
-.photo-front,
-.photo-back {
-  isolation: isolate;
+.photo-label {
+  position: absolute;
+  bottom: 14px;
+  left: 22px;
+
+  font-family: monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
 }
 
-/* ======================================
-PAPERCLIP
-====================================== */
+/* =========================================================
+   OTHER CARD DETAILS
+   ========================================================= */
 
 .paperclip {
   position: absolute;
+
   right: 230px;
   top: -16px;
+
   width: 130px;
+
   z-index: 60;
   pointer-events: none;
+
   transform: translateZ(25px) rotate(-70deg) translateY(10px) translateX(-35px);
-  transition:
-    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-    filter 0.5s;
+
   filter: drop-shadow(0 10px 12px rgba(0, 0, 0, 0.25));
+
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .preview:hover + .paperclip,
@@ -504,237 +546,143 @@ PAPERCLIP
   transform: rotate(-75deg) translateX(-115px) translateY(-280px);
 }
 
-/* ======================================
-DETAILS
-====================================== */
+.project-card:not(.active) .preview {
+  pointer-events: none;
+}
 
 .details {
-  margin-top: auto;
-  padding-top: 1.8rem;
-  border-top: 1px dashed rgba(0, 0, 0, 0.18);
+  margin-top: 1rem;
+  padding-top: 1rem;
+
+  border-top: 2px solid rgba(0, 0, 0, 0.2);
 }
 
 .details span {
   display: block;
-  margin-bottom: 0.45rem;
-  font-family: monospace;
-  font-size: 0.68rem;
-  letter-spacing: 0.28em;
+  margin-bottom: 0.3rem;
+
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  opacity: 0.65;
 }
 
 .details p {
   margin: 0;
-  font-size: 0.9rem;
-  line-height: 1.6;
-  color: rgba(0, 0, 0, 0.6);
-}
 
-/* ======================================
-   BARCODE / DECOR
-====================================== */
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
 
 .barcode {
   position: absolute;
-  bottom: 25px;
-  right: 340px;
+
+  right: 30px;
+  bottom: -25px;
+
   font-family: monospace;
-  letter-spacing: 0.4em;
-  opacity: 0.8;
-  z-index: 5;
-}
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
 
-/* ======================================
-   TICKET CUT
-====================================== */
+  transform: rotate(-90deg);
 
-.ticket-cut {
-  position: absolute;
-  left: 34px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 2px;
-  height: 420px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 10;
-  pointer-events: none;
-  background: repeating-linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.25) 0px,
-    rgba(0, 0, 0, 0.25) 3px,
-    transparent 3px,
-    transparent 8px
-  );
-}
-
-/* ======================================
-   FLOAT
-====================================== */
-
-@keyframes floatCard {
-  0%,
-  100% {
-    translate: 0 0;
-  }
-  50% {
-    translate: 0 -18px;
-  }
-}
-
-/* ======================================
-LINK
-====================================== */
-
-.project-link {
-  position: absolute;
-  right: 8rem;
-  top: -1.8rem;
-  display: flex;
-  align-items: center;
-  gap: 0.55rem;
-  padding: 1.2rem 1.6rem;
-  color: var(--text-light);
-  text-decoration: none;
-  background: var(--muted-text);
-  border-radius: 8px;
-  border: 2px solid rgba(0, 0, 0, 0.15);
-  box-shadow:
-    0 6px 2px rgba(0, 0, 0, 0.18),
-    0 4px 5px rgba(0, 0, 0, 0.05);
-  transform: rotate(3deg) translateY(-20px);
-  animation: stickerDrop 2.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  z-index: 20;
-}
-
-.project-link::before {
-  content: '';
-  position: absolute;
-  inset: 4px;
-  border: 1px dashed rgba(0, 0, 0, 0.12);
-  border-radius: 5px;
-  pointer-events: none;
-}
-
-.sticker-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1;
-}
-
-.sticker-text small {
-  font-size: 0.6rem;
-  letter-spacing: 0.3em;
   opacity: 0.55;
 }
 
-.sticker-text strong {
-  font-size: 0.8rem;
-  letter-spacing: 0.12em;
-}
-/* hover */
-.project-link:hover {
-  color: var(--primary-hover);
-  border: 2px solid var(--primary-hover);
-}
-
-@keyframes stickerDrop {
-  0% {
-    opacity: 0;
-    transform: scale(2) rotate(-20deg);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(0.9) rotate(8deg);
-  }
-  75% {
-    transform: scale(1.05) rotate(2deg);
-  }
-  100% {
-    transform: scale(1) rotate(4deg);
-  }
-}
-
-.project-link::after {
-  content: '';
+.ticket-cut {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.8), transparent);
-  opacity: 0;
-  transition: 0.5s;
+
+  right: -2px;
+  top: 50%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  transform: translateY(-50%);
+
+  z-index: 6;
 }
 
-.project-link:hover::after {
-  opacity: 0.5;
+.ticket-cut span {
+  width: 10px;
+  height: 10px;
+
+  border-radius: 50%;
+
+  background: var(--background-color);
 }
 
-/* ======================================
+/* =========================================================
    MOBILE
-====================================== */
+   ========================================================= */
 
 @media (max-width: 576px) {
   .projects {
     position: relative;
     align-items: flex-start;
+
     width: 100%;
     height: auto;
+
     padding: 0 var(--page-margin-mobile) 4rem;
   }
-  /* ================================
-     HEADER
-  ================================ */
 
   .projects-header {
     position: relative;
+
     top: auto;
     left: auto;
     right: auto;
+
     width: 100%;
+
     margin-top: 7rem;
     margin-bottom: 3rem;
+
     z-index: 5;
   }
 
-  /* ================================
-     DECK
-  ================================ */
-
   .deck {
     position: relative;
+
     width: 100%;
     max-width: 100%;
     height: auto;
+
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 2.5rem;
+
     transform: translate(-9.5rem, 12rem);
   }
-
-  /* ================================
-     CARD
-  ================================ */
 
   .project-card,
   .project-card:not(.active),
   .project-card.active,
   .project-card.selected {
     position: relative;
+
     inset: auto;
+
     width: 100%;
     max-width: 100%;
     height: auto;
     min-height: 230px;
+
     margin: 0;
+
     cursor: default;
+
     transform: none;
     transition: none;
+
     filter: none;
     opacity: 1;
+
     pointer-events: auto;
+
     transform-style: flat;
   }
 
@@ -749,32 +697,27 @@ LINK
     transition: none;
   }
 
-  /* ================================
-   CARD BODY
-================================ */
-
   .card-inner {
     position: relative;
+
     width: 126%;
     height: auto;
     min-height: 240px;
+
     padding: 1.25rem;
 
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
-
     border-radius: 0;
+
     overflow: visible;
 
     transform: none !important;
     transform-style: flat;
+
     transition: none !important;
   }
-
-  /* ================================
-   SURFACE
-================================ */
 
   .card-surface {
     position: absolute;
@@ -783,7 +726,6 @@ LINK
     padding: 0;
 
     background: transparent !important;
-    background-image: none !important;
 
     border: none !important;
     box-shadow: none !important;
@@ -793,45 +735,34 @@ LINK
 
     transform: none !important;
     transform-style: flat;
+
     transition: none !important;
 
     pointer-events: none;
   }
 
-  /* REMOVE ALL CARD EFFECTS */
-
-  .card-surface::before,
-  .card-surface::after {
-    content: none !important;
-    display: none !important;
-    background: none !important;
-    box-shadow: none !important;
+  .card-surface::before {
+    display: none;
   }
-
-  /* REMOVE HOLOGRAPHIC FOIL */
 
   .foil {
-    display: none !important;
+    display: none;
   }
-
-  /* ================================
-     CONTENT
-  ================================ */
 
   .card-content {
     position: relative;
+
     width: 100%;
     height: 100%;
     min-height: 200px;
+
     display: flex;
     flex-direction: column;
+
     padding-right: 43%;
+
     z-index: 5;
   }
-
-  /* ================================
-   TEXT — LIGHT ON ORANGE
-================================ */
 
   .card-content,
   .card-top,
@@ -847,35 +778,25 @@ LINK
     color: #fff;
   }
 
-  /* softer secondary text */
-
   .info p,
   .details p {
     color: rgba(255, 255, 255, 0.82);
   }
-
-  /* labels */
 
   .card-top,
   .details span {
     color: rgba(255, 255, 255, 0.65);
   }
 
-  /* TAGS */
-
   .stack span {
     border-color: rgba(255, 255, 255, 0.45);
     background: rgba(255, 255, 255, 0.08);
   }
 
-  /* TYPE */
-
   .type {
     border-color: rgba(255, 255, 255, 0.5);
     background: rgba(255, 255, 255, 0.08);
   }
-
-  /* DETAILS LINE */
 
   .details {
     border-top-color: rgba(255, 255, 255, 0.25);
@@ -895,9 +816,12 @@ LINK
 
   .type {
     width: fit-content;
+
     margin: 0.35rem 0;
     padding: 0.3rem 0.55rem;
+
     border-width: 2px;
+
     font-size: 0.55rem;
     letter-spacing: 0.12em;
   }
@@ -905,59 +829,70 @@ LINK
   .info h3 {
     font-size: clamp(1.4rem, 7vw, 1.7rem);
     line-height: 0.88;
+
     max-width: 5ch;
+
     margin: 0 0 0.4rem;
+
     letter-spacing: -0.055em;
+
     text-shadow: none;
   }
 
   .info p {
     max-width: 60%;
+
     font-size: 0.76rem;
     line-height: 1.4;
   }
 
-  /* ================================
-     STACK / TAGS
-  ================================ */
-
   .stack {
     position: relative;
+
     display: flex;
+
     gap: 0.3rem;
+
     transform: none;
+
     flex-wrap: wrap;
   }
 
   .stack span {
     border-width: 2px;
+
     padding: 0.25rem 0.5rem;
+
     border-radius: 999px;
+
     font-size: 0.55rem;
   }
 
-  /* ================================
-     POLAROID
-  ================================ */
-
   .preview {
     position: absolute;
+
     right: -52%;
     top: 46%;
+
     width: 64%;
     max-width: 126px;
+
     height: auto;
     aspect-ratio: 360 / 320;
+
     padding: 10px 10px 22px;
+
     z-index: 10;
+
     transform: translateY(-50%) rotate(4deg);
+
     transform-style: flat;
+
     cursor: default;
     transition: none;
+
     pointer-events: none;
   }
-
-  /* No hover / flip */
 
   .preview:hover,
   .preview:hover:not(.flipped),
@@ -967,10 +902,6 @@ LINK
   .project-card:not(.active) .preview:hover {
     transform: translateY(-50%) rotate(4deg);
   }
-
-  /* ================================
-     PHOTO
-  ================================ */
 
   .photo-front,
   .photo-back {
@@ -996,11 +927,10 @@ LINK
   .photo-front img {
     left: 4%;
     top: 5%;
+
     width: 91%;
     height: 77%;
   }
-
-  /* Disable photo shine */
 
   .photo-front::before,
   .photo-back::before,
@@ -1009,20 +939,12 @@ LINK
     display: none;
   }
 
-  /* ================================
-     EXTRA DESKTOP ELEMENTS
-  ================================ */
-
   .paperclip,
   .barcode,
   .ticket-cut,
   .lines {
     display: none;
   }
-
-  /* ================================
-     DETAILS
-  ================================ */
 
   .details {
     padding-top: 0.8rem;
@@ -1039,21 +961,19 @@ LINK
     line-height: 1.4;
   }
 
-  /* ================================
-     PROJECT LINK
-  ================================ */
-
   .project-link {
-    position: absolute;
-
     right: 0.5rem;
     top: -1rem;
+
+    min-width: auto;
 
     padding: 0.4rem 0.6rem;
 
     transform: rotate(3deg);
+  }
 
-    z-index: 20;
+  .project-link:hover {
+    transform: rotate(3deg);
   }
 
   .sticker-text strong {
@@ -1062,13 +982,5 @@ LINK
 
   .sticker-text small {
     font-size: 0.45rem;
-  }
-
-  /* ================================
-     HIDE DECOR
-  ================================ */
-
-  .lines {
-    display: none;
   }
 }
