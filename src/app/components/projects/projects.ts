@@ -9,11 +9,34 @@ import { Component, AfterViewInit } from '@angular/core';
 export class Projects implements AfterViewInit {
   projects = [
     {
+      title: 'CLEANROOM CONFIGURATOR',
+      year: '2026',
+      type: 'FULL STACK APPLICATION',
+      image: '../assets/images/estimate.png',
+      stack: ['Angular', 'Node.js', 'MongoDB', 'TypeScript'],
+      description:
+        'Web app designed to quickly configure and estimate cleanroom projects. It combines a clear step-by-step workflow with an interactive sketch editor for adding, positioning and configuring rooms and components, generating a preliminary bill of materials and project estimate on the go.',
+      flipped: false,
+      note: 'A fast and structured tool for turning room layouts and components into clear project estimates.',
+      link: 'https://cleanroom-configurator.web.app',
+    },
+    {
+      title: 'GAME FACEOFF',
+      year: '2026',
+      type: 'INTERACTIVE WEB EXPERIENCE',
+      image: '../assets/images/game-faceoff.png',
+      stack: ['React', 'Three.js', 'Node.js', 'MongoDB', 'IGDB API'],
+      description:
+        'Interactive fullstack project where users vote between two videogames in endless head-to-head matches. It tracks community voting scores and builds dynamic rankings, revealing insights about gaming preferences and uncover hidden gems.',
+      flipped: false,
+      note: 'Every vote counts. Discover which games win, what the community prefers, and how gaming tastes compare.',
+      link: 'https://game-faceoff.web.app/',
+    },
+    {
       title: 'TRAVEL PLATFORM',
       year: '2025',
       type: 'FULL STACK APPLICATION',
-      image:
-        '../assets/images/viajes.png',
+      image: '../assets/images/viajes.png',
       stack: ['Angular', 'Node.js', 'MySQL', 'TypeScript'],
       description:
         'This is a fullstack project that allows users to create and be part of diverse trips. Kind of a traveling airBnb. Done with a MySql database, a back structured in node.js and an Angular typed front.',
@@ -21,14 +44,12 @@ export class Projects implements AfterViewInit {
       note: 'A collaborative travel platform where users create, manage and join experiences.',
       link: '',
     },
-
     {
       title: 'INTERACTIVE TABLE',
       year: '2025',
       type: 'INTERACTION DESIGN',
-      image:
-        '../assets/images/portf.png',
-      stack: ['Angular', 'Three.js', 'WebGL', 'MongoDB'],
+      image: '../assets/images/portf.png',
+      stack: ['Angular', 'CSS', 'Motion', 'WebGL', 'MongoDB'],
       description:
         'Another fullstack project loaded via REST client. The culmination of my full-stack course that alows me to experiment with different logics, where i can put all my knowledge not just from programing but from design as well.',
       flipped: false,
@@ -36,19 +57,6 @@ export class Projects implements AfterViewInit {
       link: 'https://portfolio-faf73.web.app/',
     },
 
-    {
-      title: 'TRIPS BLOG',
-      year: '2024',
-      type: 'CREATIVE DEVELOPMENT',
-      image:
-        '../assets/images/parallax.png',
-      stack: ['Angular', 'CSS', 'Motion'],
-      description:
-        'A small digital playground exploring interfaces, animation and creative coding.',
-      flipped: false,
-      note: 'A fullstack (mostly front) project with a badass parallax effect and other experiments.',
-      link: '',
-    },
   ];
 
   activeIndex = 0;

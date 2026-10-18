@@ -12,6 +12,16 @@
         (mousemove)="tilt($event); photoLight($event)"
         (mouseleave)="leave($event)"
       >
+        @if (project.link) {
+          <a
+            class="mobile-project-link"
+            [href]="project.link"
+            target="_blank"
+            rel="noopener"
+            aria-label="Open live project"
+            (click)="$event.stopPropagation()"
+          ></a>
+        }
         <div class="card-inner">
           <div class="card-surface">
             <!-- Lightweight holographic layer -->

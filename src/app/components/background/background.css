@@ -6,7 +6,7 @@ BACKGROUND SECTION
   position: relative;
   width: 100%;
   height: 100vh;
-  overflow: hidden;
+  overflow:visible;
   color: white;
 }
 
